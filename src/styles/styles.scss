@@ -1,13 +1,6 @@
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
-  overflow-y: scroll;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-// @import url(./material/_theme.scss); // TODO: fix theme
+@import url('./core/_index.scss');
+@import url('./components/_index.scss');
+@import url('./overrides/_index.scss');
+@import url('./helpers/_index.scss');
+@import url('./mixins/_index.scss');
+@import url('./variables/_index.scss');

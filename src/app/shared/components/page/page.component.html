@@ -1,0 +1,15 @@
+<div class="page">
+  <div class="surface-section px-4 py-5 md:px-6 lg:px-8">
+    <ae-breadcrumbs />
+    <div class="flex align-items-start flex-column lg:justify-content-between lg:flex-row">
+      @if (title && title.length > 0) {
+        <div>
+          <div class="font-medium text-3xl text-900">{{ title }}</div>
+        </div>
+      }
+    </div>
+  </div>
+  <div class="page-content">
+    <ng-content />
+  </div>
+</div>

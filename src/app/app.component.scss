@@ -1,0 +1,11 @@
+.app {
+  min-height: 100vh;
+  padding: 10px;
+}
+
+@media screen and (min-width: 1729px) {
+  .app {
+    max-width: 1478px;
+    margin: 0 auto;
+  }
+}
