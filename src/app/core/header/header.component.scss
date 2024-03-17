@@ -1,0 +1,16 @@
+.header {
+  .spacer {
+    flex: 1 1 auto;
+  }
+  .subtitle {
+    font-size: 0.75rem;
+  }
+}
+@media (max-width: 700px) {
+  .header {
+    .subtitle,
+    .separator {
+      display: none;
+    }
+  }
+}

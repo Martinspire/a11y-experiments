@@ -1,0 +1,132 @@
+{
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "cli": {
+    "analytics": false,
+    "schematicCollections": [
+      "@angular-eslint/schematics",
+      "@schematics/angular",
+      "@ngneat/spectator"
+    ]
+  },
+  "name": "a11y-experiments",
+  "prefix": "ae",
+  "projectType": "application",
+  "schematics": {
+    "@ngneat/spectator:spectator-component": {
+      "standalone": true,
+      "style": "scss"
+    },
+    "@schematics/angular:component": {
+      "standalone": true,
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "./src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true
+        },
+        "production": {
+          "budgets": [
+            {
+              "maximumError": "5mb",
+              "maximumWarning": "2mb",
+              "type": "initial"
+            },
+            {
+              "maximumError": "8kb",
+              "maximumWarning": "4kb",
+              "type": "anyComponentStyle"
+            }
+          ],
+          "optimization": {
+            "fonts": true,
+            "scripts": true,
+            "styles": {
+              "inlineCritical": false,
+              "minify": true
+            }
+          },
+          "outputHashing": "all"
+        }
+      },
+      "defaultConfiguration": "production",
+      "executor": "@angular-devkit/build-angular:application",
+      "options": {
+        "assets": [
+          "./src/favicon.ico",
+          "./src/assets"
+        ],
+        "browser": "./src/main.ts",
+        "index": "./src/index.html",
+        "inlineStyleLanguage": "scss",
+        "outputPath": "dist/a11y-experiments",
+        "polyfills": [
+          "zone.js"
+        ],
+        "scripts": [],
+        "styles": [
+          "@angular/material/prebuilt-themes/indigo-pink.css",
+          "./src/styles/styles.scss"
+        ],
+        "tsConfig": "./tsconfig.app.json"
+      },
+      "outputs": [
+        "{options.outputPath}"
+      ]
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "a11y-experiments:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "./src",
+          "./e2e/src"
+        ]
+      }
+    },
+    "serve": {
+      "configurations": {
+        "development": {
+          "buildTarget": "a11y-experiments:build:development"
+        },
+        "production": {
+          "buildTarget": "a11y-experiments:build:production"
+        }
+      },
+      "defaultConfiguration": "development",
+      "executor": "@angular-devkit/build-angular:dev-server"
+    },
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "options": {
+        "formatter": "compact",
+        "lintFilePatterns": [
+          "**/*.scss"
+        ]
+      },
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "jest.config.ts"
+      },
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectName}"
+      ]
+    }
+  }
+}

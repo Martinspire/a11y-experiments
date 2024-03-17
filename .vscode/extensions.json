@@ -1,0 +1,27 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "adrianwilczynski.toggle-hidden",
+    "alexkrechik.cucumberautocomplete",
+    "angular.ng-template",
+    "cardinal90.multi-cursor-case-preserve",
+    "christian-kohler.npm-intellisense",
+    "cyrilletuzi.angular-schematics",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "firsttris.vscode-jest-runner",
+    "formulahendry.auto-rename-tag",
+    "johnpapa.angular2",
+    "meganrogge.template-string-converter",
+    "ms-playwright.playwright",
+    "ms-vscode.live-server",
+    "naumovs.color-highlight",
+    "nrwl.angular-console",
+    "richie5um2.vscode-sort-json",
+    "ryanluker.vscode-coverage-gutters",
+    "stylelint.vscode-stylelint",
+    "yoavbls.pretty-ts-errors",
+    "yzhang.markdown-all-in-one",
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "root": true,
+  "ignorePatterns": ["dist/**/*", "node_modules/**/*", "coverage/**/*"],
+  "plugins": [
+    "@nx",
+    "@stylistic",
+    "@angular-eslint",
+    "@angular-eslint/template",
+    "@typescript-eslint"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nx/typescript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nx/javascript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.editor.json"],
+        "createDefaultProgram": false
+      },
+      "extends": [
+        "plugin:@nx/angular",
+        "plugin:import/recommended",
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "ae",
+            "style": "camelCase"
+          }
+        ], // (component selector moet prefix app- hebben en kebab-case zijn)
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "ae",
+            "style": "kebab-case"
+          }
+        ], // (directive selector moet prefix app- hebben en camelCase zijn)
+        "@angular-eslint/no-async-lifecycle-method": [
+          "warn"
+        ], // (geen async lifecycle methods, angular wacht daar namelijk niet op )
+        "@angular-eslint/no-conflicting-lifecycle": [
+          "warn"
+        ], // (geen conflicterende lifecycle methods bv. docheck en onchanges)
+        "@angular-eslint/no-lifecycle-call": [
+          "warn"
+        ], // (geen lifecycle methods aanroepen in de component zelf)
+        "@angular-eslint/no-output-native": [
+          "warn"
+        ], // (geen native events gebruiken als naan voor events)
+        "@angular-eslint/no-output-on-prefix": [
+          "warn"
+        ], // output mag niet beginnen met on
+        "@angular-eslint/relative-url-prefix": [
+          "warn"
+        ], // (alleen relatieve urls gebruiken, niet op angular vertrouwen)
+        "@angular-eslint/sort-ngmodule-metadata-arrays": [
+          "warn"
+        ], // (sorteer ngmodule metadata arrays)
+        "@angular-eslint/use-component-selector": [
+          "warn"
+        ], // (gebruik component selector bij @component decorator)
+        "@angular-eslint/use-injectable-provided-in": [
+          "warn"
+        ], // (gebruik providedIn bij @injectable decorator)
+        "@stylistic/array-bracket-newline": [
+          "warn",
+          {
+            "multiline": true,
+            "minItems": 3
+          }
+        ], // bij meerdere item objecten in array, nieuwe regel voor elk item
+        "@stylistic/array-element-newline": [
+          "warn",
+          {
+            "multiline": true,
+            "minItems": 3
+          }
+        ], // bij meerdere items in array, nieuwe regel voor elk item
+        "@stylistic/arrow-spacing": ["warn", { "before": true, "after": true }], // (spaties rondom arrow functies)
+        "@stylistic/block-spacing": ["warn"], // (spaties binnen blok {})
+        "@stylistic/brace-style": ["warn", "1tbs"], // (1tbs style voor blokken, opening op dezelfde regel als statement, sluiting op nieuwe regel)
+        "@stylistic/comma-dangle": ["warn", "always-multiline"], // (comma altijd aan het einde van een regel bij multiline)
+        "@stylistic/comma-spacing": ["warn", { "before": false, "after": true }], // (geen spatie voor , wel spatie na)
+        "@stylistic/comma-style": ["warn", "last"], // , spatie altijd eind van de regel
+        "@stylistic/computed-property-spacing": ["warn", "never"], // (geen spatie tussen [] en key)
+        "@stylistic/dot-location": ["warn", "property"], // (dot op dezelfde regel als property)
+        "@stylistic/function-call-spacing": ["warn", "never"], // (geen spatie tussen functie naam en haakjes)
+        "@stylistic/function-call-argument-newline": ["warn", "consistent"], // (consistent nieuwe regel voor argumenten)
+        "@stylistic/indent": ["warn", 2, { "SwitchCase": 1 }], // (2 spaties indent, switch case 1 erbij)
+        "@stylistic/key-spacing": ["warn", { "beforeColon": false, "afterColon": true }], // (geen spatie voor : wel spatie na)
+        "@stylistic/object-curly-newline": ["warn", { "minProperties": 2 }], // (minimaal 2 properties voor nieuwe regel)
+        "@stylistic/object-curly-spacing": ["warn", "always"], // (spaties binnen {} altijd)
+        "@stylistic/object-property-newline": ["warn", { "allowAllPropertiesOnSameLine": true }], // (alle properties op dezelfde regel toegestaan)
+        "@stylistic/no-mixed-operators": "warn", // (geen mix van operators zonder haakjes)
+        "@stylistic/no-multiple-empty-lines": ["warn", { "max": 2, "maxEOF": 1 }], // (max 2 empty lines, max 1 at end of file)
+        "@stylistic/quotes": ["warn", "single"], // (quotes altijd single muv ` voor template literals)
+        "@stylistic/quote-props": ["warn", "as-needed"], // (quotes alleen om keys als nodig)
+        "@stylistic/rest-spread-spacing": ["warn", "never"], // (geen spatie tussen ... en variabele)
+        "@stylistic/semi": ["warn", "always"], // (semicolon verplicht)
+        "@stylistic/semi-style": ["warn", "last"], // (semicolon altijd einde regel),
+        "@stylistic/semi-spacing": ["warn", {"before": false, "after": true}], // (geen spatie voor ; wel spatie na)
+        "@stylistic/space-before-function-paren": ["warn", "never"], // (geen spatie tussen functie naam en haakjes)
+        "@stylistic/space-before-blocks": ["warn", "always"], // (spatie voor blok)
+        "@stylistic/spaced-comment": ["warn", "always"], // (spatie voor en na // of /* * */)
+        "@stylistic/space-in-parens": ["warn", "never"], // (geen spatie in haakjes)
+        "@stylistic/space-infix-ops": ["warn"], // (spatie tussen infix operators zoals +, -, *, /)
+        "@stylistic/space-unary-ops": ["warn", {"words": true, "nonwords": false} ], // (spatie voor unary operators zoals new, delete, typeof, void, yield, maar niet !,!!,++,--)
+        "@stylistic/switch-colon-spacing": ["warn", {"after": false, "before": true}], // (geen spatie voor : wel spatie na in switch voor case en default)
+        "@stylistic/template-curly-spacing": ["warn", "never"], // (geen spaties in template literals)
+        "@stylistic/type-annotation-spacing": ["warn", { "before": false, "after": true }], // (geen spatie voor : wel spatie na in type annotations)
+        "@stylistic/wrap-iife": ["warn", "outside"], // (iife's moeten altijd in haakjes)
+        "@stylistic/wrap-regex": ["warn"], // (regex altijd in haakjes)
+        "@typescript-eslint/no-explicit-any": ["off"], // (any is toegestaan)
+        "@typescript-eslint/require-await": ["warn"], // (async functies moeten altijd awaiten)
+        "import/no-cycle": ["warn", { "ignoreExternal": true }] // (imports mogen geen cycles hebben om te voorkomen dat ze zichzelf importeren, negeren voor externe imports)
+      }
+    },
+    {
+      "files": ["*.spec.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.spec.json", "e2e/tsconfig.json"],
+        "createDefaultProgram": false
+      },
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@angular-eslint/component-class-suffix": "off",
+        "@angular-eslint/component-selector": "off",
+        "@angular-eslint/directive-class-suffix": "off",
+        "@angular-eslint/directive-selector": "off",
+        "@angular-eslint/no-output-native": "off",
+        "@angular-eslint/no-output-on-prefix": "off",
+        "@angular-eslint/no-lifecycle-call": "off"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "parser": "@angular-eslint/template-parser",
+      "parserOptions": {
+        "createDefaultProgram": false
+      },
+      "extends": [
+        "plugin:@nx/angular-template",
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
+      ],
+      "rules": {
+
+        "@angular-eslint/template/attributes-order": [
+          "warn"
+        ], // (attributes moeten in bepaalde volgorde) ["STRUCTURAL_DIRECTIVE","TEMPLATE_REFERENCE","ATTRIBUTE_BINDING","INPUT_BINDING","TWO_WAY_BINDING","OUTPUT_BINDING"]
+        "@angular-eslint/template/button-has-type": ["warn"], // (button moet altijd type hebben)
+        "@angular-eslint/template/click-events-have-key-events": "off", // voor schematische kaart
+        "@angular-eslint/template/interactive-supports-focus": "off", // voor schematische kaart
+        "@angular-eslint/template/no-duplicate-attributes": ["warn"], // (geen dubbele attributen in template)
+        "@angular-eslint/template/no-inline-styles": [
+          "warn",
+          {
+            "allowNgStyle": true,
+            "allowBindToStyle": true
+          }
+        ], // (geen inline styles in template, behalve ngStyle en bind to style)
+        "@angular-eslint/template/no-interpolation-in-attributes": [
+          "warn"
+        ], // (geen interpolatie in attributen)
+        "@angular-eslint/template/prefer-control-flow": [
+          "warn"
+        ], // voorkeur voor @if over *ngIf
+        "@angular-eslint/template/prefer-ngsrc": [
+          "warn"
+        ], // (gebruik ngSrc ipv src)
+        "@angular-eslint/template/prefer-self-closing-tags": [
+          "warn"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  }
+}
