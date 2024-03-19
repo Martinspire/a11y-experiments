@@ -15,5 +15,5 @@ import { CardConfigInterface } from '@interfaces/card.interface';
   styleUrl: './card.component.scss',
 })
 export class CardComponent {
-  @Input() config!: CardConfigInterface;
+  @Input() config?: CardConfigInterface;
 }

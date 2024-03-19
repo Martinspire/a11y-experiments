@@ -55,7 +55,7 @@ export class HeaderComponent implements OnInit {
           },
           {
             label: 'Mind',
-            icon: 'pi pi-fw pi-brain',
+            icon: 'pi pi-fw pi-user',
             routerLink: ['/experiments/mind'],
           },
           {

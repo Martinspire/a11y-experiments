@@ -34,7 +34,7 @@ export class PageComponent implements OnInit {
   ngOnInit() {
     this.router.events
       .pipe(
-        filter((event) => event instanceof NavigationEnd),
+        filter((routerEvent) => routerEvent instanceof NavigationEnd),
         map(() => {
           let route: ActivatedRoute = this.router.routerState.root;
           let routeTitle = '';

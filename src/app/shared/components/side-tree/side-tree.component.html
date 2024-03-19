@@ -1,0 +1,9 @@
+<p-tree
+  class="w-full md:w-30rem"
+  filterPlaceholder="Filter experiments"
+  selectionMode="single"
+  [filter]="true"
+  [value]="experiments"
+  [(selection)]="selectedExperiment"
+  (onNodeSelect)="selectExperiment($event)"
+/>

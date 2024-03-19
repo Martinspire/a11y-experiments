@@ -10,11 +10,6 @@
   ],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nx/typescript"],
-      "rules": {}
-    },
-    {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nx/javascript"],
       "rules": {}
@@ -26,7 +21,9 @@
         "createDefaultProgram": false
       },
       "extends": [
+        "eslint:recommended",
         "plugin:@nx/angular",
+        "plugin:@nx/typescript",
         "plugin:import/recommended",
         "plugin:import/typescript",
         "plugin:@typescript-eslint/recommended",
@@ -34,20 +31,20 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "ae",
-            "style": "camelCase"
-          }
-        ], // (component selector moet prefix app- hebben en kebab-case zijn)
         "@angular-eslint/component-selector": [
-          "error",
+          "warn",
           {
             "type": "element",
             "prefix": "ae",
             "style": "kebab-case"
+          }
+        ], // (component selector moet prefix app- hebben en kebab-case zijn)
+        "@angular-eslint/directive-selector": [
+          "warn",
+          {
+            "type": "attribute",
+            "prefix": "ae",
+            "style": "camelCase"
           }
         ], // (directive selector moet prefix app- hebben en camelCase zijn)
         "@angular-eslint/no-async-lifecycle-method": [
@@ -125,13 +122,66 @@
         "@stylistic/type-annotation-spacing": ["warn", { "before": false, "after": true }], // (geen spatie voor : wel spatie na in type annotations)
         "@stylistic/wrap-iife": ["warn", "outside"], // (iife's moeten altijd in haakjes)
         "@stylistic/wrap-regex": ["warn"], // (regex altijd in haakjes)
+        "@typescript-eslint/default-param-last": ["warn"], // (default/optionele parameters altijd als laatste) disable eslint zelf
+        "@typescript-eslint/switch-exhaustiveness-check": ["warn"], // (switch moet altijd alle items afvangen of een default hebben)
+        // "@typescript-eslint/naming-convention": "warn" // defineren wat we toestaan als naming convention https://typescript-eslint.io/rules/naming-convention/
         "@typescript-eslint/no-explicit-any": ["off"], // (any is toegestaan)
+        "@typescript-eslint/no-magic-numbers": ["warn", {
+          "detectObjects": false,
+          "ignoreEnums": true,
+          "ignore": [-1, 0, 1, 2, 10, 100],
+          "ignoreClassFieldInitialValues": true,
+          "ignoreNumericLiteralTypes": true,
+          "ignoreReadonlyClassProperties": true
+        }], // getallen moeten met een constant benoemd zijn, enkele uitzonderingen daar gelaten. Disable eslint zelf
+        "@typescript-eslint/no-unsafe-unary-minus": ["warn"], // (geen minus voor alles wat geen number is)
+        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/no-shadow": ["warn", {
+          "builtinGlobals": true,
+          "ignoreOnInitialization": true,
+          "ignoreTypeValueShadow": true,
+          "ignoreFunctionTypeParameterNameValueShadow": true
+        }], // (geen shadowing van variabelen (zelfde naam in child) om conflicten te voorkomen. Disable eslint zelf
+        "@typescript-eslint/prefer-enum-initializers": ["warn"],
+        "@typescript-eslint/prefer-includes": ["warn"],
         "@typescript-eslint/require-await": ["warn"], // (async functies moeten altijd awaiten)
-        "import/no-cycle": ["warn", { "ignoreExternal": true }] // (imports mogen geen cycles hebben om te voorkomen dat ze zichzelf importeren, negeren voor externe imports)
+        "@typescript-eslint/require-array-sort-compare": ["warn", { "ignoreStringArrays": true }],
+        "@typescript-eslint/sort-type-constituents": ["warn"], // (sorteer types wanneer dat kan const a = A | B ipv const a = B | A)
+        "curly": ["warn", "all"], // (curly braces verplicht bij if/else/for/while)
+        "default-param-last": "off", // disable eslint over typescript-eslint regel
+        "guard-for-in": ["warn"], // (gebruik if in for in loop om prototype properties te voorkomen)
+        // "id-denylist": ["warn", "data", "callback"], // (gebruik geen data of callback als variabele naam)
+        // "id-length": ["warn", { "min": 3, "properties": "never" }], // (variabele namen moeten minimaal 3 karakters zijn)
+        "import/no-cycle": ["warn", { "ignoreExternal": true }], // (imports mogen geen cycles hebben om te voorkomen dat ze zichzelf importeren, negeren voor externe imports)
+        "no-alert": ["warn"], // (geen alert gebruiken)
+        "no-array-constructor": "warn", // (geen array constructor gebruiken, geen Array() maar [], new Array() is wel toegestaan omdat je met new Array(500) een 500 lange array maakt, net als Array.xxx() ook toegestaan is)
+        "no-caller": ["warn"], // (geen caller gebruiken, is al tijden deprecated)
+        "no-console": ["warn", { "allow": ["warn", "error"] }], // (geen console log of info gebruiken)
+        "no-debugger": ["warn"], // (geen debugger gebruiken)
+        "no-duplicate-imports": ["warn"], // (geen dubbele imports)
+        "no-else-return": ["warn"], // (geen else gebruiken als je meteen kunt returnen)
+        "no-empty": ["warn"], // (geen lege blokken)
+        "no-eval": ["warn"], // (geen eval gebruiken)
+        "no-extend-native": ["warn"], // (geen native prototypes uitbreiden)
+        "no-magic-numbers": "off", // disable eslint over typescript-eslint regel
+        "no-multi-spaces": ["warn"], // (geen meerdere spaties achter elkaar)
+        "no-lonely-if": ["warn"], // (geen else met alleen een if erin, dan meteen else if gebruiken)
+        "no-object-constructor": ["warn"], // (geen object constructor gebruiken, geen Object() maar {}, new Object() is wel toegestaan en Object.xxx() ook)
+        "no-octal": ["warn"], // (geen octal literals gebruiken, var a = 0123; is niet toegestaan)
+        "no-restricted-globals": [
+            "warn",
+            {
+                "name": "event",
+                "message": "Use local parameter instead."
+            }
+        ], // bepaalde items niet toestaan als functies
+        "prefer-object-has-own": ["warn"], // (gebruik Object.hasOwn(obj, key) ipv Object.prototype.hasOwnProperty in es2022)
+        "prefer-arrow-callback": ["warn", { "allowNamedFunctions": true, "allowUnboundThis": true }] // (gebruik arrow functies ipv function keyword)
       }
     },
     {
-      "files": ["*.spec.ts"],
+      "files": ["*.spec.ts", "**/mocks/**"],
       "parserOptions": {
         "project": ["tsconfig.spec.json", "e2e/tsconfig.json"],
         "createDefaultProgram": false
@@ -140,13 +190,33 @@
         "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-magic-numbers": "off",
         "@angular-eslint/component-class-suffix": "off",
         "@angular-eslint/component-selector": "off",
         "@angular-eslint/directive-class-suffix": "off",
         "@angular-eslint/directive-selector": "off",
         "@angular-eslint/no-output-native": "off",
         "@angular-eslint/no-output-on-prefix": "off",
-        "@angular-eslint/no-lifecycle-call": "off"
+        "@angular-eslint/no-lifecycle-call": "off",
+        "no-restricted-globals": [
+            "warn",
+            {
+                "name": "fdescribe",
+                "message": "Do not commit fdescribe. Use describe instead."
+            },
+            {
+                "name": "fit",
+                "message": "Do not commit fdescribe. Use describe instead."
+            }
+            // {
+            //     "name": "xdescribe",
+            //     "message": "Do not commit xdescribe. Use describe instead."
+            // },
+            // {
+            //     "name": "xit",
+            //     "message": "Do not commit xdescribe. Use describe instead."
+            // }
+        ] // bepaalde items niet toestaan als functies
       }
     },
     {
@@ -161,9 +231,10 @@
         "plugin:@angular-eslint/template/accessibility"
       ],
       "rules": {
-
         "@angular-eslint/template/attributes-order": [
-          "warn"
+          "warn", {
+            "alphabetical": true
+          }
         ], // (attributes moeten in bepaalde volgorde) ["STRUCTURAL_DIRECTIVE","TEMPLATE_REFERENCE","ATTRIBUTE_BINDING","INPUT_BINDING","TWO_WAY_BINDING","OUTPUT_BINDING"]
         "@angular-eslint/template/button-has-type": ["warn"], // (button moet altijd type hebben)
         "@angular-eslint/template/click-events-have-key-events": "off", // voor schematische kaart
@@ -182,9 +253,6 @@
         "@angular-eslint/template/prefer-control-flow": [
           "warn"
         ], // voorkeur voor @if over *ngIf
-        "@angular-eslint/template/prefer-ngsrc": [
-          "warn"
-        ], // (gebruik ngSrc ipv src)
         "@angular-eslint/template/prefer-self-closing-tags": [
           "warn"
         ]

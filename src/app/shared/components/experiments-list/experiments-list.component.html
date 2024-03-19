@@ -1,0 +1,22 @@
+<h4>Here is a list of experiments:</h4>
+
+<ng-container *ngTemplateOutlet="list; context: { $implicit: experiments }" />
+
+<ng-template
+  #list
+  let-list
+>
+  <ul>
+    @for (item of list; track item.key) {
+      <li>
+        <a [routerLink]="[item.data]">{{ item.label }}</a>
+
+        @if (item.children) {
+          <ng-container *ngTemplateOutlet="list; context: { $implicit: item.children }" />
+        }
+      </li>
+    } @empty {
+      <li>No experiments found</li>
+    }
+  </ul>
+</ng-template>

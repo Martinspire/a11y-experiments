@@ -1,0 +1,49 @@
+<ae-card>
+  <h3>How common</h3>
+
+  <ul>
+    <li>Deuteranopia or deuteranomoly: 5% of all males.</li>
+    <li>Protanopia or protanomaly: 2.5% of all males.</li>
+    <li>Tritanopia: Less than 0.3% of women and men.</li>
+  </ul>
+
+  <div class="card">
+    <p-galleria
+      [autoPlay]="true"
+      [circular]="true"
+      [containerStyle]="{ 'max-width': '880px' }"
+      [numVisible]="5"
+      [responsiveOptions]="responsiveOptions"
+      [showItemNavigators]="true"
+      [showItemNavigatorsOnHover]="true"
+      [value]="images"
+    >
+      <ng-template
+        let-item
+        pTemplate="item"
+      >
+        <img
+          height="880"
+          width="880"
+          [alt]="item.alt"
+          [ngStyle]="{ width: '100%' }"
+          [src]="'/assets/colorblind/' + item.itemImageSrc"
+          [title]="item.title"
+        />
+      </ng-template>
+      <ng-template
+        let-item
+        pTemplate="thumbnail"
+      >
+        <div class="grid grid-nogutter justify-content-center">
+          <img
+            height="100"
+            width="100"
+            [alt]="item.alt"
+            [src]="'/assets/colorblind/' + (item.thumbnailImageSrc ?? item.itemImageSrc)"
+          />
+        </div>
+      </ng-template>
+    </p-galleria>
+  </div>
+</ae-card>

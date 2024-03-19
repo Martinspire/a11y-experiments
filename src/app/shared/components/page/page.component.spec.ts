@@ -1,4 +1,6 @@
-import { Spectator, createComponentFactory } from '@ngneat/spectator';
+import {
+  Spectator, createComponentFactory, 
+} from '@ngneat/spectator';
 
 import { PageComponent } from './page.component';
 

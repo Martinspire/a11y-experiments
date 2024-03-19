@@ -7,3 +7,5 @@ export const ExperimentsCardConfig: CardConfigInterface = { title: 'Experiments'
 export const NotFoundCardConfig: CardConfigInterface = { title: 'Not Found' };
 
 export const ChangelogCardConfig: CardConfigInterface = { title: 'Changelog' };
+
+export const EmptyCardConfig: CardConfigInterface = { title: '' };
