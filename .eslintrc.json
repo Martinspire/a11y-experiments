@@ -6,7 +6,9 @@
     "@stylistic",
     "@angular-eslint",
     "@angular-eslint/template",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "import",
+    "only-warn"
   ],
   "overrides": [
     {
@@ -26,9 +28,10 @@
         "plugin:@nx/typescript",
         "plugin:import/recommended",
         "plugin:import/typescript",
-        "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:@stylistic/recommended-extends",
+        "plugin:@typescript-eslint/recommended"
       ],
       "rules": {
         "@angular-eslint/component-selector": [
@@ -103,6 +106,18 @@
         "@stylistic/object-curly-newline": ["warn", { "minProperties": 2 }], // (minimaal 2 properties voor nieuwe regel)
         "@stylistic/object-curly-spacing": ["warn", "always"], // (spaties binnen {} altijd)
         "@stylistic/object-property-newline": ["warn", { "allowAllPropertiesOnSameLine": true }], // (alle properties op dezelfde regel toegestaan)
+        "@stylistic/member-delimiter-style": ["warn", {
+          "multiline": { "delimiter": "comma", "requireLast": true },
+          "singleline": { "delimiter": "comma", "requireLast": false },
+          "overrides": {
+            "interface": {
+              "multiline": {
+                "delimiter": "semi",
+                "requireLast": true
+              }
+            }
+          }
+        }], // (comma aan het einde van de regel bij multiline, geen comma aan het einde van de regel bij singleline)
         "@stylistic/no-mixed-operators": "warn", // (geen mix van operators zonder haakjes)
         "@stylistic/no-multiple-empty-lines": ["warn", { "max": 2, "maxEOF": 1 }], // (max 2 empty lines, max 1 at end of file)
         "@stylistic/quotes": ["warn", "single"], // (quotes altijd single muv ` voor template literals)
@@ -119,7 +134,7 @@
         "@stylistic/space-unary-ops": ["warn", {"words": true, "nonwords": false} ], // (spatie voor unary operators zoals new, delete, typeof, void, yield, maar niet !,!!,++,--)
         "@stylistic/switch-colon-spacing": ["warn", {"after": false, "before": true}], // (geen spatie voor : wel spatie na in switch voor case en default)
         "@stylistic/template-curly-spacing": ["warn", "never"], // (geen spaties in template literals)
-        "@stylistic/type-annotation-spacing": ["warn", { "before": false, "after": true }], // (geen spatie voor : wel spatie na in type annotations)
+        "@stylistic/type-annotation-spacing": ["warn", { "before": false, "after": true,"overrides": { "arrow": { "before": true, "after": true } } }], // (geen spatie voor : wel spatie na in type annotations)
         "@stylistic/wrap-iife": ["warn", "outside"], // (iife's moeten altijd in haakjes)
         "@stylistic/wrap-regex": ["warn"], // (regex altijd in haakjes)
         "@typescript-eslint/default-param-last": ["warn"], // (default/optionele parameters altijd als laatste) disable eslint zelf
@@ -129,10 +144,12 @@
         "@typescript-eslint/no-magic-numbers": ["warn", {
           "detectObjects": false,
           "ignoreEnums": true,
-          "ignore": [-1, 0, 1, 2, 10, 100],
+          "ignore": [-1, 0, 1, 2, 10, 24, 60, 100, 500, 1000],
           "ignoreClassFieldInitialValues": true,
+          "ignoreDefaultValues": true,
           "ignoreNumericLiteralTypes": true,
-          "ignoreReadonlyClassProperties": true
+          "ignoreReadonlyClassProperties": true,
+          "ignoreTypeIndexes": true
         }], // getallen moeten met een constant benoemd zijn, enkele uitzonderingen daar gelaten. Disable eslint zelf
         "@typescript-eslint/no-unsafe-unary-minus": ["warn"], // (geen minus voor alles wat geen number is)
         "@typescript-eslint/no-unused-vars": "warn",
@@ -153,7 +170,15 @@
         "guard-for-in": ["warn"], // (gebruik if in for in loop om prototype properties te voorkomen)
         // "id-denylist": ["warn", "data", "callback"], // (gebruik geen data of callback als variabele naam)
         // "id-length": ["warn", { "min": 3, "properties": "never" }], // (variabele namen moeten minimaal 3 karakters zijn)
-        "import/no-cycle": ["warn", { "ignoreExternal": true }], // (imports mogen geen cycles hebben om te voorkomen dat ze zichzelf importeren, negeren voor externe imports)
+        "import/default": ["warn"], // (uit want is niet nodig met typescript en ivm performance)
+        "import/named": ["warn"], // (uit want is niet nodig met typescript en ivm performance)
+        "import/namespace": ["warn"], // (uit want is niet nodig met typescript en ivm performance)
+        "import/no-cycle": ["warn", { "ignoreExternal": true }], // (imports mogen geen cycles hebben om te voorkomen dat ze zichzelf importeren, negeren voor externe imports. uit ivm performance maar af en toe checken kan geen kwaad)
+        "import/no-deprecated": ["warn"], // (uit ivm performance maar af en toe checken kan geen kwaad)
+        "import/no-duplicates": ["warn"], // (uit want is niet nodig met typescript en ivm performance)
+        "import/no-named-as-default": ["warn"], // (uit want is niet nodig met typescript en ivm performance)
+        "import/no-named-as-default-member": ["warn"], // (uit want is niet nodig met typescript en ivm performance)
+        "import/no-unresolved": ["warn"], // (uit want is niet nodig met typescript en ivm performance)
         "no-alert": ["warn"], // (geen alert gebruiken)
         "no-array-constructor": "warn", // (geen array constructor gebruiken, geen Array() maar [], new Array() is wel toegestaan omdat je met new Array(500) een 500 lange array maakt, net als Array.xxx() ook toegestaan is)
         "no-caller": ["warn"], // (geen caller gebruiken, is al tijden deprecated)
@@ -178,6 +203,18 @@
         ], // bepaalde items niet toestaan als functies
         "prefer-object-has-own": ["warn"], // (gebruik Object.hasOwn(obj, key) ipv Object.prototype.hasOwnProperty in es2022)
         "prefer-arrow-callback": ["warn", { "allowNamedFunctions": true, "allowUnboundThis": true }] // (gebruik arrow functies ipv function keyword)
+      }
+    },
+    {
+      "files": ["src/**/constants.ts", "src/**/interface.ts", "src/**/type.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.eslint.json"],
+        "createDefaultProgram": false
+      },
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-magic-numbers": "off",
+        "@typescript-eslint/no-shadow": "off"
       }
     },
     {
@@ -207,16 +244,26 @@
             {
                 "name": "fit",
                 "message": "Do not commit fdescribe. Use describe instead."
+            },
+            {
+                "name": "xdescribe",
+                "message": "Do not commit xdescribe. Use describe instead."
+            },
+            {
+                "name": "xit",
+                "message": "Do not commit xdescribe. Use describe instead."
             }
-            // {
-            //     "name": "xdescribe",
-            //     "message": "Do not commit xdescribe. Use describe instead."
-            // },
-            // {
-            //     "name": "xit",
-            //     "message": "Do not commit xdescribe. Use describe instead."
-            // }
         ] // bepaalde items niet toestaan als functies
+      }
+    },
+    {
+      "files": ["e2e/**/*.ts"],
+      "parserOptions": {
+        "project": ["e2e/tsconfig.json"],
+        "createDefaultProgram": false
+      },
+      "extends": ["plugin:playwright/recommended"],
+      "rules": {
       }
     },
     {

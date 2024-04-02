@@ -26,7 +26,6 @@ export class ColorblindnessComponent implements OnInit {
   responsiveOptions: any[] | undefined;
 
   ngOnInit() {
-
     this.images = ColorblindPhotos;
     this.responsiveOptions = [
       {

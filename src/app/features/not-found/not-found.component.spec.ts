@@ -1,5 +1,5 @@
 import {
-  Spectator, createComponentFactory, 
+  Spectator, createComponentFactory,
 } from '@ngneat/spectator';
 
 import { NotFoundComponent } from './not-found.component';

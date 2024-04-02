@@ -1,5 +1,5 @@
 import {
-  Spectator, createComponentFactory, 
+  Spectator, createComponentFactory,
 } from '@ngneat/spectator';
 
 import { ExperimentsListComponent } from './experiments-list.component';

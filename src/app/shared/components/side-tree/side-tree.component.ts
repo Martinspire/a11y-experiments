@@ -3,7 +3,6 @@ import {
 } from '@angular/core';
 import {
   ActivatedRoute,
-  Event,
   NavigationEnd, Router,
 } from '@angular/router';
 import { Experiments } from '@shared/constants/experiments.constants';
@@ -33,7 +32,7 @@ export class SideTreeComponent implements OnInit {
 
   ngOnInit() {
     this.router.events.pipe(
-  	  filter((routerEvent: Event) => routerEvent instanceof NavigationEnd),
+      filter(routerEvent => routerEvent instanceof NavigationEnd),
       distinctUntilChanged(),
     ).subscribe((routerEvent) => {
       const url = (routerEvent as NavigationEnd).url;
@@ -59,9 +58,9 @@ export class SideTreeComponent implements OnInit {
     return undefined;
   }
 
-  selectExperiment(event: any) {
-    if (event.node.data) {
-      this.router.navigateByUrl(event.node.data);
+  selectExperiment($event: any) {
+    if ($event.node.data) {
+      this.router.navigateByUrl($event.node.data);
     }
   }
 }

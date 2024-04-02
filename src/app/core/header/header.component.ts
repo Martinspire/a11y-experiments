@@ -23,7 +23,6 @@ import { SlideMenuModule } from 'primeng/slidemenu';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-
   mainItems: MenuItem[] = [];
   sideItems: MenuItem[] = [];
   lightIcon = 'pi pi-fw pi-moon';

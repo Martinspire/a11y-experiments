@@ -12,8 +12,8 @@ import {
 } from 'rxjs';
 
 interface BreadCrumbsInterface {
-  label: string,
-  url: string
+  label: string;
+  url: string;
 }
 @Component({
   selector: 'ae-breadcrumbs',
@@ -23,7 +23,6 @@ interface BreadCrumbsInterface {
   styleUrl: './breadcrumbs.component.scss',
 })
 export class BreadcrumbsComponent implements OnInit {
-
   public breadcrumbs: BreadCrumbsInterface[] = [];
 
   constructor(
@@ -33,12 +32,13 @@ export class BreadcrumbsComponent implements OnInit {
 
   ngOnInit() {
     this.router.events.pipe(
-  	  filter((routerEvent) => routerEvent instanceof NavigationEnd),
+      filter(routerEvent => routerEvent instanceof NavigationEnd),
       distinctUntilChanged(),
     ).subscribe(() => {
       this.breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);
     });
   }
+
   /**
    * Recursively build breadcrumb according to activated route.
    * @param route
@@ -53,7 +53,7 @@ export class BreadcrumbsComponent implements OnInit {
     // If the route is dynamic route such as ':id', remove it
     const lastRoutePart = path?.split('/').pop();
     const isDynamicRoute = lastRoutePart?.startsWith(':');
-    if(isDynamicRoute && !!route.snapshot) {
+    if (isDynamicRoute && !!route.snapshot) {
       const paramName = lastRoutePart?.split(':')[1];
       if (paramName) {
         path = path?.replace(lastRoutePart ?? '', route.snapshot.params[paramName]);
@@ -70,7 +70,7 @@ export class BreadcrumbsComponent implements OnInit {
       url: nextUrl,
     };
     // Only adding route with non-empty label
-    const newBreadcrumbs = breadcrumb.label ? [ ...breadcrumbs, breadcrumb ] : [ ...breadcrumbs];
+    const newBreadcrumbs = breadcrumb.label ? [...breadcrumbs, breadcrumb] : [...breadcrumbs];
     if (route.firstChild) {
       // If we are not on our current path yet,
       // there will be more children to look after, to build our breadcumb
