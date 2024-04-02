@@ -1,0 +1,202 @@
+<ae-card>
+  <h3>Experience shaking</h3>
+  <p>
+    There are various illnesses that result in shaking. This page allows you to browse various videos of people who have trouble
+    controlling their movements. Most famous is parkinson's disease, but there are many other illnesses that result in shaking.
+  </p>
+  <h3>The main issue</h3>
+  <p>
+    People with this illness have trouble interacting. They often misclick items and unintentionally click others. This demo
+    consists of two parts, one where you experience shaking and are going to get through a few steps in order to submit a form.
+    The effect is slightly increased to make it more difficult.
+  </p>
+</ae-card>
+
+<ae-card>
+  <h3>Demo 1</h3>
+  <p>Instruction:<br />Submit this form as quick as possible.</p>
+
+  <div class="experiment-config">
+    <form [formGroup]="experimentConfig">
+      <div class="experiment-item">
+        Shake intensity: <span>{{ experimentConfig.get('shakeIntensity')?.value ?? defaultShaking }}</span>
+        <p-slider
+          formControlName="shakeIntensity"
+          [max]="10"
+          [min]="0"
+          [step]="1"
+        />
+      </div>
+      <div class="experiment-item">
+        Speed intensity: <span>{{ experimentConfig.get('speedIntensity')?.value ?? defaultSpeed }}</span>
+        <p-slider
+          formControlName="speedIntensity"
+          [max]="1000"
+          [min]="100"
+          [step]="100"
+        />
+      </div>
+      <div class="experiment-item">
+        Zoom intensity: <span>{{ experimentConfig.get('zoomIntensity')?.value ?? defaultZoom }}</span>
+        <p-slider
+          formControlName="zoomIntensity"
+          [max]="5"
+          [min]="0.1"
+          [step]="0.1"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="demo-container">
+    <ae-shake-cursor
+      [multiplier]="experimentConfig.get('shakeIntensity')?.value ?? defaultShaking"
+      [speed]="experimentConfig.get('speedIntensity')?.value ?? defaultSpeed"
+    >
+      <div
+        class="shake-container"
+        [ngStyle]="{ scale: experimentConfig.get('zoomIntensity')?.value ?? defaultZoom }"
+      >
+        <p-stepper>
+          <p-stepperPanel header="Login form">
+            <ng-template
+              let-index="index"
+              let-nextCallback="nextCallback"
+              pTemplate="content"
+            >
+              <div class="demo-page flex flex-column align-items-center">
+                <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6">
+                  <div class="text-center mb-5">
+                    <img
+                      alt="logo"
+                      class="mb-3"
+                      height="50"
+                      src="https://blocks.primeng.org/assets/images/blocks/logos/hyper.svg"
+                    />
+                    <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
+                    <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+                    <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
+                  </div>
+
+                  <div>
+                    <label
+                      class="block text-900 font-medium mb-2"
+                      for="email1"
+                      >Email</label
+                    >
+                    <input
+                      class="w-full mb-3"
+                      id="email1"
+                      pInputText
+                      placeholder="Email address"
+                      type="text"
+                    />
+
+                    <label
+                      class="block text-900 font-medium mb-2"
+                      for="password1"
+                      >Password</label
+                    >
+                    <input
+                      class="w-full mb-3"
+                      id="password1"
+                      pInputText
+                      placeholder="Password"
+                      type="password"
+                    />
+
+                    <div class="flex align-items-center justify-content-between mb-6">
+                      <div class="flex align-items-center">
+                        <p-checkbox
+                          id="rememberme1"
+                          styleClass="mr-2"
+                          [binary]="true"
+                        />
+                        <label
+                          class="text-900"
+                          for="rememberme1"
+                          >Remember me</label
+                        >
+                      </div>
+                      <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
+                    </div>
+
+                    <button
+                      class="w-full"
+                      icon="pi pi-user"
+                      pButton
+                      pRipple
+                      type="button"
+                    >
+                      Sign in
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex pt-4 justify-content-end">
+                <p-button
+                  icon="pi pi-arrow-right"
+                  iconPos="right"
+                  label="Next"
+                  size="small"
+                  (onClick)="nextCallback.emit()"
+                /></div
+            ></ng-template>
+          </p-stepperPanel>
+          <p-stepperPanel header="Various inputs">
+            <ng-template
+              let-index="index"
+              let-nextCallback="nextCallback"
+              let-prevCallback="prevCallback"
+              pTemplate="content"
+            >
+              <div class="flex flex-column">
+                <div
+                  class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium"
+                >
+                  Content II
+                </div>
+              </div>
+              <div class="flex pt-4 justify-content-between">
+                <p-button
+                  icon="pi pi-arrow-left"
+                  label="Back"
+                  size="small"
+                  (onClick)="prevCallback.emit()"
+                />
+                <p-button
+                  icon="pi pi-arrow-right"
+                  iconPos="right"
+                  label="Next"
+                  size="small"
+                  (onClick)="nextCallback.emit()"
+                /></div
+            ></ng-template>
+          </p-stepperPanel>
+          <p-stepperPanel header="Advanced controls">
+            <ng-template
+              let-index="index"
+              let-prevCallback="prevCallback"
+              pTemplate="content"
+              size="small"
+            >
+              <div class="flex flex-column">
+                <div
+                  class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium"
+                >
+                  Content III
+                </div>
+              </div>
+              <div class="flex pt-4 justify-content-start">
+                <p-button
+                  icon="pi pi-arrow-left"
+                  label="Back"
+                  size="small"
+                  (onClick)="prevCallback.emit()"
+                /></div
+            ></ng-template>
+          </p-stepperPanel>
+        </p-stepper>
+      </div>
+    </ae-shake-cursor>
+  </div>
+</ae-card>

@@ -1,0 +1,20 @@
+.fake-cursor-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: none;
+  ::ng-deep * {
+    cursor: none;
+  }
+  &.show-cursor {
+    cursor: default !important; // TODO: not really working, fix soon
+  }
+
+  .fake-cursor {
+    position: absolute;
+    z-index: 1;
+    transition: all 0.1s ease;
+  }
+}

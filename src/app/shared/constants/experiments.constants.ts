@@ -21,6 +21,15 @@ export const Experiments: TreeNode[] = [
     label: 'Motion',
     data: '/experiments/motion',
     icon: 'pi pi-fw pi-arrows-alt',
+    expanded: true,
+    children: [
+      {
+        key: 'shaking',
+        label: 'Shaking',
+        data: '/experiments/motion/shaking',
+        icon: 'pi pi-fw pi-arrows-alt',
+      },
+    ],
   },
   {
     key: 'mind',

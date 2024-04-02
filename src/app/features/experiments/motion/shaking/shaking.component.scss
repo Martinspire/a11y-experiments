@@ -1,0 +1,14 @@
+.demo-container {
+  overflow: scroll;
+  background-color: var(--surface-ground);
+  .demo-page {
+    background-color: var(--surface-ground);
+  }
+}
+
+.experiment-config {
+  .experiment-item {
+    padding: 20px;
+    max-width: 300px;
+  }
+}
