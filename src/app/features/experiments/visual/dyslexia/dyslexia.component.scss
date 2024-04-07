@@ -1,0 +1,22 @@
+.demo-container {
+  overflow: auto;
+  background-color: var(--surface-ground);
+  padding: 20px;
+  .demo-page {
+    background-color: var(--surface-ground);
+  }
+}
+
+.experiment-config {
+  .experiment-item {
+    padding: 20px;
+    .slider {
+      max-width: 300px;
+    }
+    label,
+    p {
+      margin: 10px 0;
+      display: block;
+    }
+  }
+}

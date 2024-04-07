@@ -105,14 +105,14 @@ export class HeaderComponent implements OnInit {
   }
 
   switchThemeLightDark() {
-    console.log('switch light/dark');
+    // console.log('switch light/dark');
   }
 
   decreaseFontSize() {
-    console.log('decrease font size');
+    // console.log('decrease font size');
   }
 
   increaseFontSize() {
-    console.log('increase font size');
+    // console.log('increase font size');
   }
 }

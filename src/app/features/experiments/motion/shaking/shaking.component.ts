@@ -123,7 +123,7 @@ export class ShakingComponent implements OnInit {
       cascadeSelect: new FormControl(''),
     });
 
-    this.experimentConfig = new FormGroup({
+    this.experimentConfig = this.formBuilder.group({
       shakeIntensity: new FormControl(this.defaultShaking),
       speedIntensity: new FormControl(this.defaultSpeed),
       zoomIntensity: new FormControl(this.defaultZoom),

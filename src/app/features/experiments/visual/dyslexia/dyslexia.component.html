@@ -1,0 +1,115 @@
+<ae-card>
+  <h3>Dyslexia</h3>
+  <p>
+    A lot of people struggle with dyslexia. There's various ways this affects people, but this experiment is designed to show
+    non-dyslexic people what it can be like to be dyslexic and how much it helps to modify text to make it easier to read.
+  </p>
+</ae-card>
+
+<ae-card>
+  <h3>Configure demo:</h3>
+
+  <div class="experiment-config">
+    <form [formGroup]="experimentConfig">
+      <div class="experiment-item">
+        <label for="fontFamily">
+          Font Family: <span>{{ experimentConfig.get('fontFamily')?.value ?? defaultFontFamily }}</span>
+        </label>
+        <p-selectButton
+          formControlName="fontFamily"
+          [options]="fontFamilyOptions"
+        />
+      </div>
+      <div class="experiment-item">
+        <label for="fontSize">
+          Font-size: <span>{{ experimentConfig.get('fontSize')?.value ?? defaultFontSize }}</span>
+        </label>
+        <p-dropdown
+          formControlName="fontSize"
+          [options]="fontSizeOptions"
+        />
+      </div>
+      <div class="experiment-item">
+        <label for="fontSize">
+          Modifyer: <span>{{ experimentConfig.get('modifyer')?.value ?? defaultModifyer }}</span>
+        </label>
+        <p-dropdown
+          formControlName="modifyer"
+          [options]="modifyerOptions"
+        />
+      </div>
+      <div class="experiment-item">
+        <label for="shapeShiftingIntensity">
+          Shape shifting intensity:
+          <span>{{ experimentConfig.get('shapeShiftingIntensity')?.value ?? defaultShapeShiftingIntensity }}</span>
+        </label>
+        <div class="slider">
+          <p-slider
+            formControlName="shapeShiftingIntensity"
+            [max]="10"
+            [min]="0"
+            [step]="1"
+          />
+        </div>
+      </div>
+      <div class="experiment-item">
+        <label for="swapping">
+          Swapping letters:
+          <span>{{ experimentConfig.get('swapping')?.value ? 'enabled' : 'disabled' }}</span>
+        </label>
+        <p-inputSwitch formControlName="swapping" />
+        <div class="m-4">
+          <p-accordion>
+            <p-accordionTab header="Explanation">
+              <div class="flex flex-row gap-4">
+                <div class="align-right">
+                  <h4>What they see</h4>
+                  q<br />
+                  z<br />
+                  p<br />
+                  b<br />
+                  ys<br />
+                  a, as in bat<br />
+                  e, as in pet<br />
+                </div>
+                <div class="align-left">
+                  <h4>Actual letter</h4>
+                  d or t<br />
+                  m<br />
+                  b<br />
+                  p<br />
+                  er<br />
+                  e, as in pet<br />
+                  a, as in bat<br />
+                </div>
+              </div>
+            </p-accordionTab>
+          </p-accordion>
+        </div>
+      </div>
+      <div class="experiment-item">
+        <p>Different wikipedia article:</p>
+        <p-button
+          label="Get random article"
+          (click)="getNewRandomArticle()"
+        />
+      </div>
+    </form>
+  </div>
+  @if (articles && articles.length > 0) {
+    <div
+      class="demo-container"
+      [ngStyle]="{
+        'font-family': experimentConfig.get('fontFamily')?.value ?? defaultFontFamily,
+        'font-size.px': experimentConfig.get('fontSize')?.value ?? defaultFontSize
+      }"
+    >
+      @for (article of articles; track $index) {
+        <h3>Random wikipedia article: {{ article.title }}</h3>
+        <p>
+          {{ article.extract }}
+        </p>
+      }
+    </div>
+  }
+</ae-card>

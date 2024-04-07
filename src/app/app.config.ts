@@ -1,3 +1,4 @@
+import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
@@ -11,4 +12,5 @@ export const appConfig: ApplicationConfig = { providers: [
   provideAnimationsAsync(),
   // decrease bundle size by specifying: provideCharts({ registerables: [BarController, Legend, Colors] });
   provideCharts(withDefaultRegisterables()),
+  provideHttpClient(),
 ] };

@@ -1,0 +1,13 @@
+<ul>
+  @for (item of list; track item.key) {
+    <li>
+      <a [routerLink]="[item.data]">{{ item.label }}</a>
+
+      @if (item.children && item.children.length > 0) {
+        <ae-experiments-list-items [list]="item.children" />
+      }
+    </li>
+  } @empty {
+    <li>No experiments found</li>
+  }
+</ul>
