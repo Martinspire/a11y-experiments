@@ -8,8 +8,11 @@ import {
   FormGroup,
   FormsModule, ReactiveFormsModule,
 } from '@angular/forms';
+import { DyslexiaLetterSwapInterface } from '@interfaces/dyslexia.interface';
+import { GenericLabelValueStringInterface } from '@interfaces/generic.interface';
 import { IWikiRestQuery } from '@interfaces/wiki.interface';
 import { CardComponent } from '@shared/components/card/card.component';
+import { SwapLetters } from '@shared/constants/dyslexia';
 import { WikiService } from '@shared/services/wikipedia.service';
 import { AccordionModule } from 'primeng/accordion';
 import { ButtonModule } from 'primeng/button';
@@ -17,6 +20,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SliderModule } from 'primeng/slider';
+import {
+  Observable, forkJoin,
+} from 'rxjs';
 
 @Component({
   selector: 'ae-dyslexia',
@@ -38,6 +44,7 @@ import { SliderModule } from 'primeng/slider';
 })
 export class DyslexiaComponent implements OnInit {
   articles!: IWikiRestQuery[];
+  displayedArticles: IWikiRestQuery[] = [];
   experimentConfig!: FormGroup;
 
   fontFamilyOptions = [
@@ -86,7 +93,7 @@ export class DyslexiaComponent implements OnInit {
   // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   defaultFontSize = this.fontSizeOptions[3];
   defaultShapeShiftingIntensity = 2;
-  modifyerOptions = [
+  modifyerOptions: GenericLabelValueStringInterface[] = [
     {
       label: 'None', value: 'none',
     },
@@ -113,14 +120,14 @@ export class DyslexiaComponent implements OnInit {
   defaultModifyer = this.modifyerOptions[0].value;
   defaultSwapping = false;
 
+  SwapLetters: DyslexiaLetterSwapInterface[] = SwapLetters;
+
   constructor(
     private formBuilder: FormBuilder,
     private wikiService: WikiService,
   ) {}
 
   ngOnInit(): void {
-    this.getNewRandomArticle();
-
     this.experimentConfig = this.formBuilder.group({
       fontFamily: new FormControl(this.defaultFontFamily),
       fontSize: new FormControl(this.defaultFontSize),
@@ -128,20 +135,70 @@ export class DyslexiaComponent implements OnInit {
       modifyer: new FormControl(this.defaultModifyer),
       swapping: new FormControl(this.defaultSwapping),
     });
+
+    this.getNewRandomArticle();
   }
 
   getNewRandomArticle(): void {
     this.articles = [];
-    this.getRandomArticle();
-    this.getRandomArticle();
-    this.getRandomArticle();
-    this.getRandomArticle();
-    this.getRandomArticle();
+    forkJoin({
+      article1: this.getRandomArticle(),
+      article2: this.getRandomArticle(),
+      article3: this.getRandomArticle(),
+      article4: this.getRandomArticle(),
+      article5: this.getRandomArticle(),
+    }).subscribe({
+      next: (articles) => {
+        this.articles.push(articles.article1);
+        this.articles.push(articles.article2);
+        this.articles.push(articles.article3);
+        this.articles.push(articles.article4);
+        this.articles.push(articles.article5);
+
+        this._displayArticles();
+      },
+      error: (error) => {
+        console.error('error fetching articles', error);
+      },
+    });
   }
 
-  getRandomArticle(): void {
-    this.wikiService.getWikiRandomArticle().subscribe((article) => {
-      this.articles.push(article);
+  getRandomArticle(): Observable<IWikiRestQuery> {
+    return this.wikiService.getWikiRandomArticle();
+  }
+
+  onChange(): void {
+    this._displayArticles();
+  }
+
+  _displayArticles(): void {
+    const newArticles = structuredClone(this.articles);
+
+    if (this.experimentConfig.get('swapping')?.value) {
+      this._processSwapping(newArticles);
+    }
+
+    this.displayedArticles = newArticles;
+  }
+
+  private _processSwapping(newArticles: IWikiRestQuery[]): void {
+    newArticles.forEach((article: IWikiRestQuery) => {
+      article.title = this._swapLetters(article.title);
+      article.extract = this._swapLetters(article.extract);
     });
+  }
+
+  private _swapLetters(text: string): string {
+    let newText = text;
+
+    // swapping with tempReplacement to avoid conflicts
+    this.SwapLetters.forEach((swap: DyslexiaLetterSwapInterface) => {
+      newText = newText.replaceAll(swap.original, swap.tempReplacement);
+    });
+    this.SwapLetters.forEach((swap: DyslexiaLetterSwapInterface) => {
+      newText = newText.replaceAll(swap.tempReplacement, swap.swapped);
+    });
+
+    return newText;
   }
 }

@@ -31,6 +31,22 @@ export const appRoutes: Route[] = [
     loadChildren: () => import('./features/changelog/changelog.routes').then(m => m.changelogRoutes),
   },
   {
+    path: 'examples',
+    data: {
+      breadcrumb: 'Examples',
+      title: 'Examples',
+    },
+    loadChildren: () => import('./features/examples/examples.routes').then(m => m.examplesRoutes),
+  },
+  {
+    path: 'teams',
+    data: {
+      breadcrumb: 'Teams',
+      title: 'Teams',
+    },
+    loadChildren: () => import('./features/teams/teams.routes').then(m => m.teamsRoutes),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',

@@ -36,6 +36,7 @@
         <p-dropdown
           formControlName="modifyer"
           [options]="modifyerOptions"
+          (onChange)="onChange()"
         />
       </div>
       <div class="experiment-item">
@@ -49,6 +50,7 @@
             [max]="10"
             [min]="0"
             [step]="1"
+            (onChange)="onChange()"
           />
         </div>
       </div>
@@ -57,7 +59,10 @@
           Swapping letters:
           <span>{{ experimentConfig.get('swapping')?.value ? 'enabled' : 'disabled' }}</span>
         </label>
-        <p-inputSwitch formControlName="swapping" />
+        <p-inputSwitch
+          formControlName="swapping"
+          (onChange)="onChange()"
+        />
         <div class="m-4">
           <p-accordion>
             <p-accordionTab header="Explanation">
@@ -96,7 +101,7 @@
       </div>
     </form>
   </div>
-  @if (articles && articles.length > 0) {
+  @if (displayedArticles && displayedArticles.length > 0) {
     <div
       class="demo-container"
       [ngStyle]="{
@@ -104,7 +109,7 @@
         'font-size.px': experimentConfig.get('fontSize')?.value ?? defaultFontSize
       }"
     >
-      @for (article of articles; track $index) {
+      @for (article of displayedArticles; track $index) {
         <h3>Random wikipedia article: {{ article.title }}</h3>
         <p>
           {{ article.extract }}
