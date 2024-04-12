@@ -8,9 +8,14 @@ I'm not planning on actively maintaining this repository, so if somebody eventua
 
 I'm not a UX expert, nor specialized in Accessibility. Therefor you cannot take any major conclusions from this project. It is meant for educational purposes only.
 
+## Prerequisites
+
+* NodeJS installation. Version 20+
+* Usable IDE. We recommend [VSCode](https://code.visualstudio.com/download). The project provides a few recommended extensions to install. Perhaps use a new profile for this project if you want to keep your own setup, but go to extensions and if its not visible already you can select recommended from the filter icon menu.
+
 ## Install
 
-To install the project, you just need to run `npm install` in this folder. This however requires a valid [NodeJS](https://www.nodejs.org) installation where the NPM task is able to run in the folder. The project is supplied from github <github.com/martinspire/a11y-experiments> and after checking out, installing and running the `npm run start` task, you should be able to see it running on <http://localhost:4100>. Mess around with it and see what you can figure out about accessibility.
+To install the project, you just need to run `npm install` in this folder. This however requires a valid [NodeJS](https://www.nodejs.org) installation where the NPM task is able to run in the folder. The project is supplied from github <github.com/martinspire/a11y-experiments> and after checking out, installing and running the `npm run start` task, you should be able to see it running on <http://localhost:4100>. Mess around with it and see what you can figure out about accessibility. Its not the default 4200 to prevent conflicts with other angular projects. It should show the URL in the terminal and it may be clickable as well.
 
 ## Tasks
 
