@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
+import {
+  AfterViewInit,
+  Component, ElementRef,
+  ViewChild,
+} from '@angular/core';
 import { CardComponent } from '@shared/components/card/card.component';
+import { Chart } from 'chart.js/auto';
 
 @Component({
   selector: 'ae-graph',
@@ -8,6 +13,38 @@ import { CardComponent } from '@shared/components/card/card.component';
   templateUrl: './graph.component.html',
   styleUrl: './graph.component.scss',
 })
-export class GraphComponent {
+export class GraphComponent implements AfterViewInit {
+  @ViewChild('graph', { read: ElementRef }) graph!: ElementRef;
+  chart!: Chart;
 
+  ngAfterViewInit() {
+    this.chart = new Chart(this.graph.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: [
+          'Red',
+          'Blue',
+          'Yellow',
+          'Green',
+          'Purple',
+          'Orange',
+        ],
+        datasets: [
+          {
+            label: '# of Votes',
+            data: [
+              12,
+              19,
+              3,
+              5,
+              2,
+              3,
+            ],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: { scales: { y: { beginAtZero: true } } },
+    });
+  }
 }

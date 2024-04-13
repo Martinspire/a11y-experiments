@@ -2,7 +2,7 @@ import { Route } from '@angular/router';
 import { EmbedComponent } from './embed/embed.component';
 import { ExamplesComponent } from './examples.component';
 import { GraphComponent } from './graph/graph.component';
-import { MarkdownComponent } from './markdown/markdown.component';
+import { MarkdownExampleComponent } from './markdown/markdown.component';
 
 export const examplesRoutes: Route[] = [
   {
@@ -19,6 +19,6 @@ export const examplesRoutes: Route[] = [
   },
   {
     path: 'markdown',
-    component: MarkdownComponent,
+    component: MarkdownExampleComponent,
   },
 ];

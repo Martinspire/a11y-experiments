@@ -1,1 +1,283 @@
-<p>colorblindness-form works!</p>
+<ae-card>
+  <h3>Colorblindness forms</h3>
+  <p>
+    Sometimes colors blend or disappear for people with color blindness. This demo consists of a few forms that are hard to finish
+    with a certain color blindness. We apply a filter to transform a few colors in order to simulate the effect.
+  </p>
+</ae-card>
+
+<ae-card>
+  <h3>Demo</h3>
+  <p>Instruction:<br />See if you can figure out what is missing with some of the selected color blindness variants.</p>
+
+  <div class="experiment-config">
+    <form [formGroup]="experimentConfig">
+      <div class="experiment-item">
+        <p>
+          Colorblindness variant: <span>{{ experimentConfig.get('mode')?.value }}</span>
+        </p>
+        <p-dropdown
+          formControlName="mode"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Select colorblindness variant mode"
+          [options]="modes"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="demo-container">
+    <div
+      class="colorblindness-container"
+      [ngClass]="experimentConfig.get('mode')?.value ?? defaultMode"
+    >
+      <div class="demo-page flex flex-column align-items-center">
+        <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6">
+          <div>
+            <label
+              class="block text-900 font-medium mb-2"
+              for="email1"
+              >Email</label
+            >
+            <input
+              class="w-full mb-3"
+              id="email1"
+              pInputText
+              placeholder="Email address"
+              type="text"
+            />
+
+            <label
+              class="block text-900 font-medium mb-2"
+              for="password1"
+              >Password</label
+            >
+            <input
+              class="w-full mb-3"
+              id="password1"
+              pInputText
+              placeholder="Password"
+              type="password"
+            />
+
+            <div class="flex align-items-center justify-content-between mb-6">
+              <div class="flex align-items-center">
+                <p-checkbox
+                  id="rememberme1"
+                  styleClass="mr-2"
+                  [binary]="true"
+                />
+                <label
+                  class="text-900"
+                  for="rememberme1"
+                  >Remember me</label
+                >
+              </div>
+              <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
+            </div>
+
+            <button
+              class="w-full"
+              icon="pi pi-user"
+              pButton
+              pRipple
+              type="button"
+            >
+              Sign in
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-column">
+        <div class="demo-page flex flex-column align-items-center">
+          <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6">
+            <div class="flex flex-column gap-4">
+              <div>
+                <label
+                  class="block text-900 font-medium mb-2"
+                  for="check"
+                  >Check</label
+                >
+                <div class="flex flex-column gap-2">
+                  <p-checkbox
+                    inputId="check"
+                    label="Check this out"
+                    [value]="true"
+                  />
+                  <p-checkbox
+                    inputId="check"
+                    label="Check this out"
+                    [value]="false"
+                  />
+                  <p-checkbox
+                    inputId="check"
+                    label="Check this out"
+                    [value]="false"
+                  />
+                  <p-checkbox
+                    inputId="check"
+                    label="Check this out"
+                    [value]="false"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  class="block text-900 font-medium mb-2"
+                  for="switch1"
+                  >Switch</label
+                >
+                <p-inputSwitch>Switch this</p-inputSwitch>
+              </div>
+
+              <div>
+                <label
+                  class="block text-900 font-medium mb-2"
+                  for="radio1"
+                  >Radio</label
+                >
+
+                <div class="flex flex-column gap-2">
+                  <p-radioButton
+                    label="Radio 1"
+                    name="radio"
+                    value="1"
+                    [(ngModel)]="radio"
+                  />
+                  <p-radioButton
+                    label="Radio 2"
+                    name="radio"
+                    value="2"
+                    [(ngModel)]="radio"
+                  />
+                  <p-radioButton
+                    label="Radio 3"
+                    name="radio"
+                    value="3"
+                    [(ngModel)]="radio"
+                  />
+                  <p-radioButton
+                    label="Radio 4"
+                    name="radio"
+                    value="4"
+                    [(ngModel)]="radio"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  class="block text-900 font-medium mb-2"
+                  for="dropdown1"
+                  >Dropdown</label
+                >
+
+                <p-dropdown
+                  optionLabel="label"
+                  optionValue="value"
+                  placeholder="Select a Country"
+                  [options]="countryOptions"
+                />
+              </div>
+
+              <div>
+                <label
+                  class="block text-900 font-medium mb-2"
+                  for="slider1"
+                  >Slider</label
+                >
+                <p-slider
+                  [max]="10"
+                  [min]="0"
+                  [step]="1"
+                  [(ngModel)]="slider"
+                />
+              </div>
+
+              <div>
+                <label
+                  class="block text-900 font-medium mb-2"
+                  for="calendar1"
+                  >Calendar</label
+                >
+                <p-calendar
+                  [hourFormat]="'24'"
+                  [inputId]="'calendar1'"
+                  [ngModel]="date"
+                  [showIcon]="true"
+                  [showTime]="true"
+                  (ngModelChange)="date = $event"
+                />
+              </div>
+
+              <div>
+                <div class="flex flex-column gap-2">
+                  <label
+                    class="block text-900 font-medium mb-2"
+                    for="textarea1"
+                    >Disabled items</label
+                  >
+                  <p-checkbox
+                    inputId="check"
+                    label="Check this out"
+                    [disabled]="true"
+                    [value]="true"
+                  />
+                  <input
+                    pInputText
+                    type="text"
+                    value="some text value"
+                    [disabled]="true"
+                  />
+
+                  <p-dropdown
+                    optionLabel="label"
+                    optionValue="value"
+                    placeholder="Select a Country"
+                    [disabled]="true"
+                    [options]="countryOptions"
+                  />
+                  <p-button
+                    label="Disabled"
+                    [disabled]="true"
+                  />
+                  />
+                </div>
+              </div>
+
+              <div>
+                <div class="flex flex-column gap-2">
+                  <label
+                    class="block text-900 font-medium mb-2"
+                    for="textarea1"
+                    >Messages</label
+                  >
+                  <input
+                    class="ng-invalid ng-dirty"
+                    pInputText
+                    type="text"
+                    value="input with error"
+                  />
+
+                  <input
+                    class="ng-warning ng-dirty"
+                    pInputText
+                    type="text"
+                    value="input with warning"
+                  />
+
+                  <p-messages
+                    [closable]="false"
+                    [enableService]="false"
+                    [(value)]="messages"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ae-card>

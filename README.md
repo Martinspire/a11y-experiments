@@ -38,6 +38,7 @@ NOTE: To view the app locally, you need to open the app at <http://localhost:410
 
 ### Angular additions
 
+* ChartJS - <https://www.chartjs.org>
 * Material - <https://material.angular.io>
 * NG Mocks - <https://github.com/help-me-mom/ng-mocks> - <https://ng-mocks.sudo.eu>
 * PrimeNG - <https://primeng.org>

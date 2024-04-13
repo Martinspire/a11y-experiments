@@ -144,8 +144,9 @@
                   label="Next"
                   size="small"
                   (onClick)="nextCallback.emit()"
-                /></div
-            ></ng-template>
+                />
+              </div>
+            </ng-template>
           </p-stepperPanel>
           <p-stepperPanel header="Various inputs">
             <ng-template
@@ -155,27 +156,76 @@
               pTemplate="content"
             >
               <div class="flex flex-column">
-                <div
-                  class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium"
-                >
-                  Content II
+                <div class="demo-page flex flex-column align-items-center">
+                  <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6">
+                    <div>
+                      <label
+                        class="block text-900 font-medium mb-2"
+                        for="check"
+                        >Check</label
+                      >
+                      <p-checkbox inputId="check">Check this out</p-checkbox>
+                      <p-checkbox inputId="check">Check this out</p-checkbox>
+                      <p-checkbox inputId="check">Check this out</p-checkbox>
+                      <p-checkbox inputId="check">Check this out</p-checkbox>
+
+                      <label
+                        class="block text-900 font-medium mb-2"
+                        for="switch1"
+                        >Switch</label
+                      >
+                      <p-inputSwitch>Switch this</p-inputSwitch>
+
+                      <label
+                        class="block text-900 font-medium mb-2"
+                        for="switch1"
+                        >Switch</label
+                      >
+                      <p-inputSwitch>Switch this</p-inputSwitch>
+
+                      <label
+                        class="block text-900 font-medium mb-2"
+                        for="radio1"
+                        >Radio</label
+                      >
+
+                      <p-radioButton inputId="radio">Radio 1</p-radioButton>
+                      <p-radioButton inputId="radio">Radio 2</p-radioButton>
+                      <p-radioButton inputId="radio">Radio 3</p-radioButton>
+                      <p-radioButton inputId="radio">Radio 4</p-radioButton>
+
+                      <label
+                        class="block text-900 font-medium mb-2"
+                        for="dropdown1"
+                        >Dropdown</label
+                      >
+
+                      <p-dropdown
+                        optionLabel="label"
+                        optionValue="value"
+                        placeholder="Select a Country"
+                        [options]="countryOptions"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="flex pt-4 justify-content-between">
+                  <p-button
+                    icon="pi pi-arrow-left"
+                    label="Back"
+                    size="small"
+                    (onClick)="prevCallback.emit()"
+                  />
+                  <p-button
+                    icon="pi pi-arrow-right"
+                    iconPos="right"
+                    label="Next"
+                    size="small"
+                    (onClick)="nextCallback.emit()"
+                  />
                 </div>
               </div>
-              <div class="flex pt-4 justify-content-between">
-                <p-button
-                  icon="pi pi-arrow-left"
-                  label="Back"
-                  size="small"
-                  (onClick)="prevCallback.emit()"
-                />
-                <p-button
-                  icon="pi pi-arrow-right"
-                  iconPos="right"
-                  label="Next"
-                  size="small"
-                  (onClick)="nextCallback.emit()"
-                /></div
-            ></ng-template>
+            </ng-template>
           </p-stepperPanel>
           <p-stepperPanel header="Advanced controls">
             <ng-template

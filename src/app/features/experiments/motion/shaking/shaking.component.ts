@@ -8,6 +8,7 @@ import {
   FormGroup,
   FormsModule, ReactiveFormsModule,
 } from '@angular/forms';
+import { GenericLabelValueStringInterface } from '@interfaces/generic.interface';
 import { CardComponent } from '@shared/components/card/card.component';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
@@ -70,7 +71,7 @@ export class ShakingComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
 
-  selectOptions = [
+  selectOptions: GenericLabelValueStringInterface[] = [
     {
       label: 'Option 1', value: 'option1',
     },
@@ -82,30 +83,38 @@ export class ShakingComponent implements OnInit {
     },
   ];
 
-  countryOptions = [
+  countryOptions: GenericLabelValueStringInterface[] = [
     {
-      label: 'USA', value: 'usa',
+      label: 'Brazil',
+      value: 'brazil',
     },
     {
-      label: 'Germany', value: 'germany',
+      label: 'France',
+      value: 'france',
     },
     {
-      label: 'Brazil', value: 'brazil',
+      label: 'Germany',
+      value: 'germany',
     },
     {
-      label: 'Italy', value: 'italy',
+      label: 'Italy',
+      value: 'italy',
     },
     {
-      label: 'France', value: 'france',
+      label: 'Japan',
+      value: 'japan',
     },
     {
-      label: 'Japan', value: 'japan',
+      label: 'China',
+      value: 'china',
     },
     {
-      label: 'China', value: 'china',
+      label: 'India',
+      value: 'india',
     },
     {
-      label: 'India', value: 'india',
+      label: 'USA',
+      value: 'usa',
     },
   ];
 
