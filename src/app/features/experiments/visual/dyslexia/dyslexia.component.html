@@ -40,17 +40,16 @@
         />
       </div>
       <div class="experiment-item">
-        <label for="shapeShiftingIntensity">
-          Shape shifting intensity:
-          <span>{{ experimentConfig.get('shapeShiftingIntensity')?.value ?? defaultShapeShiftingIntensity }}</span>
+        <label for="animationDuration">
+          Animation duration:
+          <span>{{ experimentConfig.get('animationDuration')?.value ?? defaultAnimationDuration }}</span>
         </label>
         <div class="slider">
           <p-slider
-            formControlName="shapeShiftingIntensity"
-            [max]="10"
-            [min]="0"
-            [step]="1"
-            (onChange)="onChange()"
+            formControlName="animationDuration"
+            [max]="10.0"
+            [min]="0.0"
+            [step]="0.1"
           />
         </div>
       </div>
@@ -102,19 +101,39 @@
     </form>
   </div>
   @if (displayedArticles && displayedArticles.length > 0) {
-    <div
-      class="demo-container"
-      [ngStyle]="{
-        'font-family': experimentConfig.get('fontFamily')?.value ?? defaultFontFamily,
-        'font-size.px': experimentConfig.get('fontSize')?.value ?? defaultFontSize
-      }"
-    >
-      @for (article of displayedArticles; track $index) {
-        <h3>Random wikipedia article: {{ article.title }}</h3>
-        <p>
-          {{ article.extract }}
-        </p>
-      }
+    <div class="containers">
+      <div
+        class="demo-container"
+        [ngClass]="demoClass"
+        [ngStyle]="{
+          'font-family': experimentConfig.get('fontFamily')?.value ?? defaultFontFamily,
+          'font-size.px': experimentConfig.get('fontSize')?.value ?? defaultFontSize,
+          'animation-duration': experimentConfig.get('animationDuration')?.value + 's'
+        }"
+      >
+        @for (article of displayedArticles; track $index) {
+          <h3>Random wikipedia article: {{ article.title }}</h3>
+          <p>
+            {{ article.extract }}
+          </p>
+        }
+      </div>
+      <div
+        class="mirror-demo-container"
+        [ngClass]="mirrorClass"
+        [ngStyle]="{
+          'font-family': experimentConfig.get('fontFamily')?.value ?? defaultFontFamily,
+          'font-size.px': experimentConfig.get('fontSize')?.value ?? defaultFontSize,
+          'animation-duration': experimentConfig.get('animationDuration')?.value + 's'
+        }"
+      >
+        @for (article of displayedArticles; track $index) {
+          <h3>Random wikipedia article: {{ article.title }}</h3>
+          <p>
+            {{ article.extract }}
+          </p>
+        }
+      </div>
     </div>
   }
 </ae-card>

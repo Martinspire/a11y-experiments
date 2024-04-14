@@ -92,35 +92,51 @@ export class DyslexiaComponent implements OnInit {
 
   // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   defaultFontSize = this.fontSizeOptions[3];
-  defaultShapeShiftingIntensity = 2;
+  defaultAnimationDuration = 1;
   modifyerOptions: GenericLabelValueStringInterface[] = [
     {
-      label: 'None', value: 'none',
+      label: 'None',
+      value: 'none',
     },
     {
-      label: 'Shake', value: 'shake',
+      label: 'Shake',
+      value: 'shake',
     },
     {
-      label: 'Rotate', value: 'rotate',
+      label: 'Rotate',
+      value: 'rotate',
     },
     {
-      label: 'Shadow movement', value: 'shadowMovement',
+      label: 'Shadow movement',
+      value: 'shadowMovement',
     },
     {
-      label: 'Wave', value: 'wave',
+      label: 'Squiggly',
+      value: 'squiggly',
     },
     {
-      label: 'Splitting', value: 'splitting',
+      label: 'Squiggly minimal',
+      value: 'squiggly-minimal',
     },
-    {
-      label: 'Disappearing', value: 'disappearing',
-    },
+    // TODO: splitting text with dyslexia is when text starts to split off and you get chunks of text that are not connected
+    // {
+    //   label: 'Splitting',
+    //   value: 'splitting',
+    // },
+    // TODO: disappearing text is when text starts to disappear and you get chunks of text that are not connected
+    // {
+    //   label: 'Disappearing',
+    //   value: 'disappearing',
+    // },
   ];
 
   defaultModifyer = this.modifyerOptions[0].value;
   defaultSwapping = false;
 
   SwapLetters: DyslexiaLetterSwapInterface[] = SwapLetters;
+
+  demoClass = '';
+  mirrorClass = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -131,7 +147,7 @@ export class DyslexiaComponent implements OnInit {
     this.experimentConfig = this.formBuilder.group({
       fontFamily: new FormControl(this.defaultFontFamily),
       fontSize: new FormControl(this.defaultFontSize),
-      shapeShiftingIntensity: new FormControl(this.defaultShapeShiftingIntensity),
+      animationDuration: new FormControl(this.defaultAnimationDuration),
       modifyer: new FormControl(this.defaultModifyer),
       swapping: new FormControl(this.defaultSwapping),
     });
@@ -169,9 +185,10 @@ export class DyslexiaComponent implements OnInit {
 
   onChange(): void {
     this._displayArticles();
+    this._setCssClasses();
   }
 
-  _displayArticles(): void {
+  private _displayArticles(): void {
     const newArticles = structuredClone(this.articles);
 
     if (this.experimentConfig.get('swapping')?.value) {
@@ -179,6 +196,53 @@ export class DyslexiaComponent implements OnInit {
     }
 
     this.displayedArticles = newArticles;
+  }
+
+  private _setCssClasses(): void {
+    const squigglyMinimalLength = 3;
+    const shadowMovementLength = 5;
+    switch (this.experimentConfig.get('modifyer')?.value) {
+      case 'shake' :
+        this.demoClass = 'skew-shake-x-slow';
+        this.mirrorClass = 'hide';
+        this.experimentConfig.get('animationDuration')?.setValue(2);
+        break;
+      case 'rotate' :
+        this.demoClass = 'gentle-shake';
+        this.mirrorClass = 'hide';
+        this.experimentConfig.get('animationDuration')?.setValue(1);
+        break;
+      case 'shadowMovement' :
+        this.demoClass = '';
+        this.mirrorClass = 'horizontal-shake shadow-movement';
+        this.experimentConfig.get('animationDuration')?.setValue(shadowMovementLength);
+        break;
+      case 'squiggly' :
+        this.demoClass = 'squiggly';
+        this.mirrorClass = 'hide';
+        this.experimentConfig.get('animationDuration')?.setValue(1);
+        break;
+      case 'squiggly-minimal' :
+        this.demoClass = 'squiggly-minimal';
+        this.mirrorClass = 'hide';
+        this.experimentConfig.get('animationDuration')?.setValue(squigglyMinimalLength);
+        break;
+      case 'splitting' :
+        this.demoClass = 'splitting';
+        this.mirrorClass = 'splitting';
+        this.experimentConfig.get('animationDuration')?.setValue(1);
+        break;
+      case 'disappearing' :
+        this.demoClass = 'disappearing';
+        this.mirrorClass = 'hide';
+        this.experimentConfig.get('animationDuration')?.setValue(1);
+        break;
+      default :
+        this.demoClass = '';
+        this.mirrorClass = 'hide';
+        this.experimentConfig.get('animationDuration')?.setValue(0);
+        break;
+    }
   }
 
   private _processSwapping(newArticles: IWikiRestQuery[]): void {

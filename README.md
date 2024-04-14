@@ -10,14 +10,15 @@ I'm not a UX expert, nor specialized in Accessibility. Therefor you cannot take 
 
 ## Prerequisites
 
-* NodeJS installation. Version 20+
-* Usable IDE. We recommend [VSCode](https://code.visualstudio.com/download). The project provides a few recommended extensions to install. Perhaps use a new profile for this project if you want to keep your own setup, but go to extensions and if its not visible already you can select recommended from the filter icon menu.
+* NodeJS installation. Version 20+ is fine. Current LTS version would be the best.
+* Something to clone the application locally. Beginner developers can use Github Desktop to do that the easiest. Install that after downloading here <github.com/martinspire/a11y-experiments>. Click the big green [CODE] button which opens a dropdown. Click the link to "Open with Github Desktop", pick a location and hit clone to have the files be copied there.
+* Usable IDE. We recommend [VSCode](https://code.visualstudio.com/download). The project provides a few recommended extensions to install. Perhaps use a new profile for this project if you want to keep your own setup, but go to extensions and if its not visible already you can select recommended from the filter icon menu. Out of the box VSCode will already recognize the code, but a few helper things can be added to ease developing Angular applications and use the project settings to work with.
 
 ## Install
 
-To install the project, you just need to run `npm install` in this folder. This however requires a valid [NodeJS](https://www.nodejs.org) installation where the NPM task is able to run in the folder. The project is supplied from github <github.com/martinspire/a11y-experiments> and after checking out, installing and running the `npm run start` task, you should be able to see it running on <http://localhost:4100>. Mess around with it and see what you can figure out about accessibility. Its not the default 4200 to prevent conflicts with other angular projects. It should show the URL in the terminal and it may be clickable as well.
+To install the project, you just need to run `npm install` in this folder. This however requires a valid [NodeJS](https://www.nodejs.org) installation where the NPM task is able to run in the folder. The project is supplied from github <github.com/martinspire/a11y-experiments> and after checking out, installing and running the `npm run start` task, you should be able to see it running on <http://localhost:4200>. Mess around with it and see what you can figure out about accessibility. Its not the default 4200 to prevent conflicts with other angular projects. It should show the URL in the terminal and it may be clickable as well.
 
-## Tasks
+## Application Tasks
 
 There are various tasks defined in the package.json
 
@@ -26,7 +27,7 @@ There are various tasks defined in the package.json
 * To unit test it locally, you need `nx test` or `npm run test`.
 * To end to end test it locally, you need `nx e2e` or `npm run e2e`.
 
-NOTE: To view the app locally, you need to open the app at <http://localhost:4100>. Not port 4200 like is default. This to prevent conflicts running it with other applications at the same time. It will show the URL in the console when running the application.
+NOTE: To view the app locally, you need to open the app at <http://localhost:4200>. Just like any other angular application. It will show the address when it has served the application.
 
 ## Made with
 

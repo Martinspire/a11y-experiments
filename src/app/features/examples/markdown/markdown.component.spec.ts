@@ -2,11 +2,11 @@ import {
   Spectator, createComponentFactory,
 } from '@ngneat/spectator';
 
-import { MarkdownComponent } from './markdown.component';
+import { MarkdownExampleComponent } from './markdown.component';
 
-describe('MarkdownComponent', () => {
-  let spectator: Spectator<MarkdownComponent>;
-  const createComponent = createComponentFactory(MarkdownComponent);
+describe('MarkdownExampleComponent', () => {
+  let spectator: Spectator<MarkdownExampleComponent>;
+  const createComponent = createComponentFactory(MarkdownExampleComponent);
 
   it('should create', () => {
     spectator = createComponent();

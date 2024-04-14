@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { GenericLabelValueStringInterface } from '@interfaces/generic.interface';
 import { CardComponent } from '@shared/components/card/card.component';
+import { AccordionModule } from 'primeng/accordion';
 import { Message } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
@@ -32,6 +33,7 @@ import { StepperModule } from 'primeng/stepper';
   selector: 'ae-colorblindness-form',
   standalone: true,
   imports: [
+    AccordionModule,
     ButtonModule,
     CalendarModule,
     CardComponent,
@@ -60,7 +62,6 @@ import { StepperModule } from 'primeng/stepper';
   styleUrl: './colorblindness-form.component.scss',
 })
 export class ColorblindnessFormComponent implements OnInit {
-  JSON: JSON = JSON;
   experimentConfig!: FormGroup;
   modes: GenericLabelValueStringInterface[] = [
     {
@@ -72,16 +73,37 @@ export class ColorblindnessFormComponent implements OnInit {
       value: 'protanopia',
     },
     {
+      label: 'Protanomaly',
+      value: 'protanomaly',
+    },
+    {
       label: 'Deuteranopia',
       value: 'deuteranopia',
+    },
+    {
+      label: 'Deuteranomaly',
+      value: 'deuteranomaly',
     },
     {
       label: 'Tritanopia',
       value: 'tritanopia',
     },
+    {
+      label: 'Tritanomaly',
+      value: 'tritanomaly',
+    },
+    {
+      label: 'Achromatopsia',
+      value: 'achromatopsia',
+    },
+    {
+      label: 'Achromatomaly',
+      value: 'achromatomaly',
+    },
   ];
 
   defaultMode: string = this.modes[1].value;
+  defaultFilter: string = this.modes[1].value;
 
   countryOptions: GenericLabelValueStringInterface[] = [
     {
@@ -137,6 +159,9 @@ export class ColorblindnessFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.experimentConfig = this.formBuilder.group({ mode: new FormControl(this.defaultMode) });
+    this.experimentConfig = this.formBuilder.group({
+      mode: new FormControl(this.defaultMode),
+      filter: new FormControl(this.defaultFilter),
+    });
   }
 }

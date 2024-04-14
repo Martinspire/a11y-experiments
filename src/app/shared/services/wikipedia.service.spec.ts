@@ -1,9 +1,11 @@
-import { createServiceFactory, SpectatorService } from '@ngneat/spectator';
-import { WikipediaService } from './wikipedia.service';
+import {
+  createServiceFactory, SpectatorService,
+} from '@ngneat/spectator';
+import { WikiService } from './wikipedia.service';
 
-describe('WikipediaService', () => {
-  let spectator: SpectatorService<WikipediaService>;
-  const createService = createServiceFactory(WikipediaService);
+describe('WikiService', () => {
+  let spectator: SpectatorService<WikiService>;
+  const createService = createServiceFactory(WikiService);
 
   beforeEach(() => spectator = createService());
 

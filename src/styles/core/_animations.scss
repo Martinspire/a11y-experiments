@@ -1,0 +1,267 @@
+.strong-shake {
+  animation: tilt-shaking 0.15s infinite;
+}
+
+.gentle-shake {
+  animation: tilt-shaking 1s infinite;
+}
+
+.gentle-tilt-move-shake {
+  animation: tilt-n-move-shaking 0.25s infinite;
+}
+
+.strong-tilt-move-shake {
+  animation: tilt-n-move-shaking 0.15s infinite;
+}
+
+.constant-tilt-shake {
+  animation: tilt-shaking 0.3s infinite;
+}
+
+.vertical-shake {
+  animation: vertical-shaking 0.35s infinite;
+}
+
+.horizontal-shake {
+  animation: horizontal-shaking 0.35s infinite;
+}
+
+.rise-shake {
+  animation: jump-shaking 0.83s infinite;
+}
+
+.skew-shake-x-fast {
+  animation: skew-x-shake 1.3s infinite;
+}
+
+.skew-shake-x-slow {
+  animation: skew-x-shake-slow 2s infinite;
+}
+
+.skew-shake-y {
+  animation: skew-y-shake 1.3s infinite;
+}
+
+.squiggly {
+  animation: squiggly-anim 1s linear infinite;
+}
+.squiggly-minimal {
+  animation: squiggly-anim-minimal 3s linear infinite;
+}
+
+.glitch {
+  animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch {
+  2%,
+  64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%,
+  60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+  8%,
+  65% {
+    transform: translate(0, 0) skew(0deg);
+  }
+}
+
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  1% {
+    transform: rotate(5deg);
+  }
+  2% {
+    transform: rotate(0deg);
+  }
+  3% {
+    transform: rotate(-5deg);
+  }
+  4% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes tilt-n-move-shaking {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(5px, 5px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  75% {
+    transform: translate(-5px, 5px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes vertical-shaking {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes jump-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateY(-9px);
+  }
+  35% {
+    transform: translateY(-9px) rotate(17deg);
+  }
+  55% {
+    transform: translateY(-9px) rotate(-17deg);
+  }
+  65% {
+    transform: translateY(-9px) rotate(17deg);
+  }
+  75% {
+    transform: translateY(-9px) rotate(-17deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes skew-x-shake {
+  0% {
+    transform: skewX(-15deg);
+  }
+  5% {
+    transform: skewX(15deg);
+  }
+  10% {
+    transform: skewX(-15deg);
+  }
+  15% {
+    transform: skewX(15deg);
+  }
+  20% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+@keyframes skew-x-shake-slow {
+  0% {
+    transform: skewX(-15deg);
+  }
+  2% {
+    transform: skewX(15deg);
+  }
+  3% {
+    transform: skewX(-15deg);
+  }
+  4% {
+    transform: skewX(15deg);
+  }
+  5% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+@keyframes skew-y-shake {
+  0% {
+    transform: skewY(-15deg);
+  }
+  5% {
+    transform: skewY(15deg);
+  }
+  10% {
+    transform: skewY(-15deg);
+  }
+  15% {
+    transform: skewY(15deg);
+  }
+  20% {
+    transform: skewY(0deg);
+  }
+  100% {
+    transform: skewY(0deg);
+  }
+}
+
+@keyframes squiggly-anim {
+  0% {
+    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-0');
+  }
+  5% {
+    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-1');
+  }
+  10% {
+    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-2');
+  }
+  15% {
+    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-3');
+  }
+  20% {
+    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-4');
+  }
+  30% {
+    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-0');
+  }
+  100% {
+    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-1');
+  }
+}
+
+@keyframes squiggly-anim-minimal {
+  0% {
+    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-0');
+  }
+  1% {
+    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-1');
+  }
+  2% {
+    filter: none;
+  }
+}

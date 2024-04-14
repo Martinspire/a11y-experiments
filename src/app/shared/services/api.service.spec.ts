@@ -1,4 +1,6 @@
-import { createServiceFactory, SpectatorService } from '@ngneat/spectator';
+import {
+  createServiceFactory, SpectatorService,
+} from '@ngneat/spectator';
 import { ApiService } from './api.service';
 
 describe('ApiService', () => {

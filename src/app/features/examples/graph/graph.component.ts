@@ -4,6 +4,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CardComponent } from '@shared/components/card/card.component';
+import { DummyExampleGraphValues } from '@shared/constants/graphs.constants';
 import { Chart } from 'chart.js/auto';
 
 @Component({
@@ -32,14 +33,7 @@ export class GraphComponent implements AfterViewInit {
         datasets: [
           {
             label: '# of Votes',
-            data: [
-              12,
-              19,
-              3,
-              5,
-              2,
-              3,
-            ],
+            data: DummyExampleGraphValues,
             borderWidth: 1,
           },
         ],
