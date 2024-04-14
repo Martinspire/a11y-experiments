@@ -3,8 +3,8 @@ import {
 } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
+import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
-import { SlideMenuModule } from 'primeng/slidemenu';
 
 /**
  * Todo: menu toevoegen
@@ -16,7 +16,7 @@ import { SlideMenuModule } from 'primeng/slidemenu';
   standalone: true,
   imports: [
     MenubarModule,
-    SlideMenuModule,
+    MenuModule,
     ButtonModule,
   ],
   templateUrl: './header.component.html',
@@ -174,6 +174,7 @@ export class HeaderComponent implements OnInit {
         label: 'Github',
         icon: 'pi pi-fw pi-github',
         url: 'https://github.com/martinspire/a11y-experiments',
+        target: '_blank',
       },
     ];
   }

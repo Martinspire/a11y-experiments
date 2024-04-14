@@ -47,12 +47,12 @@ export const Experiments: TreeNode[] = [
       //   data: '/experiments/visual/glaucoma',
       //   icon: 'pi pi-fw pi-circle-fill',
       // },
-      {
-        key: 'impairment',
-        label: 'Impairment',
-        data: '/experiments/visual/impairment',
-        icon: 'pi pi-fw pi-eye',
-      },
+      // {
+      //   key: 'impairment',
+      //   label: 'Impairment',
+      //   data: '/experiments/visual/impairment',
+      //   icon: 'pi pi-fw pi-eye',
+      // },
     ],
   },
   {
