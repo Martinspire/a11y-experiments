@@ -232,34 +232,34 @@
 
 @keyframes squiggly-anim {
   0% {
-    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-0');
+    filter: url('../../assets/dyslexia/squiggly-text.svg#squiggly-0');
   }
   5% {
-    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-1');
+    filter: url('../../assets/dyslexia/squiggly-text.svg#squiggly-1');
   }
   10% {
-    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-2');
+    filter: url('../../assets/dyslexia/squiggly-text.svg#squiggly-2');
   }
   15% {
-    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-3');
+    filter: url('../../assets/dyslexia/squiggly-text.svg#squiggly-3');
   }
   20% {
-    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-4');
+    filter: url('../../assets/dyslexia/squiggly-text.svg#squiggly-4');
   }
   30% {
-    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-0');
+    filter: url('../../assets/dyslexia/squiggly-text.svg#squiggly-0');
   }
   100% {
-    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-1');
+    filter: url('../../assets/dyslexia/squiggly-text.svg#squiggly-1');
   }
 }
 
 @keyframes squiggly-anim-minimal {
   0% {
-    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-0');
+    filter: url('../../assets/dyslexia/squiggly-text.svg#squiggly-0');
   }
   1% {
-    filter: url('/assets/dyslexia/squiggly-text.svg#squiggly-1');
+    filter: url('../../assets/dyslexia/squiggly-text.svg#squiggly-1');
   }
   2% {
     filter: none;
