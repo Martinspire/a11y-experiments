@@ -17,10 +17,8 @@
     </p>
     <p>There are solutions available to combat shaking like: <a href="https://www.steadymouse.com">SteadyMouse</a></p>
   </ae-card>
-
   <ae-card>
-    <h3>Demo</h3>
-    <p>Instruction:<br />Submit this form as quick as possible.</p>
+    <h3>Preparation</h3>
     <p>
       Since Javascript doesn't allow developers to override the mouse cursor position, it is unfortunately not possible to easily
       create a demo with working forms. There's a Canvas implementation (for gaming) but that doesn't work properly. So therefor
@@ -41,27 +39,12 @@
         >shaking.au3</a
       >. When using it, press [home] to start the script and press [esc] to exit or [pause] to pause.
     </p>
-
+  </ae-card>
+  <ae-card>
+    <h3>Experiment</h3>
+    <p>Submit this form as quick as possible.</p>
     <div class="experiment-config">
       <form [formGroup]="experimentConfig">
-        <!-- <div class="experiment-item">
-        Shake intensity: <span>{{ experimentConfig.get('shakeIntensity')?.value ?? defaultShaking }}</span>
-        <p-slider
-          formControlName="shakeIntensity"
-          [max]="10"
-          [min]="0"
-          [step]="1"
-        />
-      </div>
-      <div class="experiment-item">
-        Speed intensity: <span>{{ experimentConfig.get('speedIntensity')?.value ?? defaultSpeed }}</span>
-        <p-slider
-          formControlName="speedIntensity"
-          [max]="1000"
-          [min]="100"
-          [step]="100"
-        />
-      </div> -->
         <div class="experiment-item">
           Zoom intensity: <span>{{ experimentConfig.get('zoomIntensity')?.value ?? defaultZoom }}</span>
           <br />
@@ -77,10 +60,6 @@
       </form>
     </div>
     <div class="demo-container">
-      <!-- <ae-shake-cursor
-      [multiplier]="experimentConfig.get('shakeIntensity')?.value ?? defaultShaking"
-      [speed]="experimentConfig.get('speedIntensity')?.value ?? defaultSpeed"
-    > -->
       <div
         class="shake-container"
         [ngStyle]="{ scale: experimentConfig.get('zoomIntensity')?.value ?? defaultZoom }"
@@ -491,7 +470,6 @@
           </p-stepper>
         </form>
       </div>
-      <!-- </ae-shake-cursor> -->
     </div>
   </ae-card>
 </div>
