@@ -191,7 +191,7 @@ export class HearingLossComponent implements OnInit, AfterViewInit {
   }
 
   changeAudioFile(file: AudioFileInterface): void {
-    this._audio.src = `/assets/audio/samples/${file.filename}`;
+    this._audio.src = `assets/audio/samples/${file.filename}`;
     this._audio.load();
     if (this.player.isPlaying) {
       this.play();
