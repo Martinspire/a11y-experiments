@@ -6,7 +6,9 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "e2e": "nx e2e"
+    "e2e": "nx e2e",
+    "nx": "nx",
+    "deploy": "nx deploy"
   },
   "private": true,
   "dependencies": {
@@ -61,6 +63,7 @@
     "@types/node": "20.12.5",
     "@typescript-eslint/eslint-plugin": "7.5.0",
     "@typescript-eslint/parser": "7.5.0",
+    "angular-cli-ghpages": "^2.0.0-beta.2",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-import-resolver-typescript": "3.6.1",

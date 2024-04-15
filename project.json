@@ -8,6 +8,16 @@
       "@ngneat/spectator"
     ]
   },
+  "generators": {
+    "@ngneat/spectator:spectator-component": {
+      "standalone": true,
+      "style": "scss"
+    },
+    "@schematics/angular:component": {
+      "standalone": true,
+      "style": "scss"
+    }
+  },
   "name": "a11y-experiments",
   "prefix": "ae",
   "projectType": "application",
@@ -58,6 +68,9 @@
       "defaultConfiguration": "production",
       "executor": "@angular-devkit/build-angular:application",
       "options": {
+        "allowedCommonJsDependencies": [
+          "quill"
+        ],
         "assets": [
           "./src/favicon.ico",
           "./src/assets"
@@ -82,6 +95,14 @@
       "outputs": [
         "{options.outputPath}"
       ]
+    },
+    "deploy": {
+      "executor": "angular-cli-ghpages:deploy",
+      "options": {
+        "baseHref": "/a11y-experiments/",
+        "email": "deploy@martinspire.nl",
+        "name": "Deploy Bot"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
