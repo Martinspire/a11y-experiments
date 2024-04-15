@@ -1,0 +1,28 @@
+.side-by-side-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  background-color: var(--surface-ground);
+  overflow-y: auto;
+  border-radius: 5px;
+  border: 2px solid #000000;
+  .good-example,
+  .bad-example {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .good-example {
+    border-right: 2px solid #000000;
+  }
+  h1.sticky {
+    position: sticky;
+    top: 0;
+    background-color: var(--surface-ground);
+    z-index: 1;
+  }
+  .example-content {
+    margin-top: 20px;
+  }
+}

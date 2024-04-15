@@ -1,1 +1,258 @@
-<p>TODO: Screenreader</p>
+<div class="screenreader-container flex flex-column gap-4">
+  <ae-card>
+    <h2>Screen Reader</h2>
+    <p>
+      As expected Screen readers are a type of assistive technology that reads text that is displayed on the screen. They are used
+      by people who are blind or visually impaired. Screen readers are a form of assistive technology that are essential for
+      people who are blind or visually impaired. They are used to read text that is displayed on the screen, and they can also be
+      used to navigate through websites and other applications.
+    </p>
+    <p>A couple of movies as examples what it does and what can go wrong with screen readers:</p>
+    <div class="flex flex-row gap-4">
+      <iframe
+        class="youtube-embed"
+        height="300"
+        src="https://www.youtube.com/embed/BDPMUq__gIM"
+        title="What ARIA is and its impact on accessibility - by Popetech"
+        width="500"
+      ></iframe>
+      <iframe
+        class="youtube-embed"
+        height="300"
+        src="https://www.youtube.com/embed/dEbl5jvLKGQ"
+        title="Screen Reader Demo for Digital Accessibility - by Marc Sutton"
+        width="500"
+      ></iframe>
+    </div>
+    <p>
+      More info:
+      <a
+        aria-label="Axess Lab - What is a screen reader - explanation and details"
+        href="https://axesslab.com/what-is-a-screen-reader/"
+        target="_blank"
+        title="Axess Lab - What is a screen reader - explanation and details"
+        >https://axesslab.com/what-is-a-screen-reader/</a
+      >
+    </p>
+  </ae-card>
+  <ae-card>
+    <h3>Preparation</h3>
+    <p>
+      First, download a screen reader, install it and have it running. We recommend Chrome Screen Reader, an extension for any
+      Chrome based browser.
+      <a
+        href="https://chromewebstore.google.com/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn"
+        target="_blank"
+        >You can download it here</a
+      >. Important keys for using it, are the [Ctrl] + [Shift] keys. It acts as a modifyer to access various settings and navigate
+      the page. Instead of just tabbing, you can use [Ctrl] + [Shift] + [Arrows] to navigate around the page to have it tell if
+      something is a header or a list item and if so how many items are in the list.<br />
+      Look at the video below how it works and how to use it:
+    </p>
+    <iframe
+      class="youtube-embed"
+      height="300"
+      src="https://www.youtube.com/embed/0hqhAIjE_8I"
+      title="ARIA HTML Tutorial - What is ARIA & Why it's Important to Use! - by DesignCourse"
+      width="500"
+    ></iframe>
+    <p>
+      Alternatively you can use NVDA (Non Visual Desktop Access) for Windows devices, which is a better tool than some of the
+      native screen readers and can be used outside of the browser as well. You can download it here:
+      <a
+        aria-label="NVDA download page"
+        href="https://www.nvaccess.org/download/"
+        target="_blank"
+        title="NVDA download page"
+        >https://www.nvaccess.org/download/</a
+      >. Be aware that it will play audio and start talking when you run the installer.
+    </p>
+    <p>
+      Once running you can adjust settings or use shortcuts. There is an overview of shortcuts here:
+      <a
+        aria-label="NVDA key commands"
+        href="https://www.nvaccess.org/files/nvdaTracAttachments/455/keycommands%20with%20laptop%20keyboard%20layout.html"
+        target="_blank"
+        title="NVDA key commands"
+        >https://www.nvaccess.org/files/nvdaTracAttachments/455/keycommands%20with%20laptop%20keyboard%20layout.html</a
+      >, but basically the most important ones are with [Insert] (the NVDA key). [Insert] + S switches modes so you can
+      temporarily pause the voices or hold the Control key to ignore while you hold it.<br />
+      You will find the NVDA icon in system tray for when you want to exit or change settings. You can also change voice settings,
+      change from male to female, change speed and pitch, etc.
+    </p>
+    <p>
+      Be aware: once you run screen reader software, other software might pick up on that and behave differently. VSCode for
+      example will switch and make sounds and whatnot. It will display a label on the bottom-right of the window indicating screen
+      reader mode is enabled.
+    </p>
+  </ae-card>
+  <ae-card>
+    <h3>Experiment</h3>
+    <p>
+      Allright we have 2 panels below. The left is the good example. The right is the bad example. They will not look entirely the
+      same for the sake of the example, but just imagine that they are. Use the screen reader to identify the content and see
+      where it messes up. Can you figure out why? And how would we fix it?
+    </p>
+  </ae-card>
+  <ae-card>
+    <ae-side-by-side-example>
+      <div
+        class="good-screenreader"
+        good
+      >
+        <h3>Good Example</h3>
+        <p>
+          This is a good example of a website that is accessible to screen readers. The content is structured in a way that is
+          easy to navigate, and the text is clear and easy to read. The website also includes alt text for images, which is
+          important for people who are blind or visually impaired. Overall, this website is well-designed and easy to use with a
+          screen reader.
+        </p>
+        <header>
+          <h1>This is my site</h1>
+        </header>
+        <nav class="good-menu">
+          <ul role="navigation">
+            <li>
+              <p-button
+                href="#home"
+                label="home"
+                type="menu"
+              />
+            </li>
+            <li>
+              <p-button
+                href="#about"
+                label="about"
+                type="menu"
+              />
+            </li>
+            <li>
+              <p-button
+                href="#products"
+                label="products"
+                type="menu"
+              />
+            </li>
+          </ul>
+        </nav>
+
+        <main>
+          <article>
+            <h3>Yar Pirate Ipsum</h3>
+            <img
+              alt="A pirates flag"
+              height="213"
+              src="assets/audio/pirate-flag-7541041_640.jpg"
+              width="320"
+            />
+            <p>
+              Jolly Roger pinnace sutler haul wind fluke ye grog blossom boom loaded to the gunwalls hands. Interloper hempen
+              halter ye yard provost Sink me to go on account Jolly Roger scuttle hang the jib. Jury mast man-of-war jack snow
+              pink dead men tell no tales gunwalls parley Plate Fleet squiffy.
+            </p>
+
+            <p>
+              Scuppers splice the main brace deadlights marooned handsomely line belay bowsprit bring a spring upon her cable me.
+              Jury mast gabion rum shrouds black spot cog poop deck careen long boat bilge water. Driver jury mast holystone Jack
+              Tar man-of-war lugger square-rigged galleon gangway rum.
+            </p>
+
+            <p>
+              Sink me pink gunwalls pirate hands cable belay rope's end fire ship me. Poop deck stern Chain Shot Plate Fleet
+              nipperkin gaff clipper pink bilged on her anchor grog blossom. Run a rig lateen sail keel bilged on her anchor Sink
+              me sloop yardarm case shot trysail lass.
+            </p>
+          </article>
+          <aside>
+            <h4>Items</h4>
+            <ul>
+              <li>Some item</li>
+              <li>Some other item</li>
+              <li>Some new item</li>
+              <li>Some old item</li>
+            </ul>
+          </aside>
+        </main>
+
+        <footer>&copy; Some Site</footer>
+      </div>
+      <div
+        bad
+        class="bad-screenreader"
+      >
+        <h3>Bad Example</h3>
+        <p>
+          This is a bad example of a website that is not accessible to screen readers. The content is not structured in a way that
+          is easy to navigate, and the text is not clear and easy to read. The website also does not include alt text for images,
+          which is important for people who are blind or visually impaired. Overall, this website is poorly designed and difficult
+          to use with a screen reader.
+        </p>
+        <div class="header">
+          <div class="header-text">This is my site</div>
+        </div>
+
+        <div class="nav bad-menu">
+          <button
+            type="button"
+            (click)="doSomething()"
+          >
+            Home
+          </button>
+          <button
+            type="button"
+            (click)="doSomething()"
+          >
+            About
+          </button>
+          <button
+            type="button"
+            (click)="doSomething()"
+          >
+            Products
+          </button>
+        </div>
+
+        <div class="main">
+          <div class="content">
+            <div class="sub-header-text">Yar Pirate Ipsum</div>
+
+            <img
+              alt="7541041_640.jpg"
+              height="213"
+              src="assets/audio/pirate-flag-7541041_640.jpg"
+              width="320"
+            />
+            <div class="text">
+              Jolly Roger pinnace sutler haul wind fluke ye grog blossom boom loaded to the gunwalls hands. Interloper hempen
+              halter ye yard provost Sink me to go on account Jolly Roger scuttle hang the jib. Jury mast man-of-war jack snow
+              pink dead men tell no tales gunwalls parley Plate Fleet squiffy.
+            </div>
+
+            <div class="text">
+              Scuppers splice the main brace deadlights marooned handsomely line belay bowsprit bring a spring upon her cable me.
+              Jury mast gabion rum shrouds black spot cog poop deck careen long boat bilge water. Driver jury mast holystone Jack
+              Tar man-of-war lugger square-rigged galleon gangway rum.
+            </div>
+
+            <div class="text">
+              Sink me pink gunwalls pirate hands cable belay rope's end fire ship me. Poop deck stern Chain Shot Plate Fleet
+              nipperkin gaff clipper pink bilged on her anchor grog blossom. Run a rig lateen sail keel bilged on her anchor Sink
+              me sloop yardarm case shot trysail lass.
+            </div>
+          </div>
+          <div class="sidebar">
+            <div class="items-header-text">Items</div>
+            <div class="items">
+              <div class="item">Some item</div>
+              <div class="item">Some other item</div>
+              <div class="item">Some new item</div>
+              <div class="item">Some old item</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">&copy; Some Site</div>
+      </div>
+    </ae-side-by-side-example>
+  </ae-card>
+</div>

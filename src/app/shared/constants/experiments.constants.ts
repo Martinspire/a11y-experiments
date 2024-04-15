@@ -110,12 +110,12 @@ export const Experiments: TreeNode[] = [
         data: '/experiments/audio/hearing-loss',
         icon: 'pi pi-fw pi-volume-up',
       },
-    // {
-    //   key: 'screenreader',
-    //   label: 'Screenreader',
-    //   data: '/experiments/audio/screenreader',
-    //   icon: 'pi pi-fw pi-volume-up',
-    // },
+      {
+        key: 'screenreader',
+        label: 'Screenreader',
+        data: '/experiments/audio/screenreader',
+        icon: 'pi pi-fw pi-volume-up',
+      },
     // {
     //   key: 'subtitles',
     //   label: 'Subtitles',

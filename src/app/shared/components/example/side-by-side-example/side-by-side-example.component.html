@@ -1,1 +1,14 @@
-<p>TODO: Side by side example - for reusable styling using</p>
+<div class="side-by-side-container">
+  <div class="good-example">
+    <h1 class="sticky">Good example</h1>
+    <div class="example-content">
+      <ng-content select="[good]" />
+    </div>
+  </div>
+  <div class="bad-example">
+    <h1 class="sticky">Bad example</h1>
+    <div class="example-content">
+      <ng-content select="[bad]" />
+    </div>
+  </div>
+</div>
