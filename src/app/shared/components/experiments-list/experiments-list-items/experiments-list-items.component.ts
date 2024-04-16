@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component, Input,
 } from '@angular/core';
@@ -7,7 +8,7 @@ import { TreeNode } from 'primeng/api';
 @Component({
   selector: 'ae-experiments-list-items',
   standalone: true,
-  imports: [RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './experiments-list-items.component.html',
   styleUrl: './experiments-list-items.component.scss',
 })

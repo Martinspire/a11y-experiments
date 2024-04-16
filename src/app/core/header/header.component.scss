@@ -5,4 +5,20 @@
     font-size: 1.5rem;
     padding: 8px;
   }
+  ::ng-deep .p-menuitem-link-active {
+    background-color: var(--primary-color);
+    color: var(--primary-color-text);
+  }
+  ::ng-deep .p-menuitem.main {
+    & > div > a {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+    &.p-highlight > div > a {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
 }

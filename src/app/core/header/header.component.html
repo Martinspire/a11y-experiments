@@ -1,5 +1,8 @@
 <div class="header-menu">
-  <p-menubar [model]="mainItems">
+  <p-menubar
+    [autoHide]="true"
+    [model]="mainItems"
+  >
     <ng-template pTemplate="start">
       <div class="flex title">
         <span>A11y Experiments</span>

@@ -7,7 +7,14 @@
     </p>
     <p>
       The way to visualise hearing loss is with an Audiogram, which is also set up with hearing tests to indicate the loss and is
-      the baseline for setting up hearing aids.
+      the baseline for setting up hearing aids. Alternatively you can rudimentary test your hearing with the following test:
+      <a
+        href="https://www.checkhearing.org/index.php"
+        target="_blank"
+        title="Check Hearing test and information page"
+        >https://www.checkhearing.org/index.php</a
+      >, which has a few tests available to check your hearing (mainly if you use the hamburger-button on the top-right of the
+      page to see what they have).
     </p>
     <p>
       An audiogram is a graph with frequency horizontally and loudness vertically. There will be various dots on the chart and if
@@ -56,7 +63,7 @@
               placeholder="Select an audiogram"
               [group]="true"
               [options]="audiograms"
-              (onChange)="setData($event)"
+              (onChange)="setAudiogram($event)"
             >
               <ng-template
                 let-group
@@ -74,7 +81,19 @@
   </ae-card>
   <ae-card>
     <h3>Sounds</h3>
+    <div class="audio-selection">
+      <label for="select-file">Select file to play</label>
+      <p-dropdown
+        id="select-file"
+        optionLabel="label"
+        placeholder="Select an audio file"
+        [options]="audioFiles"
+        [(ngModel)]="player.currentFile"
+        (onChange)="changeAudioFile($event.value)"
+      />
+    </div>
     <div class="audio-player">
+      <h5>Control playback:</h5>
       <p-toolbar color="primary">
         <div class="p-toolbar-group-start">
           <div class="current-time">{{ player.currentTime ?? '-' }}</div>
@@ -92,30 +111,32 @@
         </div>
         <div class="p-toolbar-group-center flex flex-row gap-2">
           <p-button
+            icon="pi pi-play"
+            title="Play audio"
             type="button"
             [disabled]="player.isPlaying || player.currentFile === undefined || player.error !== ''"
             (click)="play()"
-          >
-            <p-button icon="pi pi-play" />
-          </p-button>
+          />
           <p-button
+            icon="pi pi-pause"
+            title="Pause audio"
             type="button"
             [disabled]="!player.isPlaying"
             (click)="pause()"
-          >
-            <p-button icon="pi pi-pause" />
-          </p-button>
+          />
         </div>
         <div class="p-toolbar-group-end">
           <div class="loop-button">
             <p-button
+              title="Play audio loop/once"
               type="button"
-              [icon]="player.loop ? 'pi pi-arrow-right-arrow-left' : 'pi pi-arrow-right'"
+              [icon]="player.loop ? 'pi pi-sync' : 'pi pi-arrow-circle-right'"
               (click)="toggleLoop()"
             />
           </div>
           <div class="mute-button">
             <p-button
+              title="Mute/Unmute audio"
               type="button"
               [icon]="player.volume === 0 ? 'pi pi-volume-off' : 'pi pi-volume-up'"
               (click)="toggleMute()"
@@ -145,17 +166,6 @@
         <h2>Er ging wat fout:</h2>
         <p>{{ player.error }}</p>
       }
-    </div>
-    <div class="audio-selection">
-      <label for="select-file">Select file to play</label>
-      <p-dropdown
-        id="select-file"
-        optionLabel="label"
-        placeholder="Select an audio file"
-        [options]="audioFiles"
-        [(ngModel)]="player.currentFile"
-        (onChange)="changeAudioFile($event.value)"
-      />
     </div>
   </ae-card>
 </div>

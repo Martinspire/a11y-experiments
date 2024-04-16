@@ -1,0 +1,34 @@
+<div class="posters">
+  <h1>A11y informational posters</h1>
+  <p>Here you can find some informational posters to share around. Various languages are available.</p>
+  <p>
+    Courtesy of UK Home Office (they have more languages) -
+    <a
+      href="https://github.com/UKHomeOffice/posters"
+      target="_blank"
+      title="UK Home Office Github - Posters"
+      >https://github.com/UKHomeOffice/posters</a
+    >
+  </p>
+  <div class="flex flex-column gap-4 my-4">
+    <label for="language">Select language for posters</label>
+    <p-dropdown
+      optionLabel="label"
+      placeholder="Select language for posters"
+      [options]="posterLanguages"
+      [(ngModel)]="selectedLanguage"
+    />
+  </div>
+  <div class="poster-container">
+    @if (selectedLanguage) {
+      @for (poster of selectedLanguage.values; track poster) {
+        <div class="poster">
+          <ae-embed-pdf
+            [url]="repoUrl + poster"
+            [useProxy]="true"
+          />
+        </div>
+      }
+    }
+  </div>
+</div>

@@ -7,6 +7,14 @@ export const appRoutes: Route[] = [
     loadChildren: () => import('./features/home/home.routes').then(m => m.homeRoutes),
   },
   {
+    path: 'explanation',
+    data: {
+      breadcrumb: 'Explanation',
+      title: 'Explanation',
+    },
+    loadChildren: () => import('./features/explanation/explanation.routes').then(m => m.explanationRoutes),
+  },
+  {
     path: 'experiments',
     data: {
       breadcrumb: 'Experiments',

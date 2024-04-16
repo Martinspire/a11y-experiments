@@ -1,0 +1,9 @@
+.side-tree {
+  ::ng-deep .p-treenode.disabled {
+    cursor: not-allowed;
+    color: #999;
+  }
+  ::ng-deep .p-tree .p-tree-container .p-treenode:focus > .p-treenode-content {
+    box-shadow: none;
+  }
+}

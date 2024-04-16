@@ -39,52 +39,60 @@
   .sm-min\:flex-none {
     flex: none !important;
   }
-  .sm\:.flex-1,
-  .sm-min\:.flex-1 {
+  .sm\:flex,
+  .sm-min\:flex {
+    display: flex !important;
+  }
+  .sm\:hidden,
+  .sm-min\:hidden {
+    display: none !important;
+  }
+  .sm\:flex-1,
+  .sm-min\:flex-1 {
     flex: 1 1 0% !important;
   }
-  .sm\:.flex-2,
-  .sm-min\:.flex-2 {
+  .sm\:flex-2,
+  .sm-min\:flex-2 {
     flex: 2 2 0% !important;
   }
-  .sm\:.flex-3,
-  .sm-min\:.flex-3 {
+  .sm\:flex-3,
+  .sm-min\:flex-3 {
     flex: 3 3 0% !important;
   }
-  .sm\:.flex-4,
-  .sm-min\:.flex-4 {
+  .sm\:flex-4,
+  .sm-min\:flex-4 {
     flex: 4 4 0% !important;
   }
-  .sm\:.flex-5,
-  .sm-min\:.flex-5 {
+  .sm\:flex-5,
+  .sm-min\:flex-5 {
     flex: 5 5 0% !important;
   }
-  .sm\:.flex-6,
-  .sm-min\:.flex-6 {
+  .sm\:flex-6,
+  .sm-min\:flex-6 {
     flex: 6 6 0% !important;
   }
-  .sm\:.flex-7,
-  .sm-min\:.flex-7 {
+  .sm\:flex-7,
+  .sm-min\:flex-7 {
     flex: 7 7 0% !important;
   }
-  .sm\:.flex-8,
-  .sm-min\:.flex-8 {
+  .sm\:flex-8,
+  .sm-min\:flex-8 {
     flex: 8 8 0% !important;
   }
-  .sm\:.flex-9,
-  .sm-min\:.flex-9 {
+  .sm\:flex-9,
+  .sm-min\:flex-9 {
     flex: 9 9 0% !important;
   }
-  .sm\:.flex-10,
-  .sm-min\:.flex-10 {
+  .sm\:flex-10,
+  .sm-min\:flex-10 {
     flex: 10 10 0% !important;
   }
-  .sm\:.flex-11,
-  .sm-min\:.flex-11 {
+  .sm\:flex-11,
+  .sm-min\:flex-11 {
     flex: 11 11 0% !important;
   }
-  .sm\:.flex-12,
-  .sm-min\:.flex-12 {
+  .sm\:flex-12,
+  .sm-min\:flex-12 {
     flex: 12 12 0% !important;
   }
 }
@@ -93,52 +101,60 @@
   .md-min\:flex-none {
     flex: none !important;
   }
-  .md\:.flex-1,
-  .md-min\:.flex-1 {
+  .md\:flex,
+  .md-min\:flex {
+    display: flex !important;
+  }
+  .md\:hidden,
+  .md-min\:hidden {
+    display: none !important;
+  }
+  .md\:flex-1,
+  .md-min\:flex-1 {
     flex: 1 1 0% !important;
   }
-  .md\:.flex-2,
-  .md-min\:.flex-2 {
+  .md\:flex-2,
+  .md-min\:flex-2 {
     flex: 2 2 0% !important;
   }
-  .md\:.flex-3,
-  .md-min\:.flex-3 {
+  .md\:flex-3,
+  .md-min\:flex-3 {
     flex: 3 3 0% !important;
   }
-  .md\:.flex-4,
-  .md-min\:.flex-4 {
+  .md\:flex-4,
+  .md-min\:flex-4 {
     flex: 4 4 0% !important;
   }
-  .md\:.flex-5,
-  .md-min\:.flex-5 {
+  .md\:flex-5,
+  .md-min\:flex-5 {
     flex: 5 5 0% !important;
   }
-  .md\:.flex-6,
-  .md-min\:.flex-6 {
+  .md\:flex-6,
+  .md-min\:flex-6 {
     flex: 6 6 0% !important;
   }
-  .md\:.flex-7,
-  .md-min\:.flex-7 {
+  .md\:flex-7,
+  .md-min\:flex-7 {
     flex: 7 7 0% !important;
   }
-  .md\:.flex-8,
-  .md-min\:.flex-8 {
+  .md\:flex-8,
+  .md-min\:flex-8 {
     flex: 8 8 0% !important;
   }
-  .md\:.flex-9,
-  .md-min\:.flex-9 {
+  .md\:flex-9,
+  .md-min\:flex-9 {
     flex: 9 9 0% !important;
   }
-  .md\:.flex-10,
-  .md-min\:.flex-10 {
+  .md\:flex-10,
+  .md-min\:flex-10 {
     flex: 10 10 0% !important;
   }
-  .md\:.flex-11,
-  .md-min\:.flex-11 {
+  .md\:flex-11,
+  .md-min\:flex-11 {
     flex: 11 11 0% !important;
   }
-  .md\:.flex-12,
-  .md-min\:.flex-12 {
+  .md\:flex-12,
+  .md-min\:flex-12 {
     flex: 12 12 0% !important;
   }
 }
@@ -147,52 +163,60 @@
   .lg-min\:flex-none {
     flex: none !important;
   }
-  .lg\:.flex-1,
-  .lg-min\:.flex-1 {
+  .lg\:flex,
+  .lg-min\:flex {
+    display: flex !important;
+  }
+  .lg\:hidden,
+  .lg-min\:hidden {
+    display: none !important;
+  }
+  .lg\:flex-1,
+  .lg-min\:flex-1 {
     flex: 1 1 0% !important;
   }
-  .lg\:.flex-2,
-  .lg-min\:.flex-2 {
+  .lg\:flex-2,
+  .lg-min\:flex-2 {
     flex: 2 2 0% !important;
   }
-  .lg\:.flex-3,
-  .lg-min\:.flex-3 {
+  .lg\:flex-3,
+  .lg-min\:flex-3 {
     flex: 3 3 0% !important;
   }
-  .lg\:.flex-4,
-  .lg-min\:.flex-4 {
+  .lg\:flex-4,
+  .lg-min\:flex-4 {
     flex: 4 4 0% !important;
   }
-  .lg\:.flex-5,
-  .lg-min\:.flex-5 {
+  .lg\:flex-5,
+  .lg-min\:flex-5 {
     flex: 5 5 0% !important;
   }
-  .lg\:.flex-6,
-  .lg-min\:.flex-6 {
+  .lg\:flex-6,
+  .lg-min\:flex-6 {
     flex: 6 6 0% !important;
   }
-  .lg\:.flex-7,
-  .lg-min\:.flex-7 {
+  .lg\:flex-7,
+  .lg-min\:flex-7 {
     flex: 7 7 0% !important;
   }
-  .lg\:.flex-8,
-  .lg-min\:.flex-8 {
+  .lg\:flex-8,
+  .lg-min\:flex-8 {
     flex: 8 8 0% !important;
   }
-  .lg\:.flex-9,
-  .lg-min\:.flex-9 {
+  .lg\:flex-9,
+  .lg-min\:flex-9 {
     flex: 9 9 0% !important;
   }
-  .lg\:.flex-10,
-  .lg-min\:.flex-10 {
+  .lg\:flex-10,
+  .lg-min\:flex-10 {
     flex: 10 10 0% !important;
   }
-  .lg\:.flex-11,
-  .lg-min\:.flex-11 {
+  .lg\:flex-11,
+  .lg-min\:flex-11 {
     flex: 11 11 0% !important;
   }
-  .lg\:.flex-12,
-  .lg-min\:.flex-12 {
+  .lg\:flex-12,
+  .lg-min\:flex-12 {
     flex: 12 12 0% !important;
   }
 }
@@ -201,52 +225,60 @@
   .xl-min\:flex-none {
     flex: none !important;
   }
-  .xl\:.flex-1,
-  .xl-min\:.flex-1 {
+  .xl\:flex,
+  .xl-min\:flex {
+    display: flex !important;
+  }
+  .xl\:hidden,
+  .xl-min\:hidden {
+    display: none !important;
+  }
+  .xl\:flex-1,
+  .xl-min\:flex-1 {
     flex: 1 1 0% !important;
   }
-  .xl\:.flex-2,
-  .xl-min\:.flex-2 {
+  .xl\:flex-2,
+  .xl-min\:flex-2 {
     flex: 2 2 0% !important;
   }
-  .xl\:.flex-3,
-  .xl-min\:.flex-3 {
+  .xl\:flex-3,
+  .xl-min\:flex-3 {
     flex: 3 3 0% !important;
   }
-  .xl\:.flex-4,
-  .xl-min\:.flex-4 {
+  .xl\:flex-4,
+  .xl-min\:flex-4 {
     flex: 4 4 0% !important;
   }
-  .xl\:.flex-5,
-  .xl-min\:.flex-5 {
+  .xl\:flex-5,
+  .xl-min\:flex-5 {
     flex: 5 5 0% !important;
   }
-  .xl\:.flex-6,
-  .xl-min\:.flex-6 {
+  .xl\:flex-6,
+  .xl-min\:flex-6 {
     flex: 6 6 0% !important;
   }
-  .xl\:.flex-7,
-  .xl-min\:.flex-7 {
+  .xl\:flex-7,
+  .xl-min\:flex-7 {
     flex: 7 7 0% !important;
   }
-  .xl\:.flex-8,
-  .xl-min\:.flex-8 {
+  .xl\:flex-8,
+  .xl-min\:flex-8 {
     flex: 8 8 0% !important;
   }
-  .xl\:.flex-9,
-  .xl-min\:.flex-9 {
+  .xl\:flex-9,
+  .xl-min\:flex-9 {
     flex: 9 9 0% !important;
   }
-  .xl\:.flex-10,
-  .xl-min\:.flex-10 {
+  .xl\:flex-10,
+  .xl-min\:flex-10 {
     flex: 10 10 0% !important;
   }
-  .xl\:.flex-11,
-  .xl-min\:.flex-11 {
+  .xl\:flex-11,
+  .xl-min\:flex-11 {
     flex: 11 11 0% !important;
   }
-  .xl\:.flex-12,
-  .xl-min\:.flex-12 {
+  .xl\:flex-12,
+  .xl-min\:flex-12 {
     flex: 12 12 0% !important;
   }
 }
@@ -254,40 +286,46 @@
   .sm-max\:flex-none {
     flex: none !important;
   }
-  .sm-max\:.flex-1 {
+  .sm-max\:flex {
+    display: flex !important;
+  }
+  .sm-max\:hidden {
+    display: none !important;
+  }
+  .sm-max\:flex-1 {
     flex: 1 1 0% !important;
   }
-  .sm-max\:.flex-2 {
+  .sm-max\:flex-2 {
     flex: 2 2 0% !important;
   }
-  .sm-max\:.flex-3 {
+  .sm-max\:flex-3 {
     flex: 3 3 0% !important;
   }
-  .sm-max\:.flex-4 {
+  .sm-max\:flex-4 {
     flex: 4 4 0% !important;
   }
-  .sm-max\:.flex-5 {
+  .sm-max\:flex-5 {
     flex: 5 5 0% !important;
   }
-  .sm-max\:.flex-6 {
+  .sm-max\:flex-6 {
     flex: 6 6 0% !important;
   }
-  .sm-max\:.flex-7 {
+  .sm-max\:flex-7 {
     flex: 7 7 0% !important;
   }
-  .sm-max\:.flex-8 {
+  .sm-max\:flex-8 {
     flex: 8 8 0% !important;
   }
-  .sm-max\:.flex-9 {
+  .sm-max\:flex-9 {
     flex: 9 9 0% !important;
   }
-  .sm-max\:.flex-10 {
+  .sm-max\:flex-10 {
     flex: 10 10 0% !important;
   }
-  .sm-max\:.flex-11 {
+  .sm-max\:flex-11 {
     flex: 11 11 0% !important;
   }
-  .sm-max\:.flex-12 {
+  .sm-max\:flex-12 {
     flex: 12 12 0% !important;
   }
 }
@@ -295,40 +333,46 @@
   .md-max\:flex-none {
     flex: none !important;
   }
-  .md-max\:.md-max\:.flex-1 {
+  .sm-max\:flex {
+    display: flex !important;
+  }
+  .md-max\:hidden {
+    display: none !important;
+  }
+  .md-max\:md-max\:flex-1 {
     flex: 1 1 0% !important;
   }
-  .md-max\:.flex-2 {
+  .md-max\:flex-2 {
     flex: 2 2 0% !important;
   }
-  .md-max\:.flex-3 {
+  .md-max\:flex-3 {
     flex: 3 3 0% !important;
   }
-  .md-max\:.flex-4 {
+  .md-max\:flex-4 {
     flex: 4 4 0% !important;
   }
-  .md-max\:.flex-5 {
+  .md-max\:flex-5 {
     flex: 5 5 0% !important;
   }
-  .md-max\:.flex-6 {
+  .md-max\:flex-6 {
     flex: 6 6 0% !important;
   }
-  .md-max\:.flex-7 {
+  .md-max\:flex-7 {
     flex: 7 7 0% !important;
   }
-  .md-max\:.flex-8 {
+  .md-max\:flex-8 {
     flex: 8 8 0% !important;
   }
-  .md-max\:.flex-9 {
+  .md-max\:flex-9 {
     flex: 9 9 0% !important;
   }
-  .md-max\:.flex-10 {
+  .md-max\:flex-10 {
     flex: 10 10 0% !important;
   }
-  .md-max\:.flex-11 {
+  .md-max\:flex-11 {
     flex: 11 11 0% !important;
   }
-  .md-max\:.flex-12 {
+  .md-max\:flex-12 {
     flex: 12 12 0% !important;
   }
 }
@@ -336,40 +380,46 @@
   .lg-max\:flex-none {
     flex: none !important;
   }
-  .lg-max\:.flex-1 {
+  .lg-max\:flex {
+    display: flex !important;
+  }
+  .lg-max\:hidden {
+    display: none !important;
+  }
+  .lg-max\:flex-1 {
     flex: 1 1 0% !important;
   }
-  .lg-max\:.flex-2 {
+  .lg-max\:flex-2 {
     flex: 2 2 0% !important;
   }
-  .lg-max\:.flex-3 {
+  .lg-max\:flex-3 {
     flex: 3 3 0% !important;
   }
-  .lg-max\:.flex-4 {
+  .lg-max\:flex-4 {
     flex: 4 4 0% !important;
   }
-  .lg-max\:.flex-5 {
+  .lg-max\:flex-5 {
     flex: 5 5 0% !important;
   }
-  .lg-max\:.flex-6 {
+  .lg-max\:flex-6 {
     flex: 6 6 0% !important;
   }
-  .lg-max\:.flex-7 {
+  .lg-max\:flex-7 {
     flex: 7 7 0% !important;
   }
-  .lg-max\:.flex-8 {
+  .lg-max\:flex-8 {
     flex: 8 8 0% !important;
   }
-  .lg-max\:.flex-9 {
+  .lg-max\:flex-9 {
     flex: 9 9 0% !important;
   }
-  .lg-max\:.flex-10 {
+  .lg-max\:flex-10 {
     flex: 10 10 0% !important;
   }
-  .lg-max\:.flex-11 {
+  .lg-max\:flex-11 {
     flex: 11 11 0% !important;
   }
-  .lg-max\:.flex-12 {
+  .lg-max\:flex-12 {
     flex: 12 12 0% !important;
   }
 }
@@ -377,40 +427,46 @@
   .xl-max\:flex-none {
     flex: none !important;
   }
-  .xl-max\:.flex-1 {
+  .xl-max\:flex {
+    display: flex !important;
+  }
+  .xl-max\:hidden {
+    display: none !important;
+  }
+  .xl-max\:flex-1 {
     flex: 1 1 0% !important;
   }
-  .xl-max\:.flex-2 {
+  .xl-max\:flex-2 {
     flex: 2 2 0% !important;
   }
-  .xl-max\:.flex-3 {
+  .xl-max\:flex-3 {
     flex: 3 3 0% !important;
   }
-  .xl-max\:.flex-4 {
+  .xl-max\:flex-4 {
     flex: 4 4 0% !important;
   }
-  .xl-max\:.flex-5 {
+  .xl-max\:flex-5 {
     flex: 5 5 0% !important;
   }
-  .xl-max\:.flex-6 {
+  .xl-max\:flex-6 {
     flex: 6 6 0% !important;
   }
-  .xl-max\:.flex-7 {
+  .xl-max\:flex-7 {
     flex: 7 7 0% !important;
   }
-  .xl-max\:.flex-8 {
+  .xl-max\:flex-8 {
     flex: 8 8 0% !important;
   }
-  .xl-max\:.flex-9 {
+  .xl-max\:flex-9 {
     flex: 9 9 0% !important;
   }
-  .xl-max\:.flex-10 {
+  .xl-max\:flex-10 {
     flex: 10 10 0% !important;
   }
-  .xl-max\:.flex-11 {
+  .xl-max\:flex-11 {
     flex: 11 11 0% !important;
   }
-  .xl-max\:.flex-12 {
+  .xl-max\:flex-12 {
     flex: 12 12 0% !important;
   }
 }

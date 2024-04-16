@@ -132,7 +132,7 @@ export class HearingLossComponent implements OnInit, AfterViewInit {
     });
   }
 
-  setData($event: any): void {
+  setAudiogram($event: any): void {
     const audiogram = $event.value as AudiogramType;
     this.currentData = audiogram;
     this._updateSliders();
@@ -191,11 +191,12 @@ export class HearingLossComponent implements OnInit, AfterViewInit {
   }
 
   changeAudioFile(file: AudioFileInterface): void {
+    if (this.player.isPlaying) {
+      this.pause();
+    }
     this._audio.src = `assets/audio/samples/${file.filename}`;
     this._audio.load();
-    if (this.player.isPlaying) {
-      this.play();
-    }
+    this.play();
   }
 
   private _setAudioFilters() {

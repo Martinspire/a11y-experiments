@@ -1,0 +1,10 @@
+<div
+  class="embedded-pdf"
+  [ngStyle]="{ width: width, height: height }"
+>
+  <iframe
+    class="pdf-embed"
+    [src]="useProxy ? ('https://nbviewer.org/' + url | safeUrl) : (url | safeUrl)"
+    [title]="title"
+  ></iframe>
+</div>

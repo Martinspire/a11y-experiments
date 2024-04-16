@@ -1,7 +1,13 @@
 import {
   Component, OnInit,
 } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { Experiments } from '@shared/constants/experiments.constants';
+import {
+  MainMenuItems, SideMenuItems,
+} from '@shared/constants/header.constants';
+import {
+  MenuItem, TreeNode,
+} from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
@@ -23,7 +29,7 @@ import { MenubarModule } from 'primeng/menubar';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-  mainItems: MenuItem[] = [];
+  mainItems: MenuItem[] = MainMenuItems;
   sideItems: MenuItem[] = [];
   lightIcon = 'pi pi-fw pi-moon';
   darkIcon = 'pi pi-fw pi-sun';
@@ -31,119 +37,7 @@ export class HeaderComponent implements OnInit {
   isLight = true;
 
   ngOnInit() {
-    this.mainItems = [
-      {
-        label: 'Home',
-        icon: 'pi pi-fw pi-home',
-        routerLink: ['/'],
-      },
-      {
-        label: 'Experiments',
-        icon: 'pi pi-fw pi-pencil',
-        routerLink: ['/experiments'],
-        items: [
-          {
-            label: 'Visual',
-            icon: 'pi pi-fw pi-image',
-            routerLink: ['/experiments/visual'],
-          },
-          {
-            label: 'Motion',
-            icon: 'pi pi-fw pi-arrows-alt',
-            routerLink: ['/experiments/motion'],
-          },
-          {
-            label: 'Mind',
-            icon: 'pi pi-fw pi-user',
-            routerLink: ['/experiments/mind'],
-          },
-          {
-            label: 'Audio',
-            icon: 'pi pi-fw pi-volume-up',
-            routerLink: ['/experiments/audio'],
-          },
-        ],
-      },
-      {
-        label: 'Changelog',
-        icon: 'pi pi-fw pi-list',
-        routerLink: ['/changelog'],
-      },
-      {
-        label: 'Examples',
-        icon: 'pi pi-fw pi-bolt',
-        routerLink: ['/examples'],
-        items: [
-          {
-            label: 'Embed',
-            icon: 'pi pi-fw pi-external-link',
-            routerLink: ['/examples/embed'],
-          },
-          {
-            label: 'Graph',
-            icon: 'pi pi-fw pi-chart-bar',
-            routerLink: ['/examples/graph'],
-          },
-          {
-            label: 'Markdown',
-            icon: 'pi pi-fw pi-book',
-            routerLink: ['/examples/markdown'],
-          },
-        ],
-      },
-      {
-        label: 'Teams',
-        icon: 'pi pi-fw pi-users',
-        routerLink: ['/teams'],
-        items: [
-          {
-            label: 'Team 1',
-            icon: 'pi pi-fw pi-users',
-            routerLink: ['/teams/team1'],
-          },
-          {
-            label: 'Team 2',
-            icon: 'pi pi-fw pi-users',
-            routerLink: ['/teams/team2'],
-          },
-          {
-            label: 'Team 3',
-            icon: 'pi pi-fw pi-users',
-            routerLink: ['/teams/team3'],
-          },
-          {
-            label: 'Team 4',
-            icon: 'pi pi-fw pi-users',
-            routerLink: ['/teams/team4'],
-          },
-          {
-            label: 'Team 5',
-            icon: 'pi pi-fw pi-users',
-            routerLink: ['/teams/team5'],
-          },
-          {
-            label: 'Team 6',
-            icon: 'pi pi-fw pi-users',
-            routerLink: ['/teams/team6'],
-          },
-          {
-            label: 'Team 7',
-            icon: 'pi pi-fw pi-users',
-            routerLink: ['/teams/team7'],
-          },
-          {
-            label: 'Team 8',
-            icon: 'pi pi-fw pi-users',
-            routerLink: ['/teams/team8'],
-          },
-          {
-            label: 'Team 9',
-            icon: 'pi pi-fw pi-users',
-            routerLink: ['/teams/team9'],
-          },
-        ],
-      },
-    ];
+    this.mainItems[2].items = this._mapExperiments(Experiments);
 
     this.sideItems = [
       {
@@ -170,13 +64,27 @@ export class HeaderComponent implements OnInit {
         },
         disabled: true,
       },
-      {
-        label: 'Github',
-        icon: 'pi pi-fw pi-github',
-        url: 'https://github.com/martinspire/a11y-experiments',
-        target: '_blank',
-      },
+      ...SideMenuItems,
     ];
+  }
+
+  private _mapExperiments(experiments: TreeNode[]): MenuItem[] {
+    const items: MenuItem[] = [];
+    experiments.forEach((experiment: TreeNode) => {
+      const item: MenuItem = {
+        label: experiment.label,
+        icon: experiment.icon,
+        routerLink: [experiment.data],
+        disabled: experiment.selectable === false,
+      };
+
+      if (experiment.children) {
+        item.items = this._mapExperiments(experiment.children);
+      }
+
+      items.push(item);
+    });
+    return items;
   }
 
   switchThemeLightDark() {

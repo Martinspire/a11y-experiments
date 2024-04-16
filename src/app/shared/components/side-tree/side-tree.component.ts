@@ -1,11 +1,12 @@
+import { DOCUMENT } from '@angular/common';
 import {
-  Component, OnInit,
+  Component, Inject,
 } from '@angular/core';
 import {
-  ActivatedRoute,
   NavigationEnd, Router,
 } from '@angular/router';
 import { Experiments } from '@shared/constants/experiments.constants';
+import { GithubPath } from '@shared/constants/generic.constants';
 import { TreeNode } from 'primeng/api';
 import { TreeModule } from 'primeng/tree';
 import {
@@ -23,33 +24,38 @@ import {
   templateUrl: './side-tree.component.html',
   styleUrl: './side-tree.component.scss',
 })
-export class SideTreeComponent implements OnInit {
+export class SideTreeComponent {
   experiments: TreeNode[] = Experiments;
   selectedExperiment!: TreeNode;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
-
-
-  ngOnInit() {
+  constructor(private router: Router, @Inject(DOCUMENT) private doc: Document) {
     this.router.events.pipe(
       filter(routerEvent => routerEvent instanceof NavigationEnd),
       distinctUntilChanged(),
     ).subscribe((routerEvent) => {
       const url = (routerEvent as NavigationEnd).url;
-      const selectedNode = this.findNodeByUrl(this.experiments, url);
-      if (selectedNode) {
-        this.selectedExperiment = selectedNode;
-      }
+      this._selectNode(url);
     });
+    const path = this.doc.defaultView?.location.pathname?.replaceAll(GithubPath, '');
+    if (path) {
+      this._selectNode(path);
+    }
   }
 
-  findNodeByUrl(nodes: TreeNode[], url: string): TreeNode | undefined {
+  private _selectNode(url: string) {
+    const selectedNode = this._findNodeByUrl(this.experiments, url);
+    if (selectedNode) {
+      this.selectedExperiment = selectedNode;
+    }
+  }
+
+  private _findNodeByUrl(nodes: TreeNode[], url: string): TreeNode | undefined {
     for (const node of nodes) {
       if (node.data === url) {
         return node;
       }
       if (node.children) {
-        const found = this.findNodeByUrl(node.children, url);
+        const found = this._findNodeByUrl(node.children, url);
         if (found) {
           return found;
         }
@@ -60,7 +66,14 @@ export class SideTreeComponent implements OnInit {
 
   selectExperiment($event: any) {
     if ($event.node.data) {
+      $event.node.styleClass = 'active';
       this.router.navigateByUrl($event.node.data);
+    }
+  }
+
+  deSelectExperiment($event: any) {
+    if ($event.node.styleClass) {
+      $event.node.styleClass = '';
     }
   }
 }
