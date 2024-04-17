@@ -9,3 +9,34 @@
   font-weight: bold;
   src: url('../../assets/font/OpenDyslexic3-Bold.ttf');
 }
+
+body {
+  font-size: 16px;
+  &.size-8 {
+    font-size: 8px;
+  }
+  &.size-12 {
+    font-size: 12px;
+  }
+  &.size-16 {
+    font-size: 16px;
+  }
+  &.size-20 {
+    font-size: 20px;
+  }
+  &.size-24 {
+    font-size: 24px;
+  }
+  &.size-28 {
+    font-size: 26px;
+  }
+  &.size-32 {
+    font-size: 32px;
+  }
+  &.size-36 {
+    font-size: 36px;
+  }
+  &.size-40 {
+    font-size: 40px;
+  }
+}

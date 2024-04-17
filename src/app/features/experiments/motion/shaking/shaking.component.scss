@@ -1,8 +1,8 @@
 .demo-container {
   overflow: auto;
-  background-color: var(--surface-ground);
+  background-color: var(--experiment-bg);
   .demo-page {
-    background-color: var(--surface-ground);
+    background-color: var(--experiment-bg);
   }
   .shake-container {
     transform-origin: top left;
@@ -37,5 +37,5 @@
 }
 
 ::ng-deep .p-stepper-panels {
-  background-color: var(--surface-ground);
+  background-color: var(--experiment-bg);
 }

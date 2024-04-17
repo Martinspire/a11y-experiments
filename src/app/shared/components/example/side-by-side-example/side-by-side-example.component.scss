@@ -2,7 +2,7 @@
   display: flex;
   flex: 1;
   flex-direction: row;
-  background-color: var(--surface-ground);
+  background-color: var(--experiment-bg);
   overflow-y: auto;
   border-radius: 5px;
   border: 2px solid #000000;
@@ -19,7 +19,7 @@
   h1.sticky {
     position: sticky;
     top: 0;
-    background-color: var(--surface-ground);
+    background-color: var(--experiment-bg);
     z-index: 1;
   }
   .example-content {

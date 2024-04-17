@@ -6,6 +6,11 @@ import {
   MainMenuItems, SideMenuItems,
 } from '@shared/constants/header.constants';
 import {
+  DarkTheme,
+  LightTheme,
+} from '@shared/constants/theme.constants';
+import { ThemeService } from '@shared/services/theme.service';
+import {
   MenuItem, TreeNode,
 } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -31,10 +36,12 @@ import { MenubarModule } from 'primeng/menubar';
 export class HeaderComponent implements OnInit {
   mainItems: MenuItem[] = MainMenuItems;
   sideItems: MenuItem[] = [];
-  lightIcon = 'pi pi-fw pi-moon';
-  darkIcon = 'pi pi-fw pi-sun';
+  lightIcon = 'pi pi-fw pi-sun';
+  darkIcon = 'pi pi-fw pi-moon';
   currentLightDarkIcon = this.lightIcon;
-  isLight = true;
+  isLight = false;
+
+  constructor(private themeService: ThemeService) { }
 
   ngOnInit() {
     this.mainItems[2].items = this._mapExperiments(Experiments);
@@ -46,7 +53,6 @@ export class HeaderComponent implements OnInit {
         command: () => {
           this.switchThemeLightDark();
         },
-        disabled: true,
       },
       {
         label: 'Decrease font size',
@@ -54,7 +60,6 @@ export class HeaderComponent implements OnInit {
         command: () => {
           this.decreaseFontSize();
         },
-        disabled: true,
       },
       {
         label: 'Increase font size',
@@ -62,7 +67,6 @@ export class HeaderComponent implements OnInit {
         command: () => {
           this.increaseFontSize();
         },
-        disabled: true,
       },
       ...SideMenuItems,
     ];
@@ -88,14 +92,16 @@ export class HeaderComponent implements OnInit {
   }
 
   switchThemeLightDark() {
-    // console.log('switch light/dark');
+    this.isLight = !this.isLight;
+    this.currentLightDarkIcon = this.isLight ? this.lightIcon : this.darkIcon;
+    this.themeService.switchTheme(this.isLight ? LightTheme : DarkTheme);
   }
 
   decreaseFontSize() {
-    // console.log('decrease font size');
+    this.themeService.decreaseFontSize();
   }
 
   increaseFontSize() {
-    // console.log('increase font size');
+    this.themeService.increaseFontSize();
   }
 }
