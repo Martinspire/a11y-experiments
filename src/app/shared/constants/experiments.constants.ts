@@ -129,7 +129,7 @@ export const Experiments: TreeNode[] = [
       {
         key: 'screenreader',
         label: 'Screenreader',
-        data: '/experiments/audio/screenreader',
+        data: '/experiments/visual/screenreader',
         icon: 'pi pi-fw pi-headphones',
       },
     ],
