@@ -68,6 +68,14 @@ export const Experiments: TreeNode[] = [
         data: '/experiments/motion/shaking',
         icon: 'pi pi-fw pi-arrows-alt',
       },
+      {
+        key: 'walking',
+        label: 'Walking',
+        data: '/experiments/motion/walking',
+        icon: 'pi pi-fw pi-angle-double-up',
+        styleClass: 'disabled',
+        selectable: false,
+      },
     ],
   },
   {
@@ -77,6 +85,14 @@ export const Experiments: TreeNode[] = [
     icon: 'pi pi-fw pi-image',
     expanded: true,
     children: [
+      {
+        key: 'blurry-vision',
+        label: 'Blurry Vision',
+        data: '/experiments/visual/blurry-vision',
+        icon: 'pi pi-fw pi-expand',
+        styleClass: 'disabled',
+        selectable: false,
+      },
       {
         key: 'colorblind',
         label: 'Colorblindness',
@@ -105,6 +121,14 @@ export const Experiments: TreeNode[] = [
         ],
       },
       {
+        key: 'contrast',
+        label: 'Contrast',
+        data: '/experiments/visual/contrast',
+        icon: 'pi pi-fw pi-palette',
+        styleClass: 'disabled',
+        selectable: false,
+      },
+      {
         key: 'dyslexia',
         label: 'Dyslexia',
         data: '/experiments/visual/dyslexia',
@@ -131,6 +155,14 @@ export const Experiments: TreeNode[] = [
         label: 'Screenreader',
         data: '/experiments/visual/screenreader',
         icon: 'pi pi-fw pi-headphones',
+      },
+      {
+        key: 'too-small',
+        label: 'Too Small',
+        data: '/experiments/visual/too-small',
+        icon: 'pi pi-fw pi-search-plus',
+        styleClass: 'disabled',
+        selectable: false,
       },
     ],
   },

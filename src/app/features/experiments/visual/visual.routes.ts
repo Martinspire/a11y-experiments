@@ -1,19 +1,30 @@
 import { Route } from '@angular/router';
+import { BlurryVisionComponent } from './blurry-vision/blurry-vision.component';
 import { ColorblindnessFormComponent } from './colorblindness/colorblindness-form/colorblindness-form.component';
 import { ColorblindnessHomeComponent } from './colorblindness/colorblindness-home/colorblindness-home.component';
 import { ColorblindnessImagesComponent } from './colorblindness/colorblindness-images/colorblindness-images.component';
 import { ColorblindnessRealWorldExamplesComponent } from './colorblindness/colorblindness-real-world-examples/colorblindness-real-world-examples.component';
 import { ColorblindnessComponent } from './colorblindness/colorblindness.component';
+import { ContrastComponent } from './contrast/contrast.component';
 import { DyslexiaComponent } from './dyslexia/dyslexia.component';
 import { GlaucomaComponent } from './glaucoma/glaucoma.component';
 import { ImpairmentComponent } from './impairment/impairment.component';
 import { ScreenreaderComponent } from './screenreader/screenreader.component';
+import { TooSmallComponent } from './too-small/too-small.component';
 import { VisualComponent } from './visual.component';
 
 export const visualRoutes: Route[] = [
   {
     path: '',
     component: VisualComponent,
+  },
+  {
+    path: 'blurry-vision',
+    component: BlurryVisionComponent,
+    data: {
+      title: 'Blurry Vision',
+      breadcrumb: 'Blurry Vision',
+    },
   },
   {
     path: 'colorblindness',
@@ -58,6 +69,14 @@ export const visualRoutes: Route[] = [
     ],
   },
   {
+    path: 'contrast',
+    component: ContrastComponent,
+    data: {
+      title: 'Contrast',
+      breadcrumb: 'Contrast',
+    },
+  },
+  {
     path: 'dyslexia',
     component: DyslexiaComponent,
     data: {
@@ -87,6 +106,14 @@ export const visualRoutes: Route[] = [
     data: {
       title: 'Screenreader',
       breadcrumb: 'Screenreader',
+    },
+  },
+  {
+    path: 'too-small',
+    component: TooSmallComponent,
+    data: {
+      title: 'Too Small',
+      breadcrumb: 'Too Small',
     },
   },
 ];
