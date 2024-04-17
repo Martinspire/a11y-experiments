@@ -7,6 +7,7 @@ import { ColorblindnessComponent } from './colorblindness/colorblindness.compone
 import { DyslexiaComponent } from './dyslexia/dyslexia.component';
 import { GlaucomaComponent } from './glaucoma/glaucoma.component';
 import { ImpairmentComponent } from './impairment/impairment.component';
+import { ScreenreaderComponent } from './screenreader/screenreader.component';
 import { VisualComponent } from './visual.component';
 
 export const visualRoutes: Route[] = [
@@ -78,6 +79,14 @@ export const visualRoutes: Route[] = [
     data: {
       title: 'Impairment',
       breadcrumb: 'Impairment',
+    },
+  },
+  {
+    path: 'screenreader',
+    component: ScreenreaderComponent,
+    data: {
+      title: 'Screenreader',
+      breadcrumb: 'Screenreader',
     },
   },
 ];
