@@ -21,8 +21,8 @@
         "eslint:recommended",
         "plugin:@nx/angular",
         "plugin:@nx/typescript",
-        "plugin:import/recommended",
-        "plugin:import/typescript",
+        "plugin:import-x/recommended",
+        "plugin:import-x/typescript",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:@stylistic/recommended-extends",
@@ -234,20 +234,20 @@
         "curly": ["warn", "all"],
         "default-param-last": "off",
         "guard-for-in": ["warn"],
-        "import/default": ["warn"],
-        "import/named": ["warn"],
-        "import/namespace": ["warn"],
-        "import/no-cycle": [
+        "import-x/default": ["warn"],
+        "import-x/named": ["warn"],
+        "import-x/namespace": ["warn"],
+        "import-x/no-cycle": [
           "warn",
           {
             "ignoreExternal": true
           }
         ],
-        "import/no-deprecated": ["warn"],
-        "import/no-duplicates": ["warn"],
-        "import/no-named-as-default": ["warn"],
-        "import/no-named-as-default-member": ["warn"],
-        "import/no-unresolved": ["warn"],
+        "import-x/no-deprecated": ["warn"],
+        "import-x/no-duplicates": ["warn"],
+        "import-x/no-named-as-default": ["warn"],
+        "import-x/no-named-as-default-member": ["warn"],
+        "import-x/no-unresolved": ["warn"],
         "no-alert": ["warn"],
         "no-array-constructor": "warn",
         "no-caller": ["warn"],
@@ -383,7 +383,7 @@
     }
   ],
   "settings": {
-    "import/resolver": {
+    "import-x/resolver": {
       "typescript": {
         "alwaysTryTypes": true
       }
