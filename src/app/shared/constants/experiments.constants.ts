@@ -139,8 +139,6 @@ export const Experiments: TreeNode[] = [
         label: 'Glaucoma',
         data: '/experiments/visual/glaucoma',
         icon: 'pi pi-fw pi-eraser',
-        styleClass: 'disabled',
-        selectable: false,
       },
       {
         key: 'impairment',
