@@ -29,6 +29,7 @@ yarn-error.log
 # misc
 /.angular
 /.nx/cache
+/.nx/workspace-data
 /.sass-cache
 /connect.lock
 /coverage
