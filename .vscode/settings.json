@@ -30,7 +30,6 @@
     "typescript",
     "html"
   ],
-  "explorerExclude.backup": {},
   "explorer.fileNesting.enabled": true,
   "explorer.incrementalNaming": "smart",
   "extensions.ignoreRecommendations": true,
@@ -108,8 +107,5 @@
   "typescript.format.semicolons": "insert",
   "typescript.preferences.quoteStyle": "single",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "update.showReleaseNotes": false,
-  "vsicons.dontShowNewVersionMessage": true,
-  "window.openFoldersInNewWindow": "on",
   "workbench.tips.enabled": false
 }
