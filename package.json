@@ -21,7 +21,7 @@
     "@angular/platform-browser": "18.2.0",
     "@angular/platform-browser-dynamic": "18.2.0",
     "@angular/router": "18.2.0",
-    "@nx/angular": "19.6.0",
+    "@nx/angular": "19.8.3",
     "chart.js": "4.4.3",
     "marked": "12.0.2",
     "ngx-markdown": "18.0.0",
@@ -35,7 +35,7 @@
     "zone.js": "0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "18.2.5",
+    "@angular-devkit/build-angular": "^18.2.7",
     "@angular-devkit/core": "18.2.0",
     "@angular-devkit/schematics": "18.2.0",
     "@angular-eslint/eslint-plugin": "18.3.0",
@@ -45,13 +45,13 @@
     "@angular/compiler-cli": "18.2.0",
     "@angular/language-service": "18.2.0",
     "@ngneat/spectator": "19.0.0",
-    "@nx/devkit": "19.6.0",
-    "@nx/eslint": "19.6.0",
-    "@nx/eslint-plugin": "19.6.0",
-    "@nx/jest": "19.6.0",
-    "@nx/js": "19.6.0",
-    "@nx/playwright": "19.6.0",
-    "@nx/workspace": "19.6.0",
+    "@nx/devkit": "19.8.3",
+    "@nx/eslint": "19.8.3",
+    "@nx/eslint-plugin": "19.8.3",
+    "@nx/jest": "19.8.3",
+    "@nx/js": "19.8.3",
+    "@nx/playwright": "19.8.3",
+    "@nx/workspace": "19.8.3",
     "@playwright/test": "1.46.1",
     "@schematics/angular": "18.2.0",
     "@stylistic/eslint-plugin": "2.6.4",
@@ -75,7 +75,7 @@
     "jest-environment-jsdom": "29.7.0",
     "jest-preset-angular": "14.2.2",
     "ng-mocks": "14.13.0",
-    "nx": "19.6.0",
+    "nx": "19.8.3",
     "prettier": "3.3.3",
     "stylelint": "16.8.2",
     "stylelint-config-standard": "36.0.1",
@@ -87,7 +87,7 @@
     "includedScripts": []
   },
   "overrides": {
-    "@nx/eslint-plugin" : {
+    "@nx/eslint-plugin": {
       "@typescript-eslint/parser": "^8.1.0"
     },
     "@typescript-eslint/utils": {
