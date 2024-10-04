@@ -26,7 +26,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to gh pages
-        run: npm run deploy
+        run: npm run deploy --r https://github.com/Martinspire/a11y-experiments
         env:
           CI: true
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
