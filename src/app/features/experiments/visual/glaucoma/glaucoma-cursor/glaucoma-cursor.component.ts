@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   Component, ElementRef, HostListener, Input,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 
 @Component({

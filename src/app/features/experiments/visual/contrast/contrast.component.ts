@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './contrast.component.html',
-  styleUrl: './contrast.component.scss'
+  styleUrl: './contrast.component.scss',
 })
 export class ContrastComponent {
 

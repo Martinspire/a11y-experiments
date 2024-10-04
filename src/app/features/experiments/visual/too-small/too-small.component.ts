@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './too-small.component.html',
-  styleUrl: './too-small.component.scss'
+  styleUrl: './too-small.component.scss',
 })
 export class TooSmallComponent {
 

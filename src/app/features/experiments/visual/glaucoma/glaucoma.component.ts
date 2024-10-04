@@ -144,6 +144,6 @@ export class GlaucomaComponent implements OnInit {
   }
 
   setVariant() {
-
+    //
   }
 }
