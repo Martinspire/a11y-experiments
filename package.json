@@ -9,7 +9,7 @@
     "test": "nx test",
     "e2e": "nx e2e",
     "nx": "nx",
-    "deploy": "nx deploy"
+    "deploy": "gh-pages -d build -r https://github.com/Martinspire/a11y-experiments"
   },
   "private": true,
   "dependencies": {
