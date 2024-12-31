@@ -1,5 +1,5 @@
-export const DarkTheme = 'lara-dark-blue';
-export const LightTheme = 'lara-light-blue';
+export const DarkTheme = 'dark-theme';
+export const LightTheme = 'light-theme';
 export const FontSizes = [
   8,
   12,

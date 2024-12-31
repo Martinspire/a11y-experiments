@@ -37,7 +37,8 @@
           "defaultConfiguration": "production",
           "options": {
             "allowedCommonJsDependencies": [
-              "quill"
+              "quill",
+              "quill-delta"
             ],
             "assets": [
               "./src/favicon.ico",
@@ -63,8 +64,8 @@
           "builder": "angular-cli-ghpages:deploy",
           "options": {
             "baseHref": "/a11y-experiments/",
-            "email": "deploy@martinspire.nl",
-            "name": "Deploy Bot"
+            "email": "martin@martinspire.nl",
+            "name": "Martinspire"
           }
         },
         "extract-i18n": {

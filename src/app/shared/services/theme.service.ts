@@ -30,11 +30,7 @@ export class ThemeService {
   }
 
   switchTheme(theme: string) {
-    const themelink = this.doc.getElementById('app-theme') as HTMLLinkElement;
-    if (themelink) {
-      themelink.href = theme + '.css';
-    }
-    const body = this.doc.getElementsByTagName('body')[0];
+    const body = this.doc.getElementsByTagName('html')[0];
     if (theme === DarkTheme) {
       body.classList.add('dark-theme');
       body.classList.remove('light-theme');
