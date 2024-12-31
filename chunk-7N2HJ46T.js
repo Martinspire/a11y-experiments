@@ -1,0 +1,1 @@
+import{g as s}from"./chunk-A6STAC2W.js";import{Ta as t,gb as e}from"./chunk-4OQHJA6U.js";var p=(()=>{class r{constructor(i){this.sanitizer=i}transform(i){return this.sanitizer.bypassSecurityTrustResourceUrl(i)}static{this.\u0275fac=function(o){return new(o||r)(t(s,16))}}static{this.\u0275pipe=e({name:"safeUrl",type:r,pure:!0})}}return r})();export{p as a};
