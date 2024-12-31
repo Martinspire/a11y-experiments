@@ -90,9 +90,6 @@ export default [
       "@angular-eslint/relative-url-prefix": [
         "warn"
       ], // (alleen relatieve urls gebruiken, niet op angular vertrouwen)
-      "@angular-eslint/sort-ngmodule-metadata-arrays": [
-        "warn"
-      ], // (sorteer ngmodule metadata arrays)
       "@angular-eslint/use-component-selector": [
         "warn"
       ], // (gebruik component selector bij @component decorator)

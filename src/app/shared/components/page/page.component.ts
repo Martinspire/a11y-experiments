@@ -10,16 +10,11 @@ import {
   filter, map,
 } from 'rxjs';
 import { BreadcrumbsComponent } from '../breadcrumbs/breadcrumbs.component';
-import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'ae-page',
   standalone: true,
-  imports: [
-    BreadcrumbsComponent,
-    CardComponent,
-    CommonModule,
-  ],
+  imports: [BreadcrumbsComponent, CommonModule],
   templateUrl: './page.component.html',
   styleUrl: './page.component.scss',
 })

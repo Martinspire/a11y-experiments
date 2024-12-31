@@ -55,7 +55,7 @@
         <div class="demo-page flex flex-column align-items-center">
           <div class="flex flex-column gap-2">
             <label for="select-audiogram">Select an audiogram</label>
-            <p-dropdown
+            <p-select
               class="audiogram-selector"
               formControlName="selectedAudiogram"
               inputId="select-audiogram"
@@ -73,7 +73,7 @@
                   <span>{{ group.label }}</span>
                 </div>
               </ng-template>
-            </p-dropdown>
+            </p-select>
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@
     <h3>Sounds</h3>
     <div class="audio-selection">
       <label for="select-file">Select file to play</label>
-      <p-dropdown
+      <p-select
         id="select-file"
         optionLabel="label"
         placeholder="Select an audio file"

@@ -2,22 +2,17 @@
   <ae-card>
     <h3>Experience shaking</h3>
     <p>
-      There are various illnesses that result in shaking. This page allows you to browse various videos of people who
-      have trouble
-      controlling their movements. Most famous is parkinson's disease, but there are many other illnesses that result in
-      shaking.
+      There are various illnesses that result in shaking. This page allows you to browse various videos of people who have trouble
+      controlling their movements. Most famous is parkinson's disease, but there are many other illnesses that result in shaking.
     </p>
     <h3>The main issue</h3>
     <p>
-      People with this illness have trouble interacting. They often misclick items and unintentionally click others.
-      This demo
-      consists of two parts, one where you experience shaking and are going to get through a few steps in order to
-      submit a form.
+      People with this illness have trouble interacting. They often misclick items and unintentionally click others. This demo
+      consists of two parts, one where you experience shaking and are going to get through a few steps in order to submit a form.
       The effect is slightly increased to make it more difficult.
     </p>
     <p>
-      This demo is limited to web technologies. If you want to experience a deeper demo, please use a system
-      implementation of
+      This demo is limited to web technologies. If you want to experience a deeper demo, please use a system implementation of
       shaky mouses. (links to follow)
     </p>
     <p>There are solutions available to combat shaking like: <a href="https://www.steadymouse.com">SteadyMouse</a></p>
@@ -25,20 +20,28 @@
   <ae-card>
     <h3>Preparation</h3>
     <p>
-      Since Javascript doesn't allow developers to override the mouse cursor position, it is unfortunately not possible
-      to easily
-      create a demo with working forms. There's a Canvas implementation (for gaming) but that doesn't work properly. So
-      therefor
+      Since Javascript doesn't allow developers to override the mouse cursor position, it is unfortunately not possible to easily
+      create a demo with working forms. There's a Canvas implementation (for gaming) but that doesn't work properly. So therefor
       the only solution to try this demo, is to install a tool, run the script and try it like that.
     </p>
     <p>
       For windows users: we've created a simple exe that can do this and you can download it here:
-      <a download href="assets/motion/shaking.exe">shaking.exe</a>. It is created with a Tool called AutoIt which can be
-      downloaded
-      <a href="https://www.autoitscript.com/site/autoit/downloads/" target="_blank">on their website</a>
+      <a
+        download
+        href="assets/motion/shaking.exe"
+        >shaking.exe</a
+      >. It is created with a Tool called AutoIt which can be downloaded
+      <a
+        href="https://www.autoitscript.com/site/autoit/downloads/"
+        target="_blank"
+        >on their website</a
+      >
       We've used a script which you can also compile and edit yourself with this file:
-      <a download href="assets/motion/shaking.au3">shaking.au3</a>. When using it, press [home] to start the script and
-      press [esc] to exit or [pause] to pause.
+      <a
+        download
+        href="assets/motion/shaking.au3"
+        >shaking.au3</a
+      >. When using it, press [home] to start the script and press [esc] to exit or [pause] to pause.
     </p>
   </ae-card>
   <ae-card>
@@ -50,235 +53,431 @@
           Zoom intensity: <span>{{ experimentConfig.get('zoomIntensity')?.value ?? defaultZoom }}</span>
           <br />
           <br />
-          <p-slider formControlName="zoomIntensity" [max]="5" [min]="0.1" [step]="0.01" />
+          <p-slider
+            formControlName="zoomIntensity"
+            [max]="5"
+            [min]="0.1"
+            [step]="0.01"
+          />
           <br /><br />
         </div>
       </form>
     </div>
     <div class="demo-container">
-      <div class="shake-container" [ngStyle]="{ scale: experimentConfig.get('zoomIntensity')?.value ?? defaultZoom }">
+      <div
+        class="shake-container"
+        [ngStyle]="{ scale: experimentConfig.get('zoomIntensity')?.value ?? defaultZoom }"
+      >
         <form [formGroup]="formGroup">
           <p-stepper>
-            <p-stepperPanel header="Login form">
-              <ng-template let-index="index" let-nextCallback="nextCallback" pTemplate="content">
-                <div class="demo-page flex flex-column align-items-center">
-                  <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6">
-                    <div class="text-center mb-5">
-                      <img alt="logo" class="mb-3" height="50"
-                           src="https://blocks.primeng.org/assets/images/blocks/logos/hyper.svg" />
-                      <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
-                      <span class="text-600 font-medium line-height-3">Don't have an account?</span>
-                      <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
-                    </div>
-
-                    <div>
-                      <label class="block text-900 font-medium mb-2" for="email1">Email</label>
-                      <input class="w-full mb-3" id="email1" pInputText placeholder="Email address" type="text" />
-
-                      <label class="block text-900 font-medium mb-2" for="password1">Password</label>
-                      <input class="w-full mb-3" id="password1" pInputText placeholder="Password" type="password" />
-
-                      <div class="flex align-items-center justify-content-between mb-6">
-                        <div class="flex align-items-center">
-                          <p-checkbox id="rememberme1" styleClass="mr-2" [binary]="true" />
-                          <label class="text-900" for="rememberme1">Remember me</label>
-                        </div>
-                        <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot
-                          password?</a>
-                      </div>
-                      <div>
-                        <div class="assignment">
-                          <ul>
-                            <li>Fill in some random user/pass and check forgot before you continue with the button</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <button class="w-full" icon="pi pi-user" pButton pRipple type="button"
-                              (onClick)="nextCallback.emit()">
-                        Sign in
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex pt-4 justify-content-end">
-                  <p-button icon="pi pi-arrow-right" iconPos="right" label="Next" size="small"
-                            (onClick)="nextCallback.emit()" />
-                </div>
-              </ng-template>
-            </p-stepperPanel>
-            <p-stepperPanel header="Various inputs">
-              <ng-template let-index="index" let-nextCallback="nextCallback" let-prevCallback="prevCallback"
-                           pTemplate="content">
-                <div class="flex flex-column">
+            <p-step-list>
+              <p-step [value]="1">Login form</p-step>
+              <p-step [value]="2">Various inputs</p-step>
+              <p-step [value]="3">Advanced controls</p-step>
+            </p-step-list>
+            <p-step-panels>
+              <p-step-panel [value]="1">
+                <ng-template
+                  #content
+                  let-activateCallback="activateCallback"
+                >
                   <div class="demo-page flex flex-column align-items-center">
-                    <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6 flex flex-column gap-4">
+                    <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6">
+                      <div class="text-center mb-5">
+                        <img
+                          alt="logo"
+                          class="mb-3"
+                          height="50"
+                          src="https://blocks.primeng.org/assets/images/blocks/logos/hyper.svg"
+                        />
+                        <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
+                        <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+                        <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
+                      </div>
+
                       <div>
-                        <label class="block text-900 font-medium mb-2" for="check">Check</label>
-                        <div class="flex flex-column gap-3">
-                          <p-checkbox formControlName="check1" label="Check this out 1" [binary]="true" />
-                          <p-checkbox formControlName="check2" label="Check this out 2" [binary]="true" />
-                          <p-checkbox formControlName="check3" label="Check this out 3" [binary]="true" />
-                          <p-checkbox formControlName="check4" label="Check this out 4" [binary]="true" />
+                        <label
+                          class="block text-900 font-medium mb-2"
+                          for="email1"
+                          >Email</label
+                        >
+                        <input
+                          class="w-full mb-3"
+                          id="email1"
+                          pInputText
+                          placeholder="Email address"
+                          type="text"
+                        />
+
+                        <label
+                          class="block text-900 font-medium mb-2"
+                          for="password1"
+                          >Password</label
+                        >
+                        <input
+                          class="w-full mb-3"
+                          id="password1"
+                          pInputText
+                          placeholder="Password"
+                          type="password"
+                        />
+
+                        <div class="flex align-items-center justify-content-between mb-6">
+                          <div class="flex align-items-center">
+                            <p-checkbox
+                              id="rememberme1"
+                              styleClass="mr-2"
+                              [binary]="true"
+                            />
+                            <label
+                              class="text-900"
+                              for="rememberme1"
+                              >Remember me</label
+                            >
+                          </div>
+                          <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
+                        </div>
+                        <div>
                           <div class="assignment">
                             <ul>
-                              <li>Have only 2 and 4 checked</li>
+                              <li>Fill in some random user/pass and check forgot before you continue with the button</li>
                             </ul>
                           </div>
                         </div>
-                      </div>
-                      <div>
-                        <label class="block text-900 font-medium mb-2" for="switch">Switch</label>
-                        <p-inputSwitch formControlName="switch">Switch this</p-inputSwitch>
-
-                        <div class="assignment">
-                          <ul>
-                            <li>Enable this switch</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div>
-                        <label class="block text-900 font-medium mb-2" for="radio1">Radio</label>
-                        <div class="flex flex-column gap-3">
-                          <p-radioButton formControlName="radioButton" label="Radio 1" value="radio1" />
-                          <p-radioButton formControlName="radioButton" label="Radio 2" value="radio2" />
-                          <p-radioButton formControlName="radioButton" label="Radio 3" value="radio3" />
-                          <p-radioButton formControlName="radioButton" label="Radio 4" value="radio4" />
-                          <div class="assignment">
-                            <ul>
-                              <li>Select Radio 3</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <label class="block text-900 font-medium mb-2" for="dropdown1">Dropdown</label>
-
-                        <p-dropdown formControlName="dropdown" optionLabel="label" optionValue="value"
-                                    placeholder="Select a Country" [options]="countryOptions" />
-                        <div class="assignment">
-                          <ul>
-                            <li>Select Japan</li>
-                          </ul>
-                        </div>
-                      </div>
-
-                      <div>
-                        <label class="block text-900 font-medium mb-2" for="calendar1">Calendar</label>
-                        <p-calendar dateFormat="dd-mm-yy" formControlName="calendar" [hourFormat]="'24'"
-                                    [inputId]="'calendar1'" [showIcon]="true" [showTime]="true" />
-                        <div class="assignment">
-                          <ul>
-                            <li>Select 17th in the next month</li>
-                          </ul>
-                        </div>
+                        <button
+                          class="w-full"
+                          icon="pi pi-user"
+                          pButton
+                          pRipple
+                          type="button"
+                          (onClick)="activateCallback(2)"
+                        >
+                          Sign in
+                        </button>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="flex pt-4 justify-content-between">
-                  <p-button icon="pi pi-arrow-left" label="Back" size="small" (onClick)="prevCallback.emit()" />
-                  <p-button icon="pi pi-arrow-right" iconPos="right" label="Next" size="small"
-                            (onClick)="nextCallback.emit()" />
-                </div>
-              </ng-template>
-            </p-stepperPanel>
-            <p-stepperPanel header="Advanced controls">
-              <ng-template let-index="index" let-prevCallback="prevCallback" pTemplate="content" size="small">
-                <div class="flex flex-column">
-                  <div class="demo-page flex flex-column align-items-center">
-                    <div class="surface-card p-4 m-4 shadow-2 border-round w-full flex flex-column gap-4">
-                      <div>
-                        <label class="block text-900 font-medium mb-2" for="cascade">Cascade select</label>
-                        <p-cascadeSelect formControlName="cascadeSelect" optionGroupLabel="name" optionLabel="cname"
-                                         placeholder="Select a City" [optionGroupChildren]="['states', 'cities']"
-                                         [options]="cascadeOptions" />
-                        <div class="assignment">
-                          <ul>
-                            <li>Select San Diego USA</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div>
-                        <label class="block text-900 font-medium mb-2" for="colorPicker">Color picker</label>
-                        <p-colorPicker formControlName="colorPicker" />
-                        <div class="assignment">
-                          <ul>
-                            <li>Select light blue</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div>
-                        <label class="block text-900 font-medium mb-2" for="editor">Editor (try the buttons with text
-                          selections)</label>
-                        <div class="editor">
-                          <p-editor formControlName="editor" />
-                        </div>
-                        <div class="assignment">
-                          <ul>
-                            <li>Select the first line and make it bold.</li>
-                            <li>Select the second line and make it italic.</li>
-                            <li>Select the third line and set a different font</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div>
-                        <label class="block text-900 font-medium mb-2" for="knob">Knob</label>
-                        <p-knob formControlName="knob" [max]="100" [min]="0" />
-                        <div class="assignment">
-                          <ul>
-                            <li>Select 48</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="multiselect">
-                        <label class="block text-900 font-medium mb-2" for="multiSelect">MultiSelect</label>
-                        <p-multiSelect formControlName="multiselect" optionLabel="name" placeholder="Select Cities"
-                                       [options]="cities" />
-
-                        <div class="assignment">
-                          <ul>
-                            <li>Select Istanbul and New York</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div>
-                        <label class="block text-900 font-medium mb-2" for="rating">Rating</label>
-                        <p-rating formControlName="rating" [stars]="5" />
-                        <div class="assignment">
-                          <ul>
-                            <li>Rate 4 stars</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div>
-                        <p-pickList breakpoint="1400px" sourceHeader="Available" targetHeader="Selected"
-                                    [dragdrop]="true" [responsive]="true" [source]="sourceProducts"
-                                    [sourceStyle]="{ height: '30rem' }" [target]="targetProducts"
-                                    [targetStyle]="{ height: '30rem' }">
-                          <ng-template let-product pTemplate="item">
-                            <div class="flex flex-wrap p-2 align-items-center gap-3">
-                              <img alt="{item.name}" class="w-4rem shadow-2 flex-shrink-0 border-round"
-                                   [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image" />
-                              <div class="flex-1 flex flex-column gap-2">
-                                <span class="font-bold">{{ product.name }}</span>
-                                <div class="flex align-items-center gap-2">
-                                  <i class="pi pi-tag text-sm"></i>
-                                  <span>{{ product.category }}</span>
-                                </div>
-                              </div>
-                              <span class="font-bold text-900">{{ '$' + product.price }}</span>
+                  <div class="flex pt-4 justify-content-end">
+                    <p-button
+                      icon="pi pi-arrow-right"
+                      iconPos="right"
+                      label="Next"
+                      size="small"
+                      (onClick)="activateCallback(2)"
+                    />
+                  </div>
+                </ng-template>
+              </p-step-panel>
+              <p-step-panel [value]="2">
+                <ng-template
+                  #content
+                  let-activateCallback="activateCallback"
+                >
+                  <div class="flex flex-column">
+                    <div class="demo-page flex flex-column align-items-center">
+                      <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6 flex flex-column gap-4">
+                        <div>
+                          <label
+                            class="block text-900 font-medium mb-2"
+                            for="check"
+                            >Check</label
+                          >
+                          <div class="flex flex-column gap-3">
+                            <p-checkbox
+                              formControlName="check1"
+                              label="Check this out 1"
+                              [binary]="true"
+                            />
+                            <p-checkbox
+                              formControlName="check2"
+                              label="Check this out 2"
+                              [binary]="true"
+                            />
+                            <p-checkbox
+                              formControlName="check3"
+                              label="Check this out 3"
+                              [binary]="true"
+                            />
+                            <p-checkbox
+                              formControlName="check4"
+                              label="Check this out 4"
+                              [binary]="true"
+                            />
+                            <div class="assignment">
+                              <ul>
+                                <li>Have only 2 and 4 checked</li>
+                              </ul>
                             </div>
-                          </ng-template>
-                        </p-pickList>
+                          </div>
+                        </div>
+                        <div>
+                          <label
+                            class="block text-900 font-medium mb-2"
+                            for="switch"
+                            >Switch</label
+                          >
+                          <p-toggleSwitch formControlName="switch">Switch this</p-toggleSwitch>
+
+                          <div class="assignment">
+                            <ul>
+                              <li>Enable this switch</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div>
+                          <label
+                            class="block text-900 font-medium mb-2"
+                            for="radio1"
+                            >Radio</label
+                          >
+                          <div class="flex flex-column gap-3">
+                            <p-radioButton
+                              formControlName="radioButton"
+                              label="Radio 1"
+                              value="radio1"
+                            />
+                            <p-radioButton
+                              formControlName="radioButton"
+                              label="Radio 2"
+                              value="radio2"
+                            />
+                            <p-radioButton
+                              formControlName="radioButton"
+                              label="Radio 3"
+                              value="radio3"
+                            />
+                            <p-radioButton
+                              formControlName="radioButton"
+                              label="Radio 4"
+                              value="radio4"
+                            />
+                            <div class="assignment">
+                              <ul>
+                                <li>Select Radio 3</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <label
+                            class="block text-900 font-medium mb-2"
+                            for="dropdown1"
+                            >Dropdown</label
+                          >
+
+                          <p-select
+                            formControlName="dropdown"
+                            optionLabel="label"
+                            optionValue="value"
+                            placeholder="Select a Country"
+                            [options]="countryOptions"
+                          />
+                          <div class="assignment">
+                            <ul>
+                              <li>Select Japan</li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div>
+                          <label
+                            class="block text-900 font-medium mb-2"
+                            for="calendar1"
+                            >Calendar</label
+                          >
+                          <p-datepicker
+                            dateFormat="dd-mm-yy"
+                            formControlName="calendar"
+                            [hourFormat]="'24'"
+                            [inputId]="'calendar1'"
+                            [showIcon]="true"
+                            [showTime]="true"
+                          />
+                          <div class="assignment">
+                            <ul>
+                              <li>Select 17th in the next month</li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="flex pt-4 justify-content-start">
-                  <p-button icon="pi pi-arrow-left" label="Back" size="small" (onClick)="prevCallback.emit()" />
-                </div>
-              </ng-template>
-            </p-stepperPanel>
+                  <div class="flex pt-4 justify-content-between">
+                    <p-button
+                      icon="pi pi-arrow-left"
+                      label="Back"
+                      size="small"
+                      (onClick)="activateCallback(1)"
+                    />
+                    <p-button
+                      icon="pi pi-arrow-right"
+                      iconPos="right"
+                      label="Next"
+                      size="small"
+                      (onClick)="activateCallback(3)"
+                    />
+                  </div>
+                </ng-template>
+              </p-step-panel>
+              <p-step-panel [value]="3">
+                <ng-template
+                  #content
+                  let-activateCallback="activateCallback"
+                  size="small"
+                >
+                  <div class="flex flex-column">
+                    <div class="demo-page flex flex-column align-items-center">
+                      <div class="surface-card p-4 m-4 shadow-2 border-round w-full flex flex-column gap-4">
+                        <div>
+                          <label
+                            class="block text-900 font-medium mb-2"
+                            for="cascade"
+                            >Cascade select</label
+                          >
+                          <p-cascadeSelect
+                            formControlName="cascadeSelect"
+                            optionGroupLabel="name"
+                            optionLabel="cname"
+                            placeholder="Select a City"
+                            [optionGroupChildren]="['states', 'cities']"
+                            [options]="cascadeOptions"
+                          />
+                          <div class="assignment">
+                            <ul>
+                              <li>Select San Diego USA</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div>
+                          <label
+                            class="block text-900 font-medium mb-2"
+                            for="colorPicker"
+                            >Color picker</label
+                          >
+                          <p-colorPicker formControlName="colorPicker" />
+                          <div class="assignment">
+                            <ul>
+                              <li>Select light blue</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div>
+                          <label
+                            class="block text-900 font-medium mb-2"
+                            for="editor"
+                            >Editor (try the buttons with text selections)</label
+                          >
+                          <div class="editor">
+                            <p-editor formControlName="editor" />
+                          </div>
+                          <div class="assignment">
+                            <ul>
+                              <li>Select the first line and make it bold.</li>
+                              <li>Select the second line and make it italic.</li>
+                              <li>Select the third line and set a different font</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div>
+                          <label
+                            class="block text-900 font-medium mb-2"
+                            for="knob"
+                            >Knob</label
+                          >
+                          <p-knob
+                            formControlName="knob"
+                            [max]="100"
+                            [min]="0"
+                          />
+                          <div class="assignment">
+                            <ul>
+                              <li>Select 48</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="multiselect">
+                          <label
+                            class="block text-900 font-medium mb-2"
+                            for="multiSelect"
+                            >MultiSelect</label
+                          >
+                          <p-multiSelect
+                            formControlName="multiselect"
+                            optionLabel="name"
+                            placeholder="Select Cities"
+                            [options]="cities"
+                          />
+
+                          <div class="assignment">
+                            <ul>
+                              <li>Select Istanbul and New York</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div>
+                          <label
+                            class="block text-900 font-medium mb-2"
+                            for="rating"
+                            >Rating</label
+                          >
+                          <p-rating
+                            formControlName="rating"
+                            [stars]="5"
+                          />
+                          <div class="assignment">
+                            <ul>
+                              <li>Rate 4 stars</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div>
+                          <p-pickList
+                            breakpoint="1400px"
+                            sourceHeader="Available"
+                            targetHeader="Selected"
+                            [dragdrop]="true"
+                            [responsive]="true"
+                            [source]="sourceProducts"
+                            [sourceStyle]="{ height: '30rem' }"
+                            [target]="targetProducts"
+                            [targetStyle]="{ height: '30rem' }"
+                          >
+                            <ng-template
+                              let-product
+                              pTemplate="item"
+                            >
+                              <div class="flex flex-wrap p-2 align-items-center gap-3">
+                                <img
+                                  alt="{item.name}"
+                                  class="w-4rem shadow-2 flex-shrink-0 border-round"
+                                  [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image"
+                                />
+                                <div class="flex-1 flex flex-column gap-2">
+                                  <span class="font-bold">{{ product.name }}</span>
+                                  <div class="flex align-items-center gap-2">
+                                    <i class="pi pi-tag text-sm"></i>
+                                    <span>{{ product.category }}</span>
+                                  </div>
+                                </div>
+                                <span class="font-bold text-900">{{ '$' + product.price }}</span>
+                              </div>
+                            </ng-template>
+                          </p-pickList>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex pt-4 justify-content-start">
+                    <p-button
+                      icon="pi pi-arrow-left"
+                      label="Back"
+                      size="small"
+                      (onClick)="activateCallback(2)"
+                    />
+                  </div>
+                </ng-template>
+              </p-step-panel>
+            </p-step-panels>
           </p-stepper>
         </form>
       </div>

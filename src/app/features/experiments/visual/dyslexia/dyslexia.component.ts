@@ -16,10 +16,10 @@ import { SwapLetters } from '@shared/constants/dyslexia';
 import { WikiService } from '@shared/services/wikipedia.service';
 import { AccordionModule } from 'primeng/accordion';
 import { ButtonModule } from 'primeng/button';
-import { DropdownModule } from 'primeng/dropdown';
-import { InputSwitchModule } from 'primeng/inputswitch';
+import { SelectModule } from 'primeng/select';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SliderModule } from 'primeng/slider';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import {
   Observable, forkJoin,
 } from 'rxjs';
@@ -33,11 +33,11 @@ import {
     CardComponent,
     AccordionModule,
     ButtonModule,
-    DropdownModule,
-    InputSwitchModule,
+    SelectModule,
     SelectButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    ToggleSwitchModule,
   ],
   templateUrl: './dyslexia.component.html',
   styleUrl: './dyslexia.component.scss',

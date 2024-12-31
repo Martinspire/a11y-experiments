@@ -18,7 +18,7 @@
             <p>
               Filter to experience as this as colorblindness: <span>{{ experimentConfig.get('filter')?.value }}</span>
             </p>
-            <p-dropdown
+            <p-select
               formControlName="filter"
               optionLabel="label"
               optionValue="value"
@@ -30,7 +30,7 @@
             <p>
               Visuals that are hard for colorblindness variant : <span>{{ experimentConfig.get('mode')?.value }}</span>
             </p>
-            <p-dropdown
+            <p-select
               formControlName="mode"
               optionLabel="label"
               optionValue="value"
@@ -180,7 +180,7 @@
                     for="switch1"
                     >Switch</label
                   >
-                  <p-inputSwitch>Switch this</p-inputSwitch>
+                  <p-toggleSwitch>Switch this</p-toggleSwitch>
                 </div>
 
                 <div>
@@ -237,7 +237,7 @@
                     >Dropdown</label
                   >
 
-                  <p-dropdown
+                  <p-select
                     optionLabel="label"
                     optionValue="value"
                     placeholder="Select a Country"
@@ -265,7 +265,7 @@
                     for="calendar1"
                     >Calendar</label
                   >
-                  <p-calendar
+                  <p-datepicker
                     [hourFormat]="'24'"
                     [inputId]="'calendar1'"
                     [ngModel]="date"
@@ -302,7 +302,7 @@
                       value="some text value"
                     />
 
-                    <p-dropdown
+                    <p-select
                       class="disabled-dropdown"
                       optionLabel="label"
                       optionValue="value"

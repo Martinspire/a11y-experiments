@@ -16,49 +16,47 @@ import {
 } from '@shared/constants/form.constants';
 import { FakeProductsService } from '@shared/services/fake-products.service';
 import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ColorPickerModule } from 'primeng/colorpicker';
+import { DatePickerModule } from 'primeng/datepicker';
 import { DragDropModule } from 'primeng/dragdrop';
-import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { InputSwitchModule } from 'primeng/inputswitch';
 import { InputTextModule } from 'primeng/inputtext';
 import { KnobModule } from 'primeng/knob';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { PickListModule } from 'primeng/picklist';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
+import { SelectModule } from 'primeng/select';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SliderModule } from 'primeng/slider';
 import { StepperModule } from 'primeng/stepper';
-import { ShakeCursorComponent } from './shake-cursor/shake-cursor.component';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
 @Component({
   selector: 'ae-shaking',
   standalone: true,
   imports: [
     ButtonModule,
-    CalendarModule,
+    DatePickerModule,
     CardComponent,
     CascadeSelectModule,
     CheckboxModule,
     ColorPickerModule,
     CommonModule,
     DragDropModule,
-    DropdownModule,
+    SelectModule,
     EditorModule,
     FloatLabelModule,
     FormsModule,
     InputGroupAddonModule,
     InputGroupModule,
     InputNumberModule,
-    InputSwitchModule,
     InputTextModule,
     KnobModule,
     MultiSelectModule,
@@ -69,7 +67,7 @@ import { ShakeCursorComponent } from './shake-cursor/shake-cursor.component';
     SelectButtonModule,
     SliderModule,
     StepperModule,
-    ShakeCursorComponent,
+    ToggleSwitchModule,
   ],
   templateUrl: './shaking.component.html',
   styleUrl: './shaking.component.scss',
@@ -110,7 +108,7 @@ export class ShakingComponent implements OnInit {
       dropdown: new FormControl(''),
       editor: new FormControl(this.editorContent),
       inputNumber: new FormControl(0),
-      inputSwitch: new FormControl(false),
+      toggleSwitch: new FormControl(false),
       inputText: new FormControl(''),
       knob: new FormControl(24),
       multiselect: new FormControl([]),

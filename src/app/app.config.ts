@@ -4,12 +4,19 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {
   provideRouter, withComponentInputBinding,
 } from '@angular/router';
+import Aura from '@primeng/themes/aura';
 import { provideMarkdown } from 'ngx-markdown';
+import { providePrimeNG } from 'primeng/config';
 import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = { providers: [
-  provideRouter(appRoutes, withComponentInputBinding()),
   provideAnimationsAsync(),
   provideHttpClient(),
   provideMarkdown(),
+  providePrimeNG({
+    theme: {
+      preset: Aura,
+    },
+  }),
+  provideRouter(appRoutes, withComponentInputBinding()),
 ] };

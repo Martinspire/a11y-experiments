@@ -3,16 +3,16 @@ import {
   FormsModule, ReactiveFormsModule,
 } from '@angular/forms';
 import { EmbedPdfComponent } from '@shared/components/embed-pdf/embed-pdf.component';
-import { DropdownModule } from 'primeng/dropdown';
+import { SelectModule } from 'primeng/select';
 
 @Component({
   selector: 'ae-posters',
   standalone: true,
   imports: [
-    DropdownModule,
     EmbedPdfComponent,
     FormsModule,
     ReactiveFormsModule,
+    SelectModule,
   ],
   templateUrl: './posters.component.html',
   styleUrl: './posters.component.scss',

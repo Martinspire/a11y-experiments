@@ -17,27 +17,27 @@ import {
 } from '@shared/constants/form.constants';
 import { FakeProductsService } from '@shared/services/fake-products.service';
 import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ColorPickerModule } from 'primeng/colorpicker';
+import { DatePickerModule } from 'primeng/datepicker';
 import { DragDropModule } from 'primeng/dragdrop';
-import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { InputSwitchModule } from 'primeng/inputswitch';
 import { InputTextModule } from 'primeng/inputtext';
 import { KnobModule } from 'primeng/knob';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { PickListModule } from 'primeng/picklist';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
+import { SelectModule } from 'primeng/select';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SliderModule } from 'primeng/slider';
 import { StepperModule } from 'primeng/stepper';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import { GlaucomaCursorComponent } from './glaucoma-cursor/glaucoma-cursor.component';
 
 @Component({
@@ -45,14 +45,13 @@ import { GlaucomaCursorComponent } from './glaucoma-cursor/glaucoma-cursor.compo
   standalone: true,
   imports: [
     ButtonModule,
-    CalendarModule,
     CardComponent,
     CascadeSelectModule,
     CheckboxModule,
     ColorPickerModule,
     CommonModule,
+    DatePickerModule,
     DragDropModule,
-    DropdownModule,
     EditorModule,
     FloatLabelModule,
     FormsModule,
@@ -60,7 +59,6 @@ import { GlaucomaCursorComponent } from './glaucoma-cursor/glaucoma-cursor.compo
     InputGroupAddonModule,
     InputGroupModule,
     InputNumberModule,
-    InputSwitchModule,
     InputTextModule,
     KnobModule,
     MultiSelectModule,
@@ -68,9 +66,11 @@ import { GlaucomaCursorComponent } from './glaucoma-cursor/glaucoma-cursor.compo
     RadioButtonModule,
     RatingModule,
     ReactiveFormsModule,
+    SelectModule,
     SelectButtonModule,
     SliderModule,
     StepperModule,
+    ToggleSwitchModule,
   ],
   templateUrl: './glaucoma.component.html',
   styleUrl: './glaucoma.component.scss',
@@ -128,7 +128,6 @@ export class GlaucomaComponent implements OnInit {
       dropdown: new FormControl(''),
       editor: new FormControl(this.editorContent),
       inputNumber: new FormControl(0),
-      inputSwitch: new FormControl(false),
       inputText: new FormControl(''),
       knob: new FormControl(24),
       multiselect: new FormControl([]),
@@ -138,6 +137,7 @@ export class GlaucomaComponent implements OnInit {
       slider: new FormControl(0),
       stepper: new FormControl(0),
       switch: new FormControl(false),
+      toggleSwitch: new FormControl(false),
     });
 
     this.experimentConfig = this.formBuilder.group({ variant: new FormControl(this.defaultVariant) });

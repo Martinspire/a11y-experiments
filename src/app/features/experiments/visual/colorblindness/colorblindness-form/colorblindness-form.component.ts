@@ -8,26 +8,26 @@ import {
 import { GenericLabelValueStringInterface } from '@interfaces/generic.interface';
 import { CardComponent } from '@shared/components/card/card.component';
 import { AccordionModule } from 'primeng/accordion';
-import { Message } from 'primeng/api';
+import { ToastMessageOptions } from 'primeng/api/toastmessage';
 import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ColorPickerModule } from 'primeng/colorpicker';
+import { DatePickerModule } from 'primeng/datepicker';
 import { DragDropModule } from 'primeng/dragdrop';
-import { DropdownModule } from 'primeng/dropdown';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { InputSwitchModule } from 'primeng/inputswitch';
 import { InputTextModule } from 'primeng/inputtext';
 import { KnobModule } from 'primeng/knob';
 import { MessagesModule } from 'primeng/messages';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { SelectModule } from 'primeng/select';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SliderModule } from 'primeng/slider';
 import { StepperModule } from 'primeng/stepper';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
 @Component({
   selector: 'ae-colorblindness-form',
@@ -35,20 +35,19 @@ import { StepperModule } from 'primeng/stepper';
   imports: [
     AccordionModule,
     ButtonModule,
-    CalendarModule,
+    DatePickerModule,
     CardComponent,
     CascadeSelectModule,
     CheckboxModule,
     ColorPickerModule,
     CommonModule,
     DragDropModule,
-    DropdownModule,
+    SelectModule,
     FloatLabelModule,
     FormsModule,
     InputGroupAddonModule,
     InputGroupModule,
     InputNumberModule,
-    InputSwitchModule,
     InputTextModule,
     KnobModule,
     MessagesModule,
@@ -57,6 +56,7 @@ import { StepperModule } from 'primeng/stepper';
     SelectButtonModule,
     SliderModule,
     StepperModule,
+    ToggleSwitchModule,
   ],
   templateUrl: './colorblindness-form.component.html',
   styleUrl: './colorblindness-form.component.scss',
@@ -143,7 +143,7 @@ export class ColorblindnessFormComponent implements OnInit {
   date: Date | undefined;
   radio!: string;
   slider = 5;
-  messages: Message[] = [
+  messages: ToastMessageOptions[] = [
     {
       severity: 'warn',
       summary: 'Warning',

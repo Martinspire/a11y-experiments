@@ -20,7 +20,7 @@ import {
 import { AudiogramType } from '@shared/types/audiogram.type';
 import { Chart } from 'chart.js/auto';
 import { ButtonModule } from 'primeng/button';
-import { DropdownModule } from 'primeng/dropdown';
+import { SelectModule } from 'primeng/select';
 import { SliderModule } from 'primeng/slider';
 import { ToolbarModule } from 'primeng/toolbar';
 
@@ -31,7 +31,7 @@ import { ToolbarModule } from 'primeng/toolbar';
     ButtonModule,
     CardComponent,
     CommonModule,
-    DropdownModule,
+    SelectModule,
     FormsModule,
     ReactiveFormsModule,
     SliderModule,

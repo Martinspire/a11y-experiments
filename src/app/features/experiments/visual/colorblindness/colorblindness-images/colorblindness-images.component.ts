@@ -1,5 +1,5 @@
 import {
-  CommonModule, NgOptimizedImage,
+  CommonModule,
 } from '@angular/common';
 import {
   Component, OnInit,
@@ -15,7 +15,6 @@ import { GalleriaModule } from 'primeng/galleria';
     CardComponent,
     CommonModule,
     GalleriaModule,
-    NgOptimizedImage,
   ],
   templateUrl: './colorblindness-images.component.html',
   styleUrl: './colorblindness-images.component.scss',
