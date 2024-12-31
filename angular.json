@@ -64,8 +64,10 @@
           "builder": "angular-cli-ghpages:deploy",
           "options": {
             "baseHref": "/a11y-experiments/",
+            "buildTarget": "a11y-experiments:build:production",
             "email": "martin@martinspire.nl",
-            "name": "Martinspire"
+            "name": "Martinspire",
+            "repo": "https://github.com/Martinspire/a11y-experiments.git"
           }
         },
         "extract-i18n": {
