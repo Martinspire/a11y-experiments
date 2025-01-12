@@ -1,6 +1,4 @@
-import {
-  Component, OnInit,
-} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   ActivatedRoute,
   NavigationEnd,
@@ -23,12 +21,10 @@ interface BreadCrumbsInterface {
   styleUrl: './breadcrumbs.component.scss',
 })
 export class BreadcrumbsComponent implements OnInit {
-  public breadcrumbs: BreadCrumbsInterface[] = [];
+  private activatedRoute = inject(ActivatedRoute);
+  private router = inject(Router);
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-  ) {}
+  public breadcrumbs: BreadCrumbsInterface[] = [];
 
   ngOnInit() {
     this.router.events.pipe(

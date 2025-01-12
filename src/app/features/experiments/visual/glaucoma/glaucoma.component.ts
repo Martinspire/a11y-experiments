@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component, OnInit,
-} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder, FormControl,
   FormGroup,
@@ -76,6 +74,9 @@ import { GlaucomaCursorComponent } from './glaucoma-cursor/glaucoma-cursor.compo
   styleUrl: './glaucoma.component.scss',
 })
 export class GlaucomaComponent implements OnInit {
+  private fakeProductsService = inject(FakeProductsService);
+  private formBuilder = inject(FormBuilder);
+
   experimentConfig!: FormGroup;
   formGroup!: FormGroup;
 
@@ -110,11 +111,6 @@ export class GlaucomaComponent implements OnInit {
 
   sourceProducts: FakeProduct[] = this.fakeProductsService.getProductsData();
   targetProducts: FakeProduct[] = [];
-
-  constructor(
-    private fakeProductsService: FakeProductsService,
-    private formBuilder: FormBuilder,
-  ) { }
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({

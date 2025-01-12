@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {
-  AfterViewInit,
-  Component, ElementRef, OnInit,
-  ViewChild,
+  AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, inject,
 } from '@angular/core';
 import {
   FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule,
@@ -40,7 +38,9 @@ import { ToolbarModule } from 'primeng/toolbar';
   templateUrl: './hearing-loss.component.html',
   styleUrl: './hearing-loss.component.scss',
 })
-export class HearingLossComponent implements OnInit, AfterViewInit {
+export class HearingLossComponent implements OnInit, AfterViewInit, OnDestroy {
+  private formBuilder = inject(FormBuilder);
+
   @ViewChild('audiogram', { read: ElementRef }) audiogram!: ElementRef;
   chart!: Chart;
   experimentConfig!: FormGroup;
@@ -78,9 +78,7 @@ export class HearingLossComponent implements OnInit, AfterViewInit {
   private _audioContext = new AudioContext();
   private _filters: BiquadFilterNode[] = [];
 
-  constructor(
-    private formBuilder: FormBuilder,
-  ) {
+  constructor() {
     this._setAudioFilters();
   }
 
@@ -130,6 +128,12 @@ export class HearingLossComponent implements OnInit, AfterViewInit {
         },
       },
     });
+  }
+
+  ngOnDestroy(): void {
+    this._audio.pause();
+    this._audioContext.close();
+    this._audio.remove();
   }
 
   setAudiogram($event: any): void {
@@ -224,17 +228,20 @@ export class HearingLossComponent implements OnInit, AfterViewInit {
   }
 
   private _registerEvents() {
-    this._audio.addEventListener('error', (error) => {
+    const errorListener = (error: ErrorEvent) => {
       this.player.error = 'An error occurred while loading the audio file.';
       console.error(error);
-    });
+    };
+    this._audio.addEventListener('error', errorListener);
 
-    this._audio.addEventListener('timeupdate', () => {
+    const timeupdateListener = () => {
       this.player.currentTime = Math.round(this._audio.currentTime);
-    });
+    };
+    this._audio.addEventListener('timeupdate', timeupdateListener);
 
-    this._audio.addEventListener('ended', () => {
+    const endedListener = () => {
       this.player.isPlaying = false;
-    });
+    };
+    this._audio.addEventListener('ended', endedListener);
   }
 }

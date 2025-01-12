@@ -1,8 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  AfterViewInit,
-  Component, ElementRef, HostListener, Input, OnDestroy, ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, ViewChild, inject } from '@angular/core';
 
 @Component({
   selector: 'ae-shake-cursor',
@@ -12,6 +9,8 @@ import {
   styleUrl: './shake-cursor.component.scss',
 })
 export class ShakeCursorComponent implements AfterViewInit, OnDestroy {
+  private el = inject(ElementRef);
+
   @Input() multiplier = 5;
   @Input() speed = 200;
   showRealCursor = false;
@@ -27,8 +26,6 @@ export class ShakeCursorComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('fakeCursor', { static: false }) fakeCursor!: ElementRef;
   @ViewChild('fakeContainer', { static: false }) fakeContainer!: ElementRef;
-
-  constructor(private el: ElementRef) {}
 
   ngAfterViewInit() {
     this._updateBounds();

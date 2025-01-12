@@ -1,7 +1,6 @@
 /* eslint-disable */
 export default {
   displayName: 'a11y-experiments',
-  preset: './jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: './coverage/a11y-experiments',
   transform: {

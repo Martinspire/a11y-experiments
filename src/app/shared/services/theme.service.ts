@@ -1,18 +1,18 @@
 import { DOCUMENT } from '@angular/common';
-import {
-  Inject, Injectable,
-} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
   DarkTheme, DefaultFontSize, FontSizes, LightTheme,
 } from '@shared/constants/theme.constants';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
+  private doc = inject<Document>(DOCUMENT);
+
   currentFontSize = DefaultFontSize;
   isFirstFontSize = false;
   isLastFontSize = false;
 
-  constructor(@Inject(DOCUMENT) private doc: Document) {
+  constructor() {
     if (window.matchMedia) {
       this.setThemePreference(window.matchMedia('(prefers-color-scheme: dark)'));
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ($event: MediaQueryListEvent) => {

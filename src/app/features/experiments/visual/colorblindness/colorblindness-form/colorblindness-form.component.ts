@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component, OnInit,
-} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule,
 } from '@angular/forms';
@@ -62,6 +60,8 @@ import { ToggleSwitchModule } from 'primeng/toggleswitch';
   styleUrl: './colorblindness-form.component.scss',
 })
 export class ColorblindnessFormComponent implements OnInit {
+  private formBuilder = inject(FormBuilder);
+
   experimentConfig!: FormGroup;
   modes: GenericLabelValueStringInterface[] = [
     {
@@ -155,8 +155,6 @@ export class ColorblindnessFormComponent implements OnInit {
       detail: 'Message Content',
     },
   ];
-
-  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.experimentConfig = this.formBuilder.group({

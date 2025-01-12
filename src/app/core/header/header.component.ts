@@ -1,6 +1,4 @@
-import {
-  Component, OnInit,
-} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Experiments } from '@shared/constants/experiments.constants';
 import {
   MainMenuItems, SideMenuItems,
@@ -34,14 +32,14 @@ import { MenubarModule } from 'primeng/menubar';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
+  private themeService = inject(ThemeService);
+
   mainItems: MenuItem[] = MainMenuItems;
   sideItems: MenuItem[] = [];
   lightIcon = 'pi pi-fw pi-sun';
   darkIcon = 'pi pi-fw pi-moon';
   currentLightDarkIcon = this.lightIcon;
   isLight = false;
-
-  constructor(private themeService: ThemeService) { }
 
   ngOnInit() {
     this.mainItems[2].items = this._mapExperiments(Experiments);

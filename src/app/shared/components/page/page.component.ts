@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component, OnInit,
-} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import {
   ActivatedRoute, NavigationEnd, Router,
@@ -19,12 +17,10 @@ import { BreadcrumbsComponent } from '../breadcrumbs/breadcrumbs.component';
   styleUrl: './page.component.scss',
 })
 export class PageComponent implements OnInit {
-  title = '';
+  private router = inject(Router);
+  private titleService = inject(Title);
 
-  constructor(
-    private router: Router,
-    private titleService: Title,
-  ) {}
+  title = '';
 
   ngOnInit() {
     this.router.events

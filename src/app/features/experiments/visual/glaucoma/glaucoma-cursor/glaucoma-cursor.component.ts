@@ -1,9 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  AfterViewInit,
-  Component, ElementRef, HostListener, Input,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild, inject } from '@angular/core';
 
 @Component({
   selector: 'ae-glaucoma-cursor',
@@ -13,6 +9,8 @@ import {
   styleUrl: './glaucoma-cursor.component.scss',
 })
 export class GlaucomaCursorComponent implements AfterViewInit {
+  private el = inject(ElementRef);
+
   @Input() variant = '';
   private intervalId: any;
   private counter = 0;
@@ -24,8 +22,6 @@ export class GlaucomaCursorComponent implements AfterViewInit {
   };
 
   @ViewChild('mouseContainer', { static: false }) mouseContainer!: ElementRef;
-
-  constructor(private el: ElementRef) { }
 
   ngAfterViewInit() {
     this._updateBounds();

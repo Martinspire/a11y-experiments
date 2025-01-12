@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
   IWikiQuery, IWikiRestQuery, IWikiResult,
 } from '@interfaces/wiki.interface';
@@ -13,9 +13,8 @@ import { ApiService } from './api.service';
 
 @Injectable({ providedIn: 'root' })
 export class WikiService extends ApiService {
-  constructor(private http: HttpClient) {
-    super();
-  }
+  private http = inject(HttpClient);
+
 
   getWikiRandomArticle(): Observable<IWikiRestQuery> {
     return this.http

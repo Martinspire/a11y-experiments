@@ -1,7 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import {
-  Component, Inject,
-} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   NavigationEnd, Router,
 } from '@angular/router';
@@ -25,10 +23,13 @@ import {
   styleUrl: './side-tree.component.scss',
 })
 export class SideTreeComponent {
+  private router = inject(Router);
+  private doc = inject<Document>(DOCUMENT);
+
   experiments: TreeNode[] = Experiments;
   selectedExperiment!: TreeNode;
 
-  constructor(private router: Router, @Inject(DOCUMENT) private doc: Document) {
+  constructor() {
     this.router.events.pipe(
       filter(routerEvent => routerEvent instanceof NavigationEnd),
       distinctUntilChanged(),

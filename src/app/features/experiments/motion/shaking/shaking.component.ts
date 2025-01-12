@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component, OnInit,
-} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -73,6 +71,9 @@ import { ToggleSwitchModule } from 'primeng/toggleswitch';
   styleUrl: './shaking.component.scss',
 })
 export class ShakingComponent implements OnInit {
+  private fakeProductsService = inject(FakeProductsService);
+  private formBuilder = inject(FormBuilder);
+
   experimentConfig!: FormGroup;
   formGroup!: FormGroup;
 
@@ -90,11 +91,6 @@ export class ShakingComponent implements OnInit {
 
   sourceProducts: FakeProduct[] = this.fakeProductsService.getProductsData();
   targetProducts: FakeProduct[] = [];
-
-  constructor(
-    private fakeProductsService: FakeProductsService,
-    private formBuilder: FormBuilder,
-  ) { }
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({

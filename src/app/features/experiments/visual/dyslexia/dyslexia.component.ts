@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component, OnInit,
-} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -43,6 +41,9 @@ import {
   styleUrl: './dyslexia.component.scss',
 })
 export class DyslexiaComponent implements OnInit {
+  private formBuilder = inject(FormBuilder);
+  private wikiService = inject(WikiService);
+
   articles!: IWikiRestQuery[];
   displayedArticles: IWikiRestQuery[] = [];
   experimentConfig!: FormGroup;
@@ -137,11 +138,6 @@ export class DyslexiaComponent implements OnInit {
 
   demoClass = '';
   mirrorClass = '';
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private wikiService: WikiService,
-  ) {}
 
   ngOnInit(): void {
     this.experimentConfig = this.formBuilder.group({
