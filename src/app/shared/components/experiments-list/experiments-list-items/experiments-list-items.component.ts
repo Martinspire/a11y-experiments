@@ -8,7 +8,6 @@ import { TreeNode } from 'primeng/api';
 
 @Component({
   selector: 'ae-experiments-list-items',
-  standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './experiments-list-items.component.html',
   styleUrl: './experiments-list-items.component.scss',

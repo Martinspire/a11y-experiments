@@ -1,6 +1,4 @@
-import {
-  Spectator, createComponentFactory,
-} from '@ngneat/spectator';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 
 import { SideBySideExampleComponent } from './side-by-side-example.component';
 

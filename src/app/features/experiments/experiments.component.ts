@@ -6,7 +6,6 @@ import { EmptyCardConfig } from '@shared/constants/cards.constants';
 
 @Component({
   selector: 'ae-experiments',
-  standalone: true,
   imports: [
     CardComponent,
     SideTreeComponent,

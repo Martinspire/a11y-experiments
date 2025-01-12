@@ -42,7 +42,6 @@ import { GlaucomaCursorComponent } from './glaucoma-cursor/glaucoma-cursor.compo
 
 @Component({
   selector: 'ae-glaucoma',
-  standalone: true,
   imports: [
     ButtonModule,
     CardComponent,

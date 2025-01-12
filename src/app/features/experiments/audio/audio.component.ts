@@ -4,7 +4,6 @@ import { ExperimentsListComponent } from '@shared/components/experiments-list/ex
 
 @Component({
   selector: 'ae-audio',
-  standalone: true,
   imports: [CardComponent, ExperimentsListComponent],
   templateUrl: './audio.component.html',
   styleUrl: './audio.component.scss',

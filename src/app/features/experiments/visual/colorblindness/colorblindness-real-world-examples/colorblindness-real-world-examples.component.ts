@@ -3,7 +3,6 @@ import { CardComponent } from '@shared/components/card/card.component';
 
 @Component({
   selector: 'ae-colorblindness-real-world-examples',
-  standalone: true,
   imports: [CardComponent],
   templateUrl: './colorblindness-real-world-examples.component.html',
   styleUrl: './colorblindness-real-world-examples.component.scss',

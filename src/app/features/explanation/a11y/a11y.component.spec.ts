@@ -1,6 +1,4 @@
-import {
-  Spectator, createComponentFactory,
-} from '@ngneat/spectator';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 
 import { A11yComponent } from './a11y.component';
 

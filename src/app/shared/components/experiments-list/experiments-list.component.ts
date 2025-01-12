@@ -9,7 +9,6 @@ import { ExperimentsListItemsComponent } from './experiments-list-items/experime
 
 @Component({
   selector: 'ae-experiments-list',
-  standalone: true,
   imports: [
     CommonModule,
     RouterModule,

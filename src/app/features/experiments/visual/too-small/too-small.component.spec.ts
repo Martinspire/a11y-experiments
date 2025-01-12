@@ -1,6 +1,4 @@
-import {
-  Spectator, createComponentFactory,
-} from '@ngneat/spectator';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 
 import { TooSmallComponent } from './too-small.component';
 

@@ -4,7 +4,6 @@ import { ExperimentsCardConfig } from '@shared/constants/cards.constants';
 
 @Component({
   selector: 'ae-experiments-home',
-  standalone: true,
   imports: [CardComponent],
   templateUrl: './experiments-home.component.html',
   styleUrl: './experiments-home.component.scss',

@@ -6,7 +6,6 @@ import { SafeUrlPipe } from '@shared/pipes/safe-url.pipe';
 
 @Component({
   selector: 'ae-embed-youtube',
-  standalone: true,
   imports: [SafeUrlPipe],
   templateUrl: './embed-youtube.component.html',
   styleUrl: './embed-youtube.component.scss',

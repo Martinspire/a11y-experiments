@@ -6,14 +6,11 @@ import { Title } from '@angular/platform-browser';
 import {
   ActivatedRoute, NavigationEnd, Router,
 } from '@angular/router';
-import {
-  filter, map,
-} from 'rxjs';
+import { filter, map } from 'rxjs';
 import { BreadcrumbsComponent } from '../breadcrumbs/breadcrumbs.component';
 
 @Component({
   selector: 'ae-page',
-  standalone: true,
   imports: [BreadcrumbsComponent, CommonModule],
   templateUrl: './page.component.html',
   styleUrl: './page.component.scss',

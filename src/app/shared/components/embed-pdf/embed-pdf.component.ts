@@ -7,7 +7,6 @@ import { SafeUrlPipe } from '@shared/pipes/safe-url.pipe';
 
 @Component({
   selector: 'ae-embed-pdf',
-  standalone: true,
   imports: [SafeUrlPipe, CommonModule],
   templateUrl: './embed-pdf.component.html',
   styleUrl: './embed-pdf.component.scss',

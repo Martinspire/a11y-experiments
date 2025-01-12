@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {
-  FormsModule, ReactiveFormsModule,
-} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from '@shared/components/card/card.component';
 import { SideBySideExampleComponent } from '@shared/components/example/side-by-side-example/side-by-side-example.component';
 import { AccordionModule } from 'primeng/accordion';
@@ -28,7 +26,6 @@ import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
 @Component({
   selector: 'ae-screenreader',
-  standalone: true,
   imports: [
     CardComponent,
     SideBySideExampleComponent,

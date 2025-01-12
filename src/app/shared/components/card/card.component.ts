@@ -10,7 +10,6 @@ import { CardConfigInterface } from '@interfaces/card.interface';
  */
 @Component({
   selector: 'ae-card',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',

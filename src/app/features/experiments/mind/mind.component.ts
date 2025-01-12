@@ -4,7 +4,6 @@ import { ExperimentsListComponent } from '@shared/components/experiments-list/ex
 
 @Component({
   selector: 'ae-mind',
-  standalone: true,
   imports: [CardComponent, ExperimentsListComponent],
   templateUrl: './mind.component.html',
   styleUrl: './mind.component.scss',

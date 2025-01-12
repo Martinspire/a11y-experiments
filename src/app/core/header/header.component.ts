@@ -2,17 +2,13 @@ import {
   Component, OnInit, inject,
 } from '@angular/core';
 import { Experiments } from '@shared/constants/experiments.constants';
-import {
-  MainMenuItems, SideMenuItems,
-} from '@shared/constants/header.constants';
+import { MainMenuItems, SideMenuItems } from '@shared/constants/header.constants';
 import {
   DarkTheme,
   LightTheme,
 } from '@shared/constants/theme.constants';
 import { ThemeService } from '@shared/services/theme.service';
-import {
-  MenuItem, TreeNode,
-} from 'primeng/api';
+import { MenuItem, TreeNode } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
@@ -24,7 +20,6 @@ import { MenubarModule } from 'primeng/menubar';
  */
 @Component({
   selector: 'ae-header',
-  standalone: true,
   imports: [
     MenubarModule,
     MenuModule,

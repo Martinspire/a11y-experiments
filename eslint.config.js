@@ -21,6 +21,15 @@ const ignores = [
   "src/index.html"
 ];
 
+const plugins = {
+  '@typescript-eslint': tsEslint,
+  '@angular-eslint': angularEslint,
+  '@angular-eslint/template': angularTemplate,
+  '@stylistic': stylistic,
+  "only-warn": onlyWarn,
+  'import-x': eslintImport,
+};
+
 export default [
   {
     files: [
@@ -29,14 +38,7 @@ export default [
       "cypress/support/**/*.ts"
     ],
     ignores,
-    plugins: {
-      '@typescript-eslint': tsEslint,
-      '@angular-eslint': angularEslint,
-      '@angular-eslint/template': angularTemplate,
-      '@stylistic': stylistic,
-      "only-warn": onlyWarn,
-      'import-x': eslintImport,
-    },
+    plugins,
     // TODO: processInlineTemplates is not working with eslint v9 flat config yet
     // processor: angularEslint.processInlineTemplates,
     languageOptions: {
@@ -72,30 +74,16 @@ export default [
           "style": "camelCase"
         }
       ], // (directive selector moet prefix app- hebben en camelCase zijn)
-      "@angular-eslint/no-async-lifecycle-method": [
-        "warn"
-      ], // (geen async lifecycle methods, angular wacht daar namelijk niet op )
-      "@angular-eslint/no-conflicting-lifecycle": [
-        "warn"
-      ], // (geen conflicterende lifecycle methods bv. docheck en onchanges)
-      "@angular-eslint/no-lifecycle-call": [
-        "warn"
-      ], // (geen lifecycle methods aanroepen in de component zelf)
-      "@angular-eslint/no-output-native": [
-        "warn"
-      ], // (geen native events gebruiken als naan voor events)
-      "@angular-eslint/no-output-on-prefix": [
-        "warn"
-      ], // output mag niet beginnen met on
-      "@angular-eslint/relative-url-prefix": [
-        "warn"
-      ], // (alleen relatieve urls gebruiken, niet op angular vertrouwen)
-      "@angular-eslint/use-component-selector": [
-        "warn"
-      ], // (gebruik component selector bij @component decorator)
-      "@angular-eslint/use-injectable-provided-in": [
-        "warn"
-      ], // (gebruik providedIn bij @injectable decorator)
+      "@angular-eslint/no-async-lifecycle-method": ["warn"], // (geen async lifecycle methods, angular wacht daar namelijk niet op )
+      "@angular-eslint/no-conflicting-lifecycle": ["warn"], // (geen conflicterende lifecycle methods bv. docheck en onchanges)
+      "@angular-eslint/no-lifecycle-call": ["warn"], // (geen lifecycle methods aanroepen in de component zelf)
+      "@angular-eslint/no-output-native": ["warn"], // (geen native events gebruiken als naan voor events)
+      "@angular-eslint/no-output-on-prefix": ["warn"], // output mag niet beginnen met on
+      "@angular-eslint/prefer-signals": ["warn"], // signals over subjects
+      "@angular-eslint/prefer-standalone": ["warn"], // default standalone
+      "@angular-eslint/relative-url-prefix": ["warn"], // (alleen relatieve urls gebruiken, niet op angular vertrouwen)
+      "@angular-eslint/use-component-selector": ["warn"], // (gebruik component selector bij @component decorator)
+      "@angular-eslint/use-injectable-provided-in": ["warn"], // (gebruik providedIn bij @injectable decorator)
       "@stylistic/array-bracket-newline": [
         "warn",
         {
@@ -120,9 +108,15 @@ export default [
       "@stylistic/dot-location": ["warn", "property"], // (dot op dezelfde regel als property)
       "@stylistic/function-call-spacing": ["warn", "never"], // (geen spatie tussen functie naam en haakjes)
       "@stylistic/function-call-argument-newline": ["warn", "consistent"], // (consistent nieuwe regel voor argumenten)
-      "@stylistic/indent": ["warn", 2, { "SwitchCase": 1 }], // (2 spaties indent, switch case 1 erbij)
+      "@stylistic/function-paren-newline": ["warn", "multiline"], // (min 3 items in function parens)
+      "@stylistic/indent": ["warn", 2, { "SwitchCase": 1, "MemberExpression": 1, "ArrayExpression": 1, "ObjectExpression": 1, "ImportDeclaration": 1 }], // (2 spaties indent, andere items 1 erbij om erving duidelijk te maken)
       "@stylistic/key-spacing": ["warn", { "beforeColon": false, "afterColon": true }], // (geen spatie voor : wel spatie na)
-      "@stylistic/object-curly-newline": ["warn", { "minProperties": 2, "consistent": true }], // (minimaal 2 properties voor nieuwe regel)
+      "@stylistic/object-curly-newline": ["warn", {
+        "ObjectExpression": { "multiline": true, "minProperties": 3, "consistent": true },
+        "ObjectPattern": { "multiline": true, "minProperties": 3, "consistent": true },
+        "ImportDeclaration": { "multiline": true, "minProperties": 3 },
+        "ExportDeclaration": { "multiline": true, "minProperties": 3 },
+      }], // (minimaal 3 properties voor nieuwe regel)
       "@stylistic/object-curly-spacing": ["warn", "always"], // (spaties binnen {} altijd)
       "@stylistic/object-property-newline": ["warn", { "allowAllPropertiesOnSameLine": true }], // (alle properties op dezelfde regel toegestaan)
       "@stylistic/member-delimiter-style": ["warn", {
@@ -189,17 +183,12 @@ export default [
       "curly": ["warn", "all"], // (curly braces verplicht bij if/else/for/while)
       "default-param-last": "off", // disable eslint over typescript-eslint regel
       "guard-for-in": ["warn"], // (gebruik if in for in loop om prototype properties te voorkomen)
-      // "id-denylist": ["warn", "data", "callback"], // (gebruik geen data of callback als variabele naam)
-      // "id-length": ["warn", { "min": 3, "properties": "never" }], // (variabele namen moeten minimaal 3 karakters zijn)
-      "import-x/default": ["off"], // (uit want is niet nodig met typescript en ivm performance)
-      "import-x/named": ["off"], // (uit want is niet nodig met typescript en ivm performance)
-      "import-x/namespace": ["off"], // (uit want is niet nodig met typescript en ivm performance)
-      "import-x/no-cycle": ["off", { "ignoreExternal": true }], // (imports mogen geen cycles hebben om te voorkomen dat ze zichzelf importeren, negeren voor externe imports. uit ivm performance maar af en toe checken kan geen kwaad)
-      "import-x/no-deprecated": ["off"], // (uit ivm performance maar af en toe checken kan geen kwaad)
-      "import-x/no-duplicates": ["off"], // (uit want is niet nodig met typescript en ivm performance)
-      "import-x/no-named-as-default": ["off"], // (uit want is niet nodig met typescript en ivm performance)
-      "import-x/no-named-as-default-member": ["off"], // (uit want is niet nodig met typescript en ivm performance)
-      "import-x/no-unresolved": ["off"], // (uit want is niet nodig met typescript en ivm performance)
+      "id-denylist": ["warn", "callback", "e", "err", "document", "window", "function"], // (gebruik geen data of callback als variabele naam)
+      "import-x/first": ["warn"], // import moet aan het begin van de file staan
+      "import-x/newline-after-import": ["warn"], // import moet gevolgd worden door lege regel
+      "import-x/no-cycle": ["warn", { "ignoreExternal": true }], // (imports mogen geen cycles hebben om te voorkomen dat ze zichzelf importeren, negeren voor externe imports. uit ivm performance maar af en toe checken kan geen kwaad)
+      "import-x/no-deprecated": ["warn"], // geen deprecated packages importeren (alleen bewust uitschakelen met ignore)
+      "import-x/group-exports": ["warn"], // imports grouperen onder enkele item
       "no-alert": ["warn"], // (geen alert gebruiken)
       "no-array-constructor": ["warn"], // (geen array constructor gebruiken, geen Array() maar [], new Array() is wel toegestaan omdat je met new Array(500) een 500 lange array maakt, net als Array.xxx() ook toegestaan is)
       "no-caller": ["warn"], // (geen caller gebruiken, is al tijden deprecated)
@@ -229,10 +218,17 @@ export default [
   {
     files: [
       "src/**/constants/**/*.ts",
+      "src/**/*.constant.ts",
+      "src/**/*.constants.ts",
       "src/**/interfaces/**/*.ts",
+      "src/**/*.interface.ts",
+      "src/**/*.interfaces.ts",
       "src/**/types/**/*.ts",
+      "src/**/*.type.ts",
+      "src/**/*.types.ts",
     ],
     ignores,
+    plugins,
     languageOptions: {
       parser: tsEslintParser,
       globals: {
@@ -248,11 +244,13 @@ export default [
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-magic-numbers": "off",
       "@typescript-eslint/no-shadow": "off",
+      "import-x/group-exports": "off",
     },
   },
   {
-    files: ["src/**/*.spec.ts", "src/test.ts", "src/**/*.mock.ts"],
+    files: ["src/**/*.spec.ts", "src/test.ts", "src/**/*.mock.ts", "src/test-setup.ts"],
     ignores,
+    plugins,
     languageOptions: {
       parser: tsEslintParser,
       globals: {
@@ -283,6 +281,7 @@ export default [
       "@angular-eslint/no-output-native": "off",
       "@angular-eslint/no-output-on-prefix": "off",
       "@angular-eslint/no-lifecycle-call": "off",
+      "@stylistic/function-paren-newline": "off", // (min 3 items in function parens)
       "no-restricted-globals": ["warn", {
           name: "fdescribe",
           message: "Do not commit fdescribe. Use describe instead.",
@@ -296,6 +295,10 @@ export default [
     files: ["e2e/**/*.ts"],
     ...playwright.configs['flat/recommended'],
     ignores,
+    plugins: {
+      ...plugins,
+      playwright,
+    },
     languageOptions: {
       parser: tsEslintParser,
       globals: {
@@ -313,6 +316,7 @@ export default [
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-empty-function": "off",
       "@typescript-eslint/no-magic-numbers": "off",
+      "@stylistic/function-paren-newline": ["error", { "minItems": 3 }], // (min 3 items in function parens)
       "no-restricted-globals": ["warn", {
           name: "fdescribe",
           message: "Do not commit fdescribe. Use describe instead.",

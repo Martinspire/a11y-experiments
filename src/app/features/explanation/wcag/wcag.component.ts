@@ -4,7 +4,6 @@ import { EmbedPdfComponent } from '@shared/components/embed-pdf/embed-pdf.compon
 
 @Component({
   selector: 'ae-wcag',
-  standalone: true,
   imports: [CardComponent, EmbedPdfComponent],
   templateUrl: './wcag.component.html',
   styleUrl: './wcag.component.scss',

@@ -6,7 +6,6 @@ import {
 
 @Component({
   selector: 'ae-shake-cursor',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './shake-cursor.component.html',
   styleUrl: './shake-cursor.component.scss',

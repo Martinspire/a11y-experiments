@@ -3,7 +3,6 @@ import { CardComponent } from '@shared/components/card/card.component';
 
 @Component({
   selector: 'ae-aria',
-  standalone: true,
   imports: [CardComponent],
   templateUrl: './aria.component.html',
   styleUrl: './aria.component.scss',

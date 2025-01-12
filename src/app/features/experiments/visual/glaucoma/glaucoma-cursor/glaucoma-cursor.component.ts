@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import {
-  AfterViewInit, Component, ElementRef, HostListener, inject, input,
+  AfterViewInit, Component, ElementRef,
+  HostListener, inject, input,
   viewChild,
 } from '@angular/core';
 
 @Component({
   selector: 'ae-glaucoma-cursor',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './glaucoma-cursor.component.html',
   styleUrl: './glaucoma-cursor.component.scss',

@@ -7,7 +7,6 @@ import { ChangelogCardConfig } from '@shared/constants/cards.constants';
  */
 @Component({
   selector: 'ae-changelog',
-  standalone: true,
   imports: [CardComponent],
   templateUrl: './changelog.component.html',
   styleUrl: './changelog.component.scss',

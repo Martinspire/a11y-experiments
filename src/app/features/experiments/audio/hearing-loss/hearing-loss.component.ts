@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {
-  AfterViewInit, Component, ElementRef, OnDestroy, OnInit, inject,
-  viewChild,
+  AfterViewInit, Component, ElementRef, OnDestroy, OnInit, inject, viewChild,
 } from '@angular/core';
 import {
   FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule,
@@ -25,7 +24,6 @@ import { ToolbarModule } from 'primeng/toolbar';
 
 @Component({
   selector: 'ae-hearing-loss',
-  standalone: true,
   imports: [
     ButtonModule,
     CardComponent,

@@ -40,7 +40,6 @@ import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
 @Component({
   selector: 'ae-shaking',
-  standalone: true,
   imports: [
     ButtonModule,
     DatePickerModule,

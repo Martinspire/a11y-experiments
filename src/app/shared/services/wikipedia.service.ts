@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import {
-  Injectable, inject,
-} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
   IWikiQuery, IWikiRestQuery, IWikiResult,
 } from '@interfaces/wiki.interface';
@@ -23,12 +21,12 @@ export class WikiService extends ApiService {
       .get<IWikiRestQuery>(ApiConstant.wikiRandomUrl)
       .pipe(
         first(),
-        map((data) => {
-          if (!data?.title || !data?.extract) {
-            console.error('data not right', data);
+        map((wikiData) => {
+          if (!wikiData?.title || !wikiData?.extract) {
+            console.error('data not right', wikiData);
             throw new Error('data not right');
           }
-          return data;
+          return wikiData;
         }),
         catchError(this.handleError),
       );
@@ -39,12 +37,12 @@ export class WikiService extends ApiService {
       .get<IWikiQuery>(ApiConstant.wikiImageUrl + query)
       .pipe(
         first(),
-        map((data) => {
-          if (!data?.query?.pages) {
-            console.error('data not right', data);
+        map((wikiData) => {
+          if (!wikiData?.query?.pages) {
+            console.error('data not right', wikiData);
             throw new Error('data not right');
           }
-          return Object.values(data.query.pages)[0];
+          return Object.values(wikiData.query.pages)[0];
         }),
         catchError(this.handleError),
       );
@@ -55,12 +53,12 @@ export class WikiService extends ApiService {
       .get<IWikiQuery>(ApiConstant.wikiSummaryUrl + query)
       .pipe(
         first(),
-        map((data) => {
-          if (!data?.query?.pages) {
-            console.error('data not right', data);
+        map((wikiData) => {
+          if (!wikiData?.query?.pages) {
+            console.error('data not right', wikiData);
             throw new Error('data not right');
           }
-          return Object.values(data.query.pages)[0];
+          return Object.values(wikiData.query.pages)[0];
         }),
         catchError(this.handleError),
       );

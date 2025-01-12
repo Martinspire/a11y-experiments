@@ -31,7 +31,6 @@ import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
 @Component({
   selector: 'ae-colorblindness-form',
-  standalone: true,
   imports: [
     AccordionModule,
     ButtonModule,

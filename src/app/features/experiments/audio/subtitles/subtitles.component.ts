@@ -4,7 +4,6 @@ import { EmbedYoutubeComponent } from '@shared/components/embed-youtube/embed-yo
 
 @Component({
   selector: 'ae-subtitles',
-  standalone: true,
   imports: [CardComponent, EmbedYoutubeComponent],
   templateUrl: './subtitles.component.html',
   styleUrl: './subtitles.component.scss',

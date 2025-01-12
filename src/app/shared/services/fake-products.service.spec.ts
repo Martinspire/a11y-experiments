@@ -1,6 +1,4 @@
-import {
-  createServiceFactory, SpectatorService,
-} from '@ngneat/spectator';
+import { createServiceFactory, SpectatorService } from '@ngneat/spectator';
 import { FakeProductsService } from './fake-products.service';
 
 describe('FakeProductsService', () => {

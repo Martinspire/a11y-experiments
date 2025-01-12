@@ -6,7 +6,6 @@ import { AccordionModule } from 'primeng/accordion';
 
 @Component({
   selector: 'ae-colorblindness-home',
-  standalone: true,
   imports: [
     CardComponent,
     CommonModule,

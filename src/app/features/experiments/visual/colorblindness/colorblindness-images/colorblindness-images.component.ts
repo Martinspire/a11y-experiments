@@ -1,16 +1,11 @@
-import {
-  CommonModule,
-} from '@angular/common';
-import {
-  Component, OnInit,
-} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { CardComponent } from '@shared/components/card/card.component';
 import { ColorblindPhotos } from '@shared/constants/colorblind.constants';
 import { GalleriaModule } from 'primeng/galleria';
 
 @Component({
   selector: 'ae-colorblindness-images',
-  standalone: true,
   imports: [
     CardComponent,
     CommonModule,

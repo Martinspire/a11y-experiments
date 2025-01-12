@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import {
-  FormsModule, ReactiveFormsModule,
-} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmbedPdfComponent } from '@shared/components/embed-pdf/embed-pdf.component';
 import { SelectModule } from 'primeng/select';
 
 @Component({
   selector: 'ae-posters',
-  standalone: true,
   imports: [
     EmbedPdfComponent,
     FormsModule,

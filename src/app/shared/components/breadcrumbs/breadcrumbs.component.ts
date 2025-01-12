@@ -7,9 +7,7 @@ import {
   Router,
   RouterModule,
 } from '@angular/router';
-import {
-  distinctUntilChanged, filter,
-} from 'rxjs';
+import { distinctUntilChanged, filter } from 'rxjs';
 
 interface BreadCrumbsInterface {
   label: string;
@@ -17,7 +15,6 @@ interface BreadCrumbsInterface {
 }
 @Component({
   selector: 'ae-breadcrumbs',
-  standalone: true,
   imports: [RouterModule],
   templateUrl: './breadcrumbs.component.html',
   styleUrl: './breadcrumbs.component.scss',

@@ -20,13 +20,10 @@ import { SelectModule } from 'primeng/select';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SliderModule } from 'primeng/slider';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
-import {
-  Observable, forkJoin,
-} from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'ae-dyslexia',
-  standalone: true,
   imports: [
     SliderModule,
     CommonModule,

@@ -1,6 +1,4 @@
-import {
-  AudioFileInterface, AudiogramGroupInterface,
-} from '@interfaces/audiogram.interface';
+import { AudioFileInterface, AudiogramGroupInterface } from '@interfaces/audiogram.interface';
 import { AudiogramType } from '@shared/types/audiogram.type';
 
 export const AudioFiles: AudioFileInterface[] = [

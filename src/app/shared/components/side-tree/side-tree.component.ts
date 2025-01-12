@@ -1,10 +1,6 @@
 import { DOCUMENT } from '@angular/common';
-import {
-  Component, inject,
-} from '@angular/core';
-import {
-  NavigationEnd, Router,
-} from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { Experiments } from '@shared/constants/experiments.constants';
 import { GithubPath } from '@shared/constants/generic.constants';
 import { TreeNode } from 'primeng/api';
@@ -19,7 +15,6 @@ import {
  */
 @Component({
   selector: 'ae-side-tree',
-  standalone: true,
   imports: [TreeModule],
   templateUrl: './side-tree.component.html',
   styleUrl: './side-tree.component.scss',

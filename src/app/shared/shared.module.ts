@@ -1,9 +1,7 @@
 // Angular Modules
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import {
-  FormsModule, ReactiveFormsModule,
-} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 // PrimeNG Modules
@@ -60,7 +58,6 @@ import { RatingModule } from 'primeng/rating';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { SelectModule } from 'primeng/select';
 import { SelectButtonModule } from 'primeng/selectbutton';
-import { SlideMenuModule } from 'primeng/slidemenu';
 import { SliderModule } from 'primeng/slider';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { StepperModule } from 'primeng/stepper';
@@ -75,7 +72,6 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { TooltipModule } from 'primeng/tooltip';
 import { TreeModule } from 'primeng/tree';
 import { TreeTableModule } from 'primeng/treetable';
-import { VirtualScrollerModule } from 'primeng/virtualscroller';
 
 /**
  * Shared module to import all dependency (Angular and PrimeNG) modules
@@ -146,7 +142,6 @@ const primeNGImports = [
   ScrollPanelModule,
   SelectModule,
   SelectButtonModule,
-  SlideMenuModule,
   SliderModule,
   SplitButtonModule,
   StepperModule,
@@ -161,7 +156,6 @@ const primeNGImports = [
   TooltipModule,
   TreeModule,
   TreeTableModule,
-  VirtualScrollerModule,
 ];
 
 @NgModule({
