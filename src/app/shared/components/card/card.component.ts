@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {
-  Component, Input,
+  Component,
+  input,
 } from '@angular/core';
 import { CardConfigInterface } from '@interfaces/card.interface';
 
@@ -15,5 +16,5 @@ import { CardConfigInterface } from '@interfaces/card.interface';
   styleUrl: './card.component.scss',
 })
 export class CardComponent {
-  @Input() config?: CardConfigInterface;
+  readonly config = input<CardConfigInterface>();
 }

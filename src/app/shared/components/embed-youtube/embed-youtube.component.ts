@@ -1,5 +1,6 @@
 import {
-  Component, Input,
+  Component,
+  input,
 } from '@angular/core';
 import { SafeUrlPipe } from '@shared/pipes/safe-url.pipe';
 
@@ -11,8 +12,10 @@ import { SafeUrlPipe } from '@shared/pipes/safe-url.pipe';
   styleUrl: './embed-youtube.component.scss',
 })
 export class EmbedYoutubeComponent {
-  @Input() videoId!: string; // Youtube ID (the thing behind the v= in the URL)
-  @Input() width = 560; // Width of the video
-  @Input() height = 315; // Height of the video
-  @Input() title = ''; // Title of the video
+  private readonly defaultWidth = 560;
+  private readonly defaultHeight = 315;
+  readonly videoId = input.required<string>(); // Youtube ID (the thing behind the v= in the URL)
+  readonly width = input(this.defaultWidth); // Width of the video
+  readonly height = input(this.defaultHeight); // Height of the video
+  readonly title = input(''); // Title of the video
 }

@@ -1,5 +1,5 @@
 <ul>
-  @for (item of list; track item.key) {
+  @for (item of list(); track item.key) {
     <li>
       <a
         [ngClass]="item.selectable ? 'disabled-link' : ''"

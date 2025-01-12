@@ -1,5 +1,7 @@
 import { DOCUMENT } from '@angular/common';
-import { Injectable, inject } from '@angular/core';
+import {
+  Injectable, inject,
+} from '@angular/core';
 import {
   DarkTheme, DefaultFontSize, FontSizes, LightTheme,
 } from '@shared/constants/theme.constants';

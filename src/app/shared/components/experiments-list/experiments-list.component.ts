@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {
-  Component, Input, OnInit,
+  Component, OnInit, input,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Experiments } from '@shared/constants/experiments.constants';
@@ -21,7 +21,7 @@ import { ExperimentsListItemsComponent } from './experiments-list-items/experime
 export class ExperimentsListComponent implements OnInit {
   experiments: TreeNode[] = [];
   allExperiments: TreeNode[] = Experiments;
-  @Input() selectedKey!: string;
+  readonly selectedKey = input.required<string>();
 
   ngOnInit(): void {
     this.experiments = this.getExperiments(this.allExperiments);
@@ -29,7 +29,7 @@ export class ExperimentsListComponent implements OnInit {
 
   getExperiments(experiments: TreeNode[]): TreeNode[] | [] {
     for (const experiment of experiments) {
-      if (experiment.key === this.selectedKey && experiment.children) {
+      if (experiment.key === this.selectedKey() && experiment.children) {
         return experiment.children;
       } else if (experiment.children) {
         const children = this.getExperiments(experiment.children);

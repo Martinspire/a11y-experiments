@@ -1,5 +1,7 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import {
+  Component, inject,
+} from '@angular/core';
 import {
   NavigationEnd, Router,
 } from '@angular/router';

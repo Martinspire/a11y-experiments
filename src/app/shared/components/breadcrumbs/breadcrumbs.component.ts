@@ -1,4 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  Component, OnInit, inject,
+} from '@angular/core';
 import {
   ActivatedRoute,
   NavigationEnd,

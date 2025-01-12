@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, ViewChild, inject } from '@angular/core';
+import {
+  AfterViewInit, Component, ElementRef, HostListener, OnDestroy, inject, input,
+  viewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'ae-shake-cursor',
@@ -10,9 +13,11 @@ import { AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, V
 })
 export class ShakeCursorComponent implements AfterViewInit, OnDestroy {
   private el = inject(ElementRef);
+  private readonly defaultMultiplier = 5;
+  private readonly defaultSpeed = 200;
 
-  @Input() multiplier = 5;
-  @Input() speed = 200;
+  readonly multiplier = input(this.defaultMultiplier);
+  readonly speed = input(this.defaultSpeed);
   showRealCursor = false;
 
   private intervalId: any;
@@ -24,8 +29,8 @@ export class ShakeCursorComponent implements AfterViewInit, OnDestroy {
     x: 0, y: 0,
   };
 
-  @ViewChild('fakeCursor', { static: false }) fakeCursor!: ElementRef;
-  @ViewChild('fakeContainer', { static: false }) fakeContainer!: ElementRef;
+  readonly fakeCursor = viewChild.required<ElementRef>('fakeCursor');
+  readonly fakeContainer = viewChild.required<ElementRef>('fakeContainer');
 
   ngAfterViewInit() {
     this._updateBounds();
@@ -61,7 +66,7 @@ export class ShakeCursorComponent implements AfterViewInit, OnDestroy {
   }
 
   private _updateBounds() {
-    const rect = this.fakeContainer.nativeElement.getBoundingClientRect();
+    const rect = this.fakeContainer().nativeElement.getBoundingClientRect();
     this.boundsX = rect.left;
     this.boundsY = rect.top;
   }
@@ -70,20 +75,22 @@ export class ShakeCursorComponent implements AfterViewInit, OnDestroy {
     this.intervalId = setInterval(() => {
       const shake = 20;
       const randomMultiplier = 0.5;
-      const x = (Math.random() - randomMultiplier) * shake * this.multiplier;
-      const y = (Math.random() - randomMultiplier) * shake * this.multiplier;
-      this.fakeCursor.nativeElement.style.left = `${this.position.x + x}px`;
-      this.fakeCursor.nativeElement.style.top = `${this.position.y + y}px`;
+      const x = (Math.random() - randomMultiplier) * shake * this.multiplier();
+      const y = (Math.random() - randomMultiplier) * shake * this.multiplier();
+      const fakeCursor = this.fakeCursor();
+      fakeCursor.nativeElement.style.left = `${this.position.x + x}px`;
+      fakeCursor.nativeElement.style.top = `${this.position.y + y}px`;
       this.counter++;
-    }, this.speed); // adjust the interval as needed
+    }, this.speed()); // adjust the interval as needed
     this.showRealCursor = false;
   }
 
   private _stopShaking() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
-      this.fakeCursor.nativeElement.style.left = `${this.position.x}px`;
-      this.fakeCursor.nativeElement.style.top = `${this.position.y}px`;
+      const fakeCursor = this.fakeCursor();
+      fakeCursor.nativeElement.style.left = `${this.position.x}px`;
+      fakeCursor.nativeElement.style.top = `${this.position.y}px`;
       this.counter = 0;
     }
     this.showRealCursor = true;

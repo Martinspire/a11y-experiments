@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  Component, OnInit, inject,
+} from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import {
   ActivatedRoute, NavigationEnd, Router,

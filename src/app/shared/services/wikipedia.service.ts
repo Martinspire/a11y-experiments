@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import {
+  Injectable, inject,
+} from '@angular/core';
 import {
   IWikiQuery, IWikiRestQuery, IWikiResult,
 } from '@interfaces/wiki.interface';

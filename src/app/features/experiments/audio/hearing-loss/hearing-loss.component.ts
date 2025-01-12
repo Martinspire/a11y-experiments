@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {
-  AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, inject,
+  AfterViewInit, Component, ElementRef, OnDestroy, OnInit, inject,
+  viewChild,
 } from '@angular/core';
 import {
   FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule,
@@ -41,7 +42,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 export class HearingLossComponent implements OnInit, AfterViewInit, OnDestroy {
   private formBuilder = inject(FormBuilder);
 
-  @ViewChild('audiogram', { read: ElementRef }) audiogram!: ElementRef;
+  readonly audiogram = viewChild.required('audiogram', { read: ElementRef });
   chart!: Chart;
   experimentConfig!: FormGroup;
   currentData!: AudiogramType;
@@ -92,7 +93,7 @@ export class HearingLossComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.chart = new Chart(this.audiogram.nativeElement, {
+    this.chart = new Chart(this.audiogram().nativeElement, {
       type: 'line',
       data: {
         datasets: [

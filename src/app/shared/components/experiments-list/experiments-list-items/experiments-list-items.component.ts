@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {
-  Component, Input,
+  Component,
+  input,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TreeNode } from 'primeng/api';
@@ -13,5 +14,5 @@ import { TreeNode } from 'primeng/api';
   styleUrl: './experiments-list-items.component.scss',
 })
 export class ExperimentsListItemsComponent {
-  @Input() list: TreeNode[] = [];
+  readonly list = input<TreeNode[]>([]);
 }

@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild, inject } from '@angular/core';
+import {
+  AfterViewInit, Component, ElementRef, HostListener, inject, input,
+  viewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'ae-glaucoma-cursor',
@@ -11,7 +14,7 @@ import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild, i
 export class GlaucomaCursorComponent implements AfterViewInit {
   private el = inject(ElementRef);
 
-  @Input() variant = '';
+  readonly variant = input('');
   private intervalId: any;
   private counter = 0;
   private boundsX = 0;
@@ -21,7 +24,7 @@ export class GlaucomaCursorComponent implements AfterViewInit {
     x: 0, y: 0,
   };
 
-  @ViewChild('mouseContainer', { static: false }) mouseContainer!: ElementRef;
+  readonly mouseContainer = viewChild.required<ElementRef>('mouseContainer');
 
   ngAfterViewInit() {
     this._updateBounds();
@@ -33,7 +36,7 @@ export class GlaucomaCursorComponent implements AfterViewInit {
   }
 
   private _updateBounds() {
-    const rect = this.mouseContainer.nativeElement.getBoundingClientRect();
+    const rect = this.mouseContainer().nativeElement.getBoundingClientRect();
     this.boundsX = rect.left;
     this.boundsY = rect.top;
   }
