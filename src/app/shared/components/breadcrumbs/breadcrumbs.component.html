@@ -16,7 +16,7 @@
       @if ($index !== breadcrumbs.length - 1) {
         <a
           class="text-surface-500 dark:text-surface-300 no-underline leading-normal cursor-pointer"
-          [href]="crumb.url"
+          [routerLink]="crumb.url"
           >{{ crumb.label }}</a
         >
       } @else {
