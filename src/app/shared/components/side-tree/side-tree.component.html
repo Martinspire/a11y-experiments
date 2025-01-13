@@ -1,6 +1,6 @@
 <div class="side-tree">
   <p-tree
-    class="w-full md:w-30rem"
+    class="w-full md:w-[30rem]"
     filterPlaceholder="Filter experiments"
     selectionMode="single"
     [filter]="true"
@@ -8,5 +8,26 @@
     [(selection)]="selectedExperiment"
     (onNodeSelect)="selectExperiment($event)"
     (onNodeUnSelect)="deSelectExperiment($event)"
-  />
+  >
+    <ng-template
+      let-node
+      pTemplate="url"
+    >
+      <a
+        class="hover:text-primary"
+        routerLinkActive="active"
+        [routerLink]="node.data.url"
+      >
+        {{ node.label }}
+      </a>
+    </ng-template>
+    <ng-template
+      let-node
+      pTemplate="disabled"
+    >
+      <span class="text-gray-400/50 cursor-not-allowed">
+        {{ node.label }}
+      </span>
+    </ng-template>
+  </p-tree>
 </div>

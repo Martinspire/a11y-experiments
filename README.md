@@ -34,18 +34,16 @@ NOTE: To view the app locally, you need to open the app at <http://localhost:420
 * Angular - [Angular.dev](https://angular.dev)
 * ESLint - (code quality, including Stylistic)
 * Jest - (Unit testing)
-* NX - (workspace management) [nx.dev](https://nx.dev)
 * Playwright (E2E testing)
 
 ### Angular additions
 
 * ChartJS - <https://www.chartjs.org>
-* Material - <https://material.angular.io>
 * NG Mocks - <https://github.com/help-me-mom/ng-mocks> - <https://ng-mocks.sudo.eu>
 * PrimeNG - <https://primeng.org>
 * PrimeNG Icons - <https://primeng.org/icons>
-* PrimeFlex - <https://primeflex.org>
 * Spectator - <https://github.com/ngneat/spectator> - <https://ngneat.github.io/spectator/>
+* Tailwind - <https://tailwindcss.com>
 
 ### VSCode additions
 

@@ -73,7 +73,7 @@ export class HeaderComponent implements OnInit {
       const item: MenuItem = {
         label: experiment.label,
         icon: experiment.icon,
-        routerLink: [experiment.data],
+        routerLink: [experiment.data.url],
         disabled: experiment.selectable === false,
       };
 

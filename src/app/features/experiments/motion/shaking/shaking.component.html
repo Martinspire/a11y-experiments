@@ -1,4 +1,4 @@
-<div class="flex flex-column gap-4">
+<div class="flex flex-col gap-6">
   <ae-card>
     <h3>Experience shaking</h3>
     <p>
@@ -15,7 +15,14 @@
       This demo is limited to web technologies. If you want to experience a deeper demo, please use a system implementation of
       shaky mouses. (links to follow)
     </p>
-    <p>There are solutions available to combat shaking like: <a href="https://www.steadymouse.com">SteadyMouse</a></p>
+    <p>
+      There are solutions available to combat shaking like:
+      <a
+        class="text-primary"
+        href="https://www.steadymouse.com"
+        >SteadyMouse</a
+      >
+    </p>
   </ae-card>
   <ae-card>
     <h3>Preparation</h3>
@@ -27,17 +34,20 @@
     <p>
       For windows users: we've created a simple exe that can do this and you can download it here:
       <a
+        class="text-primary"
         download
         href="assets/motion/shaking.exe"
         >shaking.exe</a
       >. It is created with a Tool called AutoIt which can be downloaded
       <a
+        class="text-primary"
         href="https://www.autoitscript.com/site/autoit/downloads/"
         target="_blank"
         >on their website</a
       >
       We've used a script which you can also compile and edit yourself with this file:
       <a
+        class="text-primary"
         download
         href="assets/motion/shaking.au3"
         >shaking.au3</a
@@ -69,7 +79,7 @@
         [ngStyle]="{ scale: experimentConfig.get('zoomIntensity')?.value ?? defaultZoom }"
       >
         <form [formGroup]="formGroup">
-          <p-stepper>
+          <p-stepper [value]="1">
             <p-step-list>
               <p-step [value]="1">Login form</p-step>
               <p-step [value]="2">Various inputs</p-step>
@@ -81,28 +91,30 @@
                   #content
                   let-activateCallback="activateCallback"
                 >
-                  <div class="demo-page flex flex-column align-items-center">
-                    <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6">
-                      <div class="text-center mb-5">
+                  <div class="demo-page flex flex-col items-center">
+                    <div class="bg-surface-0 dark:bg-surface-900 p-6 m-6 shadow rounded-border w-full h-screen lg:w-6/12">
+                      <div class="text-center mb-8">
                         <img
                           alt="logo"
-                          class="mb-3"
+                          class="mb-4"
                           height="50"
                           src="https://blocks.primeng.org/assets/images/blocks/logos/hyper.svg"
                         />
-                        <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
-                        <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+                        <div class="text-surface-900 dark:text-surface-0 text-3xl font-medium mb-4">Welcome Back</div>
+                        <span class="text-surface-600 dark:text-surface-200 font-medium leading-normal"
+                          >Don't have an account?</span
+                        >
                         <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
                       </div>
 
                       <div>
                         <label
-                          class="block text-900 font-medium mb-2"
+                          class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                           for="email1"
                           >Email</label
                         >
                         <input
-                          class="w-full mb-3"
+                          class="w-full mb-4"
                           id="email1"
                           pInputText
                           placeholder="Email address"
@@ -110,27 +122,27 @@
                         />
 
                         <label
-                          class="block text-900 font-medium mb-2"
+                          class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                           for="password1"
                           >Password</label
                         >
                         <input
-                          class="w-full mb-3"
+                          class="w-full mb-4"
                           id="password1"
                           pInputText
                           placeholder="Password"
                           type="password"
                         />
 
-                        <div class="flex align-items-center justify-content-between mb-6">
-                          <div class="flex align-items-center">
+                        <div class="flex items-center justify-between mb-12">
+                          <div class="flex items-center">
                             <p-checkbox
                               id="rememberme1"
                               styleClass="mr-2"
                               [binary]="true"
                             />
                             <label
-                              class="text-900"
+                              class="text-surface-900 dark:text-surface-0"
                               for="rememberme1"
                               >Remember me</label
                             >
@@ -157,7 +169,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="flex pt-4 justify-content-end">
+                  <div class="flex pt-6 justify-end">
                     <p-button
                       icon="pi pi-arrow-right"
                       iconPos="right"
@@ -173,16 +185,18 @@
                   #content
                   let-activateCallback="activateCallback"
                 >
-                  <div class="flex flex-column">
-                    <div class="demo-page flex flex-column align-items-center">
-                      <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6 flex flex-column gap-4">
+                  <div class="flex flex-col">
+                    <div class="demo-page flex flex-col items-center">
+                      <div
+                        class="bg-surface-0 dark:bg-surface-900 p-6 m-6 shadow rounded-border w-full lg:w-6/12 flex flex-col gap-6"
+                      >
                         <div>
                           <label
-                            class="block text-900 font-medium mb-2"
+                            class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                             for="check"
                             >Check</label
                           >
-                          <div class="flex flex-column gap-3">
+                          <div class="flex flex-col gap-4">
                             <p-checkbox
                               formControlName="check1"
                               label="Check this out 1"
@@ -212,7 +226,7 @@
                         </div>
                         <div>
                           <label
-                            class="block text-900 font-medium mb-2"
+                            class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                             for="switch"
                             >Switch</label
                           >
@@ -226,11 +240,11 @@
                         </div>
                         <div>
                           <label
-                            class="block text-900 font-medium mb-2"
+                            class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                             for="radio1"
                             >Radio</label
                           >
-                          <div class="flex flex-column gap-3">
+                          <div class="flex flex-col gap-4">
                             <p-radioButton
                               formControlName="radioButton"
                               label="Radio 1"
@@ -260,7 +274,7 @@
                         </div>
                         <div>
                           <label
-                            class="block text-900 font-medium mb-2"
+                            class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                             for="dropdown1"
                             >Dropdown</label
                           >
@@ -281,7 +295,7 @@
 
                         <div>
                           <label
-                            class="block text-900 font-medium mb-2"
+                            class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                             for="calendar1"
                             >Calendar</label
                           >
@@ -302,7 +316,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="flex pt-4 justify-content-between">
+                  <div class="flex pt-6 justify-between">
                     <p-button
                       icon="pi pi-arrow-left"
                       label="Back"
@@ -325,12 +339,12 @@
                   let-activateCallback="activateCallback"
                   size="small"
                 >
-                  <div class="flex flex-column">
-                    <div class="demo-page flex flex-column align-items-center">
-                      <div class="surface-card p-4 m-4 shadow-2 border-round w-full flex flex-column gap-4">
+                  <div class="flex flex-col">
+                    <div class="demo-page flex flex-col items-center">
+                      <div class="bg-surface-0 dark:bg-surface-900 p-6 m-6 shadow rounded-border w-full flex flex-col gap-6">
                         <div>
                           <label
-                            class="block text-900 font-medium mb-2"
+                            class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                             for="cascade"
                             >Cascade select</label
                           >
@@ -350,7 +364,7 @@
                         </div>
                         <div>
                           <label
-                            class="block text-900 font-medium mb-2"
+                            class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                             for="colorPicker"
                             >Color picker</label
                           >
@@ -363,7 +377,7 @@
                         </div>
                         <div>
                           <label
-                            class="block text-900 font-medium mb-2"
+                            class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                             for="editor"
                             >Editor (try the buttons with text selections)</label
                           >
@@ -380,7 +394,7 @@
                         </div>
                         <div>
                           <label
-                            class="block text-900 font-medium mb-2"
+                            class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                             for="knob"
                             >Knob</label
                           >
@@ -397,7 +411,7 @@
                         </div>
                         <div class="multiselect">
                           <label
-                            class="block text-900 font-medium mb-2"
+                            class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                             for="multiSelect"
                             >MultiSelect</label
                           >
@@ -416,7 +430,7 @@
                         </div>
                         <div>
                           <label
-                            class="block text-900 font-medium mb-2"
+                            class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                             for="rating"
                             >Rating</label
                           >
@@ -446,20 +460,20 @@
                               let-product
                               pTemplate="item"
                             >
-                              <div class="flex flex-wrap p-2 align-items-center gap-3">
+                              <div class="flex flex-wrap p-2 items-center gap-4">
                                 <img
                                   alt="{item.name}"
-                                  class="w-4rem shadow-2 flex-shrink-0 border-round"
+                                  class="w-16 shadow shrink-0 rounded-border"
                                   [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image"
                                 />
-                                <div class="flex-1 flex flex-column gap-2">
+                                <div class="flex-1 flex flex-col gap-2">
                                   <span class="font-bold">{{ product.name }}</span>
-                                  <div class="flex align-items-center gap-2">
+                                  <div class="flex items-center gap-2">
                                     <i class="pi pi-tag text-sm"></i>
                                     <span>{{ product.category }}</span>
                                   </div>
                                 </div>
-                                <span class="font-bold text-900">{{ '$' + product.price }}</span>
+                                <span class="font-bold text-surface-900 dark:text-surface-0">{{ '$' + product.price }}</span>
                               </div>
                             </ng-template>
                           </p-pickList>
@@ -467,7 +481,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="flex pt-4 justify-content-start">
+                  <div class="flex pt-6 justify-start">
                     <p-button
                       icon="pi pi-arrow-left"
                       label="Back"

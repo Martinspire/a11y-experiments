@@ -1,6 +1,8 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import {
+  NavigationEnd, Router, RouterLink,
+} from '@angular/router';
 import { Experiments } from '@shared/constants/experiments.constants';
 import { GithubPath } from '@shared/constants/generic.constants';
 import { TreeNode } from 'primeng/api';
@@ -15,7 +17,7 @@ import {
  */
 @Component({
   selector: 'ae-side-tree',
-  imports: [TreeModule],
+  imports: [TreeModule, RouterLink],
   templateUrl: './side-tree.component.html',
   styleUrl: './side-tree.component.scss',
 })
@@ -49,7 +51,7 @@ export class SideTreeComponent {
 
   private _findNodeByUrl(nodes: TreeNode[], url: string): TreeNode | undefined {
     for (const node of nodes) {
-      if (node.data === url) {
+      if (node.data.url === url) {
         return node;
       }
       if (node.children) {
@@ -65,7 +67,7 @@ export class SideTreeComponent {
   selectExperiment($event: any) {
     if ($event.node.data) {
       $event.node.styleClass = 'active';
-      this.router.navigateByUrl($event.node.data);
+      this.router.navigateByUrl($event.node.data.url);
     }
   }
 

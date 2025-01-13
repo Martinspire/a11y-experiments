@@ -1,4 +1,4 @@
-<div class="flex flex-column gap-4 hearing-loss">
+<div class="flex flex-col gap-6 hearing-loss">
   <ae-card>
     <h2>What does hearing loss mean</h2>
     <p>
@@ -9,6 +9,7 @@
       The way to visualise hearing loss is with an Audiogram, which is also set up with hearing tests to indicate the loss and is
       the baseline for setting up hearing aids. Alternatively you can rudimentary test your hearing with the following test:
       <a
+        class="text-primary"
         href="https://www.checkhearing.org/index.php"
         target="_blank"
         title="Check Hearing test and information page"
@@ -51,9 +52,9 @@
           }
         </div>
       </div>
-      <div class="audiogram-selector-container p-4">
-        <div class="demo-page flex flex-column align-items-center">
-          <div class="flex flex-column gap-2">
+      <div class="audiogram-selector-container p-6">
+        <div class="demo-page flex flex-col items-center">
+          <div class="flex flex-col gap-2">
             <label for="select-audiogram">Select an audiogram</label>
             <p-select
               class="audiogram-selector"
@@ -69,7 +70,7 @@
                 let-group
                 pTemplate="group"
               >
-                <div class="flex align-items-center group-label">
+                <div class="flex items-center group-label">
                   <span>{{ group.label }}</span>
                 </div>
               </ng-template>

@@ -1,4 +1,4 @@
-<div class="flex flex-column gap-4">
+<div class="flex flex-col gap-6">
   <ae-card>
     <h3>Colorblindness forms</h3>
     <p>
@@ -13,7 +13,7 @@
 
     <div class="experiment-config">
       <form [formGroup]="experimentConfig">
-        <div class="experiment-item gap-4">
+        <div class="experiment-item gap-6">
           <div>
             <p>
               Filter to experience as this as colorblindness: <span>{{ experimentConfig.get('filter')?.value }}</span>
@@ -41,13 +41,13 @@
         </div>
       </form>
     </div>
-    <div class="demo-container p-4">
+    <div class="demo-container p-6">
       <div
         class="colorblindness-container"
         [ngClass]="['mode-' + experimentConfig.get('mode')?.value, 'filter-' + experimentConfig.get('filter')?.value]"
       >
-        <div class="demo-page flex flex-column align-items-center">
-          <div class="flex flex-row gap-4 overflow-x-auto">
+        <div class="demo-page flex flex-col items-center">
+          <div class="flex flex-row gap-6 overflow-x-auto">
             <img
               alt="yellow objects"
               src="assets/colorblind/colorblind-yellow-image.jpg"
@@ -69,42 +69,42 @@
               width="250"
             />
           </div>
-          <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6">
+          <div class="bg-surface-0 dark:bg-surface-900 p-6 m-6 shadow rounded-border w-full lg:w-6/12">
             <div>
               <h3>Login</h3>
               <label
-                class="block text-900 font-medium mb-2"
+                class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                 for="email1"
                 >Email</label
               >
               <input
-                class="w-full mb-3"
+                class="w-full mb-4"
                 id="email"
                 placeholder="Email address"
                 type="text"
               />
 
               <label
-                class="block text-900 font-medium mb-2"
+                class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                 for="password1"
                 >Password</label
               >
               <input
-                class="w-full mb-3"
+                class="w-full mb-4"
                 id="password"
                 placeholder="Password"
                 type="password"
               />
 
-              <div class="flex align-items-center justify-content-between mb-6">
-                <div class="flex align-items-center">
+              <div class="flex items-center justify-between mb-12">
+                <div class="flex items-center">
                   <input
                     class="mr-2"
                     id="rememberme"
                     type="checkbox"
                   />
                   <label
-                    class="text-900"
+                    class="text-surface-900 dark:text-surface-0"
                     for="rememberme"
                     >Remember me</label
                   >
@@ -123,18 +123,18 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-column">
-          <div class="demo-page flex flex-column align-items-center">
-            <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6">
-              <div class="flex flex-column gap-4">
+        <div class="flex flex-col">
+          <div class="demo-page flex flex-col items-center">
+            <div class="bg-surface-0 dark:bg-surface-900 p-6 m-6 shadow rounded-border w-full lg:w-6/12">
+              <div class="flex flex-col gap-6">
                 <h3>Input elements</h3>
                 <div>
                   <label
-                    class="block text-900 font-medium mb-2"
+                    class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                     for="check"
                     >Check</label
                   >
-                  <div class="flex flex-column gap-2">
+                  <div class="flex flex-col gap-2">
                     <label for="check1">
                       <input
                         id="check1"
@@ -176,7 +176,7 @@
 
                 <div>
                   <label
-                    class="block text-900 font-medium mb-2"
+                    class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                     for="switch1"
                     >Switch</label
                   >
@@ -185,12 +185,12 @@
 
                 <div>
                   <label
-                    class="block text-900 font-medium mb-2"
+                    class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                     for="radio1"
                     >Radio</label
                   >
 
-                  <div class="flex flex-column gap-2">
+                  <div class="flex flex-col gap-2">
                     <label for="radio1">
                       <input
                         id="radio1"
@@ -232,7 +232,7 @@
 
                 <div>
                   <label
-                    class="block text-900 font-medium mb-2"
+                    class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                     for="dropdown1"
                     >Dropdown</label
                   >
@@ -247,7 +247,7 @@
 
                 <div>
                   <label
-                    class="block text-900 font-medium mb-2"
+                    class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                     for="slider1"
                     >Slider</label
                   >
@@ -261,7 +261,7 @@
 
                 <div>
                   <label
-                    class="block text-900 font-medium mb-2"
+                    class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                     for="calendar1"
                     >Calendar</label
                   >
@@ -278,12 +278,12 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-column">
-          <div class="demo-page flex flex-column align-items-center">
-            <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6">
-              <div class="flex flex-column gap-4">
+        <div class="flex flex-col">
+          <div class="demo-page flex flex-col items-center">
+            <div class="bg-surface-0 dark:bg-surface-900 p-6 m-6 shadow rounded-border w-full lg:w-6/12">
+              <div class="flex flex-col gap-6">
                 <div>
-                  <div class="flex flex-column gap-2">
+                  <div class="flex flex-col gap-2">
                     <h3>Disabled items</h3>
                     <label for="disabled-check">
                       <input
@@ -324,15 +324,15 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-column">
-          <div class="demo-page flex flex-column align-items-center">
-            <div class="surface-card p-4 m-4 shadow-2 border-round w-full lg:w-6">
-              <div class="flex flex-column gap-4">
+        <div class="flex flex-col">
+          <div class="demo-page flex flex-col items-center">
+            <div class="bg-surface-0 dark:bg-surface-900 p-6 m-6 shadow rounded-border w-full lg:w-6/12">
+              <div class="flex flex-col gap-6">
                 <div>
                   <h3>Errors and warnings</h3>
-                  <div class="flex flex-column gap-2">
+                  <div class="flex flex-col gap-2">
                     <label
-                      class="block text-900 font-medium mb-2"
+                      class="block text-surface-900 dark:text-surface-0 font-medium mb-2"
                       for="textarea1"
                       >Messages</label
                     >

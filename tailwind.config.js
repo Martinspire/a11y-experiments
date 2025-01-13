@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const primeui = require('tailwindcss-primeui');
 module.exports = {
-    darkMode: ['selector', '[class="app-dark"]'],
+    darkMode: ['selector', '[class="dark-theme"]'],
     content: ['./src/**/*.{html,ts,scss,css}', './index.html'],
     plugins: [primeui],
     theme: {

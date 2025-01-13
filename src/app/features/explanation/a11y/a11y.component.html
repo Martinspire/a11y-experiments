@@ -1,4 +1,4 @@
-<div class="flex flex-column gap-4">
+<div class="flex flex-col gap-6">
   <ae-card>
     <h3>A11y - modern accessibility</h3>
     <p>
@@ -14,14 +14,28 @@
       A11y is a big topic and it is important to understand the basics. We have a few sections that cover different aspects of
       accessibility.
     </p>
-    <ul>
+    <ul class="list-disc pl-4">
       <li>
-        <a [routerLink]="['./wcag']"
+        <a
+          class="text-primary"
+          [routerLink]="['./wcag']"
           >WCAG - the guidelines and rules that have become law in a lot of countries like in the EU and US.</a
         >
       </li>
-      <li><a [routerLink]="['./aria']">Aria - the implementation for HTML, CSS, Javascript</a></li>
-      <li><a [routerLink]="['./posters']">Posters - to share awareness</a></li>
+      <li>
+        <a
+          class="text-primary"
+          [routerLink]="['./aria']"
+          >Aria - the implementation for HTML, CSS, Javascript</a
+        >
+      </li>
+      <li>
+        <a
+          class="text-primary"
+          [routerLink]="['./posters']"
+          >Posters - to share awareness</a
+        >
+      </li>
     </ul>
   </ae-card>
 </div>
