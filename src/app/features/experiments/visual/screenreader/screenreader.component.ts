@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from '@shared/components/card/card.component';
@@ -35,7 +35,6 @@ import { ToggleSwitchModule } from 'primeng/toggleswitch';
     CascadeSelectModule,
     CheckboxModule,
     ColorPickerModule,
-    CommonModule,
     DatePickerModule,
     DragDropModule,
     FloatLabelModule,

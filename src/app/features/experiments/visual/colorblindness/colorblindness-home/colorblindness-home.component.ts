@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CardComponent } from '@shared/components/card/card.component';
@@ -8,7 +8,6 @@ import { AccordionModule } from 'primeng/accordion';
   selector: 'ae-colorblindness-home',
   imports: [
     CardComponent,
-    CommonModule,
     RouterModule,
     AccordionModule,
   ],

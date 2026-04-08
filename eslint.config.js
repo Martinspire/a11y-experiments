@@ -1,8 +1,6 @@
-// TODO: replace @angular-eslint with angular-eslint package when it works with the new flat config properly
-// Currently there is an issue getting the right parsing from the new flat config system
-import angularEslint from '@angular-eslint/eslint-plugin'; // old package
-import angularTemplate from '@angular-eslint/eslint-plugin-template'; // old package
-import templateParser from '@angular-eslint/template-parser'; // old package
+import angularEslint from '@angular-eslint/eslint-plugin';
+import angularTemplate from '@angular-eslint/eslint-plugin-template';
+import templateParser from '@angular-eslint/template-parser';
 import eslintJs from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import tsEslint from '@typescript-eslint/eslint-plugin';
@@ -39,7 +37,6 @@ export default [
     ],
     ignores,
     plugins,
-    // TODO: processInlineTemplates is not working with eslint v9 flat config yet
     // processor: angularEslint.processInlineTemplates,
     languageOptions: {
       parser: tsEslintParser,
@@ -56,7 +53,7 @@ export default [
       ...eslintJs.configs.recommended.rules,
       ...tsEslint.configs.recommended.rules,
       ...angularEslint.configs.recommended.rules,
-      ...stylistic.configs['recommended-flat'].rules,
+      ...stylistic.configs.recommended.rules,
       // ...eslintImport.configs.errors.rules,
       "@angular-eslint/component-selector": [
         "warn",
@@ -147,7 +144,7 @@ export default [
       "@stylistic/space-unary-ops": ["warn", {"words": true, "nonwords": false} ], // (spatie voor unary operators zoals new, delete, typeof, void, yield, maar niet !,!!,++,--)
       "@stylistic/switch-colon-spacing": ["warn", {"after": false, "before": true}], // (geen spatie voor : wel spatie na in switch voor case en default)
       "@stylistic/template-curly-spacing": ["warn", "never"], // (geen spaties in template literals)
-      "@stylistic/type-annotation-spacing": ["warn", { "before": false, "after": true,"overrides": { "arrow": { "before": true, "after": true } } }], // (geen spatie voor : wel spatie na in type annotations)
+      "@stylistic/type-annotation-spacing": ["warn", { "before": false, "after": true }], // (geen spatie voor : wel spatie na in type annotations)
       "@stylistic/wrap-iife": ["warn", "outside"], // (iife's moeten altijd in haakjes)
       "@stylistic/wrap-regex": ["warn"], // (regex altijd in haakjes)
       "@typescript-eslint/default-param-last": ["warn"], // (default/optionele parameters altijd als laatste) disable eslint zelf

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {
   Component, OnInit, input,
 } from '@angular/core';
@@ -9,11 +9,7 @@ import { ExperimentsListItemsComponent } from './experiments-list-items/experime
 
 @Component({
   selector: 'ae-experiments-list',
-  imports: [
-    CommonModule,
-    RouterModule,
-    ExperimentsListItemsComponent,
-  ],
+  imports: [RouterModule, ExperimentsListItemsComponent],
   templateUrl: './experiments-list.component.html',
   styleUrl: './experiments-list.component.scss',
 })

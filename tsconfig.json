@@ -1,33 +1,75 @@
 {
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "extendedDiagnostics": {
+      "checks": {
+        "deferTriggerMisconfiguration": "warning",
+        "interpolatedSignalNotInvoked": "error",
+        "invalidBananaInBox": "error",
+        "missingControlFlowDirective": "error",
+        "missingNgForOfLet": "error",
+        "missingStructuralDirective": "error",
+        "nullishCoalescingNotNullable": "warning",
+        "optionalChainNotNullable": "warning",
+        "suffixNotSupported": "error",
+        "textAttributeNotBinding": "warning",
+        "uninvokedFunctionInEventBinding": "error",
+        "uninvokedFunctionInTextInterpolation": "error",
+        "uninvokedTrackFunction": "error",
+        "unparenthesizedNullishCoalescing": "warning",
+        "unusedStandaloneImports": "warning",
+      },
+      "strictMetadataEmit": true,
+    },
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true,
+  },
+  "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2022",
-    "module": "esnext",
-    "lib": ["es2022", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "useDefineForClassFields": false,
     "esModuleInterop": true,
+    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
+    "importHelpers": true,
+    "isolatedModules": true,
+    "lib": [
+      "dom",
+      "es2023"
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedSideEffectImports": false,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2022",
+    "useDefineForClassFields": false,
     "paths": {
-      "@core/*": ["src/app/core/*"],
-      "@features/*": ["src/app/features/*"],
-      "@interfaces/*": ["src/app/shared/interfaces/*"],
-      "@shared/*": ["src/app/shared/*"]
+      "@core/*": [
+        "./src/app/core/*"
+      ],
+      "@features/*": [
+        "./src/app/features/*"
+      ],
+      "@interfaces/*": [
+        "./src/app/shared/interfaces/*"
+      ],
+      "@shared/*": [
+        "./src/app/shared/*"
+      ]
     }
   },
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ],
   "files": [],
   "include": [],
   "references": [
@@ -41,12 +83,4 @@
       "path": "./tsconfig.spec.json"
     }
   ],
-  "compileOnSave": false,
-  "exclude": ["node_modules", "tmp"],
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  }
 }

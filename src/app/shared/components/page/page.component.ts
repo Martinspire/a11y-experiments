@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {
   Component, OnInit, inject,
 } from '@angular/core';
@@ -11,7 +11,7 @@ import { BreadcrumbsComponent } from '../breadcrumbs/breadcrumbs.component';
 
 @Component({
   selector: 'ae-page',
-  imports: [BreadcrumbsComponent, CommonModule],
+  imports: [BreadcrumbsComponent],
   templateUrl: './page.component.html',
   styleUrl: './page.component.scss',
 })

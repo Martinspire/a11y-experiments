@@ -1,0 +1,26 @@
+{
+  "map": {
+    "inline": true
+  },
+  "plugins": {
+    "@tailwindcss/postcss": {
+      "cssVariables": true,
+      "darkMode": "selector",
+      "darkSelector": "[class=\"dark-theme\"]",
+      "errorRecovery": true,
+      "exclude": [
+        ".angular/**",
+        "dist/**",
+        "coverage/**",
+        "node_modules/**",
+        "test-results/**"
+      ],
+      "minify": true,
+      "sourceMap": true
+    },
+    "autoprefixer": {
+      "flexbox": "no-2009"
+    },
+    "postcss-import": {}
+  }
+}

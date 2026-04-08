@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {
   AfterViewInit, Component, ElementRef, OnDestroy, OnInit, inject, viewChild,
 } from '@angular/core';
@@ -27,7 +27,6 @@ import { ToolbarModule } from 'primeng/toolbar';
   imports: [
     ButtonModule,
     CardComponent,
-    CommonModule,
     SelectModule,
     FormsModule,
     ReactiveFormsModule,
